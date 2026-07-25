@@ -1,6 +1,6 @@
 import express from 'express';
+import app from './app.js';
 
 const PORT = 3000;
-const app = express();
 
 app.listen(PORT, () => console.log('SERVIDOR ACTIVO'));
