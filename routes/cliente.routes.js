@@ -1,11 +1,9 @@
 import express from 'express';
 import { Router } from 'express';
+import { registroController } from '../controllers/cliente.controller.js';
 
 const clienteRoutes = express.Router();
 
-/*
-    Completar aca todas las rutas del cliente
-
-*/
+clienteRoutes.post('/registro', registroController);
 
 export default clienteRoutes;
