@@ -2,14 +2,18 @@ import registroService from "../services/registro.services.js"
 
 const registroController = async(req,res) => {
     try {
-        const {nombre,apellido,dni,telefono,email,fecha_registro} = req.body;
-        const clienteRegistrado = await registroService()    
+        const clienteRegistrado = await registroService(req.body);    
         
-        res.status(200).json({
+        res.status(201).json({
             mensaje: 'Cliente registrado con exito!'
         })
 
     } catch(error) {
+        if(error.message === 'FORMULARIO VACIO'){
+            return res.status()
+        }
+
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
             error: error
