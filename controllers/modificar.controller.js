@@ -5,7 +5,9 @@ const modificarController = async(req,res) => {
         const {id} = req.params;
         const clienteModificado = await modificarServices(id,req.body);
 
-
+        res.status(202).json({
+            mensaje: 'Datos del cliente actualizados con exito!'
+        })
 
 
     } catch(error){
