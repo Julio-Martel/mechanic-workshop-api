@@ -3,7 +3,7 @@ import { modificarServices } from "../services/modificar.services.js"
 const modificarController = async(req,res) => {
     try{
         const {id} = req.params;
-        const clienteModificado = await modificarServices(id);
+        const clienteModificado = await modificarServices(id,req.body);
 
 
 
