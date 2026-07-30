@@ -20,5 +20,4 @@ clientesRoutes.get('/:id', consultarController);
 //OBTENER TODOS LOS CLIENTES
 clientesRoutes.get('/',obtenerTodosLosClientesController);
 
-
 export default clientesRoutes;
