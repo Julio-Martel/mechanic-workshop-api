@@ -34,8 +34,8 @@ const modificarCliente = async(data,id) => {
 }
 
 export {
-    registrarCliente,
     encontrarCliente,
     verificarClientePorDni,
-    registrarCliente
+    registrarCliente,
+    modificarCliente
 }
