@@ -1,4 +1,4 @@
-import { registroService, modificarServices } from "../services/cliente.service";
+import { registroService, modificarServices, eliminarService } from "../services/cliente.service.js";
 
 const registroController = async(req,res) => {
     try {
@@ -63,7 +63,37 @@ const modificarController = async(req,res) => {
     }
 }
 
+const eliminarController = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const clienteEliminado = await eliminarService(id);
+
+        res.status(202).json({
+            mensaje: 'Se ha eliminado el cliente con exito!'
+        })
+
+    } catch(error){
+        if(error.message === 'NO SE PUDO BORRAR'){
+            res.status(404).json({
+                mensaje: 'No se ha podido completar la operacion'
+            })
+        }
+
+        if(error.message === 'USUARIO NO ENCONTRADO'){
+            mensaje: 'Usuario inexistente'
+        }
+
+        console.log(error)
+
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        })
+    }
+}
+
 export {
     registroController,
-    modificarController
+    modificarController,
+    eliminarController
 }
