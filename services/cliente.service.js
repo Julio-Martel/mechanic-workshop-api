@@ -67,5 +67,6 @@ const consultarService = async(id) => {
 export {
     registroService,
     modificarServices,
-    eliminarService
+    eliminarService,
+    consultarService
 }
