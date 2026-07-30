@@ -12,7 +12,6 @@ const registrarCliente = async(data) => {
     return resultado[0];
 }
 
-
 const verificarClientePorDni = async(dni) => {
     const [resultado] = await db.query(`SELECT * FROM Clientes 
         WHERE dni = ?`,[dni]);
