@@ -33,9 +33,17 @@ const modificarCliente = async(data,id) => {
     return resultado;
 }
 
+const eliminarCliente = async(id) => {
+    const [resultado] = await db.query(`DELETE FROM Clientes 
+        WHERE id = ?`,[id]);
+
+    return resultado;
+}
+
 export {
     encontrarCliente,
     verificarClientePorDni,
     registrarCliente,
-    modificarCliente
+    modificarCliente,
+    eliminarCliente
 }
