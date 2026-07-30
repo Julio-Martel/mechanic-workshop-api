@@ -1,4 +1,5 @@
-import { registroService, modificarServices, eliminarService } from "../services/cliente.service.js";
+import { registroService, modificarServices, 
+         eliminarService, consultarService } from "../services/cliente.service.js";
 
 const registroController = async(req,res) => {
     try {
@@ -83,8 +84,6 @@ const eliminarController = async(req,res) => {
             mensaje: 'Usuario inexistente'
         }
 
-        console.log(error)
-
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
             error: error
@@ -92,8 +91,32 @@ const eliminarController = async(req,res) => {
     }
 }
 
+const consultarController = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const clienteObtenido = await consultarService(id);
+
+        res.status(202).json({
+            mensaje: 'DETALLES DEL CLIENTE: ',
+            cliente: clienteObtenido[0]
+        });
+
+    } catch(error){
+        if(error.message === 'CLIENTE NO ENCONTRADO'){
+            return res.status(404).json({
+                mensaje: 'ID de cliente no existente'
+            })
+        }
+
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
+
 export {
     registroController,
     modificarController,
-    eliminarController
+    eliminarController,
+    consultarController
 }
