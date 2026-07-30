@@ -1,5 +1,5 @@
 import { verificarClientePorDni, registrarCliente, 
-         modificarCliente, encontrarCliente } from "../models/cliente.model.js";
+         modificarCliente, encontrarCliente, eliminarCliente } from "../models/cliente.model.js";
 
 const registroService = async(data) => {
 
@@ -38,7 +38,23 @@ const modificarServices = async(id,data) => {
     return modCliente;
 }
 
+const eliminarService = async(id) => {
+    const usuarioEliminado = await eliminarCliente(id);
+
+    if(usuarioEliminado[0] === undefined){
+        throw new Error(`USUARIO NO ENCONTRADO`);
+    }
+
+    if(usuarioEliminado.affectedRows === 0){
+        throw new Error(`NO SE PUDO BORRAR`);
+        
+    }
+
+    return usuarioEliminado;
+}
+
 export {
     registroService,
-    modificarServices    
+    modificarServices,
+    eliminarService
 }
