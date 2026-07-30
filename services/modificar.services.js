@@ -15,7 +15,6 @@ const modificarServices = async(id,data) => {
     const modCliente = await modificarCliente(data,id);
 
     return modCliente;
-
 }
 
 export {
