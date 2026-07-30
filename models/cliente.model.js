@@ -40,10 +40,18 @@ const eliminarCliente = async(id) => {
     return resultado;
 }
 
+const consultarCliente = async(id) => {
+    const [resultado] = await db.query(`SELECT * FROM Clientes
+        WHERE id = ?`,[id]);
+
+    return resultado[0];
+}
+
 export {
     encontrarCliente,
     verificarClientePorDni,
     registrarCliente,
     modificarCliente,
-    eliminarCliente
+    eliminarCliente,
+    consultarCliente
 }
