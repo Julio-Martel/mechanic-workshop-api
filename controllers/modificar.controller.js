@@ -9,7 +9,6 @@ const modificarController = async(req,res) => {
             mensaje: 'Datos del cliente actualizados con exito!'
         })
 
-
     } catch(error){
         if(error.message = 'CLIENTE NO ENCONTRADO'){
             return res.status(404).json({
