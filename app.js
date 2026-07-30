@@ -1,16 +1,12 @@
 import express from 'express';
-import registroRoute from './routes/registro.route.js';
-import modificacionRoute from './routes/modificar.route.js';
+import clientesRoutes from './routes/clientes.routes.js';
 
 const app = express();
 
 app.use(express.json());
 
-//REGISTRO DE CLIENTES
-app.use('/registro', registroRoute);
-
-//MODIFICACION DE CLIENTES
-app.use('/modificar', modificacionRoute);
+//RUTA CRUD DE CLIENTES
+app.use('/clientes', clientesRoutes);
 
 
 export default app;
