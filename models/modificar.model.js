@@ -8,10 +8,10 @@ const encontrarCliente = async(id) => {
 }
 
 const modificarCliente = async(data,id) => {
-    const [resultado] = await db.query(`UPDATE Clientes SET ? WHERE id = ?`,[data,id]);
+    const [resultado] = await db.query(`UPDATE Clientes SET ? 
+        WHERE id = ?`,[data,id]);
 
     return resultado;
-
 }
 
 export {
