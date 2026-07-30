@@ -1,5 +1,6 @@
 import { registroService, modificarServices, 
-         eliminarService, consultarService } from "../services/cliente.service.js";
+         eliminarService, consultarService,
+        clientesService } from "../services/cliente.service.js";
 
 const registroController = async(req,res) => {
     try {
@@ -112,6 +113,28 @@ const consultarController = async(req,res) => {
             mensaje: 'ERROR INTERNO'
         })
     }
+}
+
+const obtenerTodosLosClientesController = async(req,res) => {
+    try{
+        const clientes = await clientesService(); 
+
+        res.status(202).json({
+            mensaje: 'Todos los clientes',
+            clientes: clientes
+        })
+
+    } catch(error){
+        if(error.message === 'NO HAY CLIENTES'){
+            return res.status(404).json({
+                mensaje: 'No hay clientes en la base de datos'
+            })
+        }
+
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    } 
 }
 
 export {
