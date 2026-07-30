@@ -141,5 +141,6 @@ export {
     registroController,
     modificarController,
     eliminarController,
-    consultarController
+    consultarController,
+    obtenerTodosLosClientesController
 }
