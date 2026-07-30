@@ -1,6 +1,7 @@
 import { verificarClientePorDni, registrarCliente, 
          modificarCliente, encontrarCliente, 
-         eliminarCliente, consultarCliente } from "../models/cliente.model.js";
+         eliminarCliente, consultarCliente,
+         todosLosClientes } from "../models/cliente.model.js";
 
 const registroService = async(data) => {
 
@@ -64,9 +65,20 @@ const consultarService = async(id) => {
     return clienteObtenido;
 }
 
+const clientesService = async() => {
+    const clientes = await todosLosClientes;
+
+    if(clientes.length === 0){
+        throw new Error("NO HAY CLIENTES");
+    }
+
+    return clientes;
+}
+
 export {
     registroService,
     modificarServices,
     eliminarService,
-    consultarService
+    consultarService,
+    clientesService
 }
