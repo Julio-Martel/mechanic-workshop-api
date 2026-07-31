@@ -14,7 +14,7 @@ clientesRoutes.patch('/actualizar/:id', modificarController);
 //BORRAR CLIENTE
 clientesRoutes.delete('/:id', eliminarController);
 
-//CONSULTAR CLIENTE
+//CONSULTAR CLIENTE f
 clientesRoutes.get('/:id', consultarController);
 
 //OBTENER TODOS LOS CLIENTES
