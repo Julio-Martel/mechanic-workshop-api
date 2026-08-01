@@ -1,7 +1,16 @@
 import db from '../config/db.js';
 
-const registroVehiculoModel = async() => {
+const registroVehiculoModel = async(data) => {
+    const [resultado] = await db.query(`INSERT INTO Vehiculos(id_cliente,marca,anio,patente,color)
+        VALUES(?,?,?,?,?)`,[
+            data.id_cliente,
+            data.marca,
+            data.anio,
+            data.patente,
+            data.color
+        ]);
 
+    return resultado[0];
 }
 
 export {
