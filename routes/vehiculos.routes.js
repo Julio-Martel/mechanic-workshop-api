@@ -9,5 +9,7 @@ vehiculosRoutes.post('/registro', registroController);
 // RUTA DE MODIFICACION DE DATOS DE UN VEHICULO
 vehiculosRoutes.patch('/:id', modificacionController);
 
+// RUTA DE ELIMINACION DE UN VEHICULO
+
 
 export default vehiculosRoutes;
