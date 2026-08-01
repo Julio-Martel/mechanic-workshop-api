@@ -34,6 +34,24 @@ const registroController = async(req,res) => {
     }
 }
 
+const modificacionController = async(req,res) => {
+    try{
+        const {id} = req.params;
+        const vehiculoModificado = await modificacionVehiculoService(id,req.body);
+
+        res.status(202).json({
+            mensaje: 'Vehiculo modificado con exito!',
+            datos: vehiculoModificado
+        })
+
+    } catch(error){
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
+
 export {
-    registroController
+    registroController,
+    modificacionController
 }
