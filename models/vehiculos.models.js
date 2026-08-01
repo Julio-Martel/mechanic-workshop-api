@@ -13,7 +13,15 @@ const registroVehiculoModel = async(data) => {
     return resultado[0];
 }
 
+const modificacionVehiculoModel = async(id,data) => {
+    const [resultado] = await db.query(`UPDATE Vehiculos SET ? 
+        WHERE id = ?`,[id,data]);
+
+    return resultado[0];
+}
+
 export {
-    registroVehiculoModel
+    registroVehiculoModel,
+    modificacionVehiculoModel
 }
 
