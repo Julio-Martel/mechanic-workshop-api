@@ -1,5 +1,5 @@
 import { encontrarCliente } from "../models/cliente.model.js"
-import { registroVehiculoModel } from "../models/vehiculos.models.js";
+import { registroVehiculoModel, modificacionVehiculoModel } from "../models/vehiculos.models.js";
 
 const registroVehiculoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -21,6 +21,24 @@ const registroVehiculoService = async(data) => {
     return vehiculoRegistar;
 }
 
+const modificacionVehiculoService = async(id,data) => {
+    if(!data || Object.keys(data).length === 0){
+        throw new Error("BODY VACIO");
+    }
+   
+    const clienteRegistrado = await encontrarCliente(id);
+    
+    if(!clienteRegistrado){
+        throw new Error("ID INEXISTENTE");    
+    }
+
+    const vehiculoModificado = await modificacionVehiculoModel(id,data);
+
+    return vehiculoModificado;
+
+}
+
 export {
-    registroVehiculoService
+    registroVehiculoService,
+    modificacionVehiculoService
 }
