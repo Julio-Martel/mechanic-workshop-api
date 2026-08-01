@@ -1,4 +1,4 @@
-import { registroVehiculoService } from "../services/vehiculos.services.js"
+import { registroVehiculoService, modificacionVehiculoService } from "../services/vehiculos.services.js"
 
 const registroController = async(req,res) => {
     try{
