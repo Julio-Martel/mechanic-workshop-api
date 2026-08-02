@@ -40,10 +40,17 @@ const modificacionVehiculoService = async(id,data) => {
 }
 
 const eliminacionVehiculoService = async(id) => {
-    co
+    const vehiculoEliminado = await eliminacionVehiculoModel(id);
+
+    if(!vehiculoEliminado){
+        throw new Error("ID INEXISTENTE");
+    }
+
+    return vehiculoEliminado;
 }
 
 export {
     registroVehiculoService,
-    modificacionVehiculoService
+    modificacionVehiculoService,
+    eliminacionVehiculoService
 }
