@@ -12,5 +12,8 @@ vehiculosRoutes.patch('/:id', modificacionController);
 // RUTA DE ELIMINACION DE UN VEHICULO
 vehiculosRoutes.delete('/:id', eliminacionVehiculoController);
 
+// RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO VEHICULO
+vehiculosRoutes.get('/:d', /*AGREGAR HANDLER */);
+
 
 export default vehiculosRoutes;
