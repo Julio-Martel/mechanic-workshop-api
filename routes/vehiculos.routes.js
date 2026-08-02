@@ -1,5 +1,5 @@
 import express from 'express';
-import { registroController, modificacionController } from '../controllers/vehiculos.controller.js';
+import { registroController, modificacionController, eliminacionVehiculoController } from '../controllers/vehiculos.controller.js';
 
 const vehiculosRoutes = express.Router();
 
@@ -10,6 +10,7 @@ vehiculosRoutes.post('/registro', registroController);
 vehiculosRoutes.patch('/:id', modificacionController);
 
 // RUTA DE ELIMINACION DE UN VEHICULO
+vehiculosRoutes.delete('/:id', eliminacionVehiculoController);
 
 
 export default vehiculosRoutes;
