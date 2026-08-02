@@ -1,4 +1,4 @@
-import { registroVehiculoService, modificacionVehiculoService } from "../services/vehiculos.services.js"
+import { registroVehiculoService, modificacionVehiculoService, eliminacionVehiculoService } from "../services/vehiculos.services.js"
 
 const registroController = async(req,res) => {
     try{
@@ -51,7 +51,30 @@ const modificacionController = async(req,res) => {
     }
 }
 
+const eliminacionVehiculoController = async(req,res) => {
+    try{
+        const {id} = req.params;
+        const vehiculoEliminado = await eliminacionVehiculoService(id);
+    
+        res.status(202).json({
+            mensaje: 'Vehiculo eliminado con exito!'           
+        })
+    
+    } catch(error){
+        if(error.message === 'ID INEXISTENTE'){
+            return res.status(404).json({
+                mensaje: 'El id del vehiculo no existe'
+            })
+        }
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }        
+}
+
 export {
     registroController,
-    modificacionController
+    modificacionController,
+    eliminacionVehiculoController
 }
