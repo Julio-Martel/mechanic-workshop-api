@@ -20,7 +20,7 @@ const modificacionVehiculoModel = async(id,data) => {
     return resultado[0];
 }
 
-const eliminacionVehiculo = async(id) => {
+const eliminacionVehiculoModel = async(id) => {
     const [resultado] = await db.query(`DELETE FROM Vehiculos WHERE 
         id = ?`,[id]);
 
@@ -30,6 +30,6 @@ const eliminacionVehiculo = async(id) => {
 export {
     registroVehiculoModel,
     modificacionVehiculoModel,
-    eliminacionVehiculo
+    eliminacionVehiculoModel
 }
 
