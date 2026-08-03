@@ -49,7 +49,19 @@ const eliminacionVehiculoService = async(id) => {
     return vehiculoEliminado;
 }
 
-const
+const consultaVehiculosPorClienteService = async(id) => {
+    if(!id){
+        throw new Error("SIN ID");
+    }
+
+    const vehiculosFiltrados = await consultaVehiculosPorClienteModel(id);
+
+    if(vehiculosFiltrados.length === 0){
+        throw new Error("NO HAY VEHICULOS");
+    }
+
+    return vehiculosFiltrados;
+}
 
 
 export {
