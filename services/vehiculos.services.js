@@ -1,6 +1,6 @@
 import { encontrarCliente } from "../models/cliente.model.js"
 import { registroVehiculoModel, modificacionVehiculoModel,
-        eliminacionVehiculoModel} from "../models/vehiculos.models.js";
+        eliminacionVehiculoModel, consultaVehiculosPorClienteModel} from "../models/vehiculos.models.js";
 
 const registroVehiculoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -48,6 +48,9 @@ const eliminacionVehiculoService = async(id) => {
 
     return vehiculoEliminado;
 }
+
+const
+
 
 export {
     registroVehiculoService,
