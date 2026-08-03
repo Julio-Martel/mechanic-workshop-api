@@ -16,5 +16,4 @@ vehiculosRoutes.delete('/:id', eliminacionVehiculoController);
 // RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
 vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
 
-
 export default vehiculosRoutes;
