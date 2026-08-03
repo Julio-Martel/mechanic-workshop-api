@@ -1,5 +1,6 @@
 import express from 'express';
-import { registroController, modificacionController, eliminacionVehiculoController } from '../controllers/vehiculos.controller.js';
+import { registroController, modificacionController, 
+    eliminacionVehiculoController, consultaVehiculosPorClienteController} from '../controllers/vehiculos.controller.js';
 
 const vehiculosRoutes = express.Router();
 
@@ -13,7 +14,7 @@ vehiculosRoutes.patch('/:id', modificacionController);
 vehiculosRoutes.delete('/:id', eliminacionVehiculoController);
 
 // RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
-vehiculosRoutes.get('/:id', /*AGREGAR HANDLER */);
+vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
 
 
 export default vehiculosRoutes;
