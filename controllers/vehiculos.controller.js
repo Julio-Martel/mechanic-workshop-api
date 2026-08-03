@@ -1,4 +1,5 @@
-import { registroVehiculoService, modificacionVehiculoService, eliminacionVehiculoService } from "../services/vehiculos.services.js"
+import { registroVehiculoService, modificacionVehiculoService, 
+    eliminacionVehiculoService, consultaVehiculosPorClienteService } from "../services/vehiculos.services.js"
 
 const registroController = async(req,res) => {
     try{
@@ -76,11 +77,26 @@ const eliminacionVehiculoController = async(req,res) => {
 const consultaVehiculosPorClienteController = async(req,res) => {
     try{
         const {id} = req.params;
+        const vehiculosFiltrados = await consultaVehiculosPorClienteService(id);
 
-        
-
+        res.status(202).json({
+            mensaje: 'VEHICULOS:',
+            vehiculos: vehiculosFiltrados
+        })
 
     } catch(error){
+        if(error.message === 'SIN ID'){
+            return res.status(403).json({
+                mensaje: 'ID necesario'
+            })
+        }
+
+        if(error.message === 'NO HAY VEHICULOS'){
+            return res.status(404).json({
+                mensaje: 'No ha vehiculos vinculados a ese id de cliente'
+            })
+        }
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
@@ -90,5 +106,6 @@ const consultaVehiculosPorClienteController = async(req,res) => {
 export {
     registroController,
     modificacionController,
-    eliminacionVehiculoController
+    eliminacionVehiculoController,
+    consultaVehiculosPorClienteController
 }
