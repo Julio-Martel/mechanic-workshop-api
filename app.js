@@ -12,4 +12,7 @@ app.use('/clientes', clientesRoutes);
 //RUTA CRUD DE VEHICULOS
 app.use('/vehiculos', vehiculosRoutes);
 
+//RUTA CRUD DE MECANICOS
+app.use('/mecanicos', /*HANDLER RUTA DE MECANICOS*/)
+
 export default app;
