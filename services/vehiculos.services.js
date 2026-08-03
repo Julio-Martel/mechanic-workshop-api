@@ -63,9 +63,9 @@ const consultaVehiculosPorClienteService = async(id) => {
     return vehiculosFiltrados;
 }
 
-
 export {
     registroVehiculoService,
     modificacionVehiculoService,
-    eliminacionVehiculoService
+    eliminacionVehiculoService,
+    consultaVehiculosPorClienteService
 }
