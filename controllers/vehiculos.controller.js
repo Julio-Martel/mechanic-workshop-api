@@ -73,6 +73,20 @@ const eliminacionVehiculoController = async(req,res) => {
     }        
 }
 
+const consultaVehiculosPorClienteController = async(req,res) => {
+    try{
+        const {id} = req.params;
+
+        
+
+
+    } catch(error){
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
+
 export {
     registroController,
     modificacionController,
