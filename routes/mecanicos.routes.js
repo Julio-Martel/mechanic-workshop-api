@@ -1,5 +1,5 @@
 import express from 'express';
-import { registroMecanicoController } from '../controllers/mecanicos.controllers.js';
+import { registroMecanicoController, modificacionDatosMecanicoController } from '../controllers/mecanicos.controllers.js';
 
 const mecanicosRoutes = express.Router();
 
@@ -7,7 +7,7 @@ const mecanicosRoutes = express.Router();
 mecanicosRoutes.post('/registro', registroMecanicoController);
 
 //RUTA DE MODIFICACION DE DATOS DEL MECANICO
-mecanicosRoutes.patch('/modificacion',/*AGREGAR HANDLER DE MODIFICACION DE DATOS*/)
+mecanicosRoutes.patch('/modificacion',modificacionDatosMecanicoController);
 
 
 
