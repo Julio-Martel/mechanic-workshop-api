@@ -1,4 +1,7 @@
-import { encontrarMecanicoModel, registroMecanicoModel } from "../models/mecanicos.model.js";
+import { encontrarMecanicoModel, 
+        registroMecanicoModel,
+        encontrarMecanicoPorId,
+        modificacionDatosMecanicoModel } from "../models/mecanicos.model.js";
 
 const registroMecanicoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -20,6 +23,24 @@ const registroMecanicoService = async(data) => {
     return registrarMecanico;
 }
 
+const modificacionDatosMecanicoService = async(id,data) => {
+    if(!data || Object.keys(data).length === 0){
+        throw new Error("BODY VACIO");
+    }
+
+    const verificarMecanico = await encontrarMecanicoPorId(id);
+
+    if(!verificarMecanico){
+        throw new Error("ID INEXISTENTE");
+    }
+
+    const mecanicoModificado = await modificacionDatosMecanicoModel(id,data);
+
+    return mecanicoModificado;
+}
+
+
 export {
-    registroMecanicoService
+    registroMecanicoService,
+    modificacionDatosMecanicoService
 }
