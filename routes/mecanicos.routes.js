@@ -7,7 +7,10 @@ const mecanicosRoutes = express.Router();
 mecanicosRoutes.post('/registro', registroMecanicoController);
 
 //RUTA DE MODIFICACION DE DATOS DEL MECANICO
-mecanicosRoutes.patch('/modificacion',modificacionDatosMecanicoController);
+mecanicosRoutes.patch('/:id',modificacionDatosMecanicoController);
+
+//RUTA DE ELIMINACION DE MECANICOS
+mecanicosRoutes.delete('/:id', /*AGREGAR HANDLER CONTROLADOR DE ELIMINACION DE MECANICOS*/);
 
 
 
