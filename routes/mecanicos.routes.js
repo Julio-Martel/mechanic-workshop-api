@@ -1,5 +1,7 @@
 import express from 'express';
-import { registroMecanicoController, modificacionDatosMecanicoController } from '../controllers/mecanicos.controllers.js';
+import { registroMecanicoController, 
+        modificacionDatosMecanicoController,
+        borrarMecanicoController } from '../controllers/mecanicos.controllers.js';
 
 const mecanicosRoutes = express.Router();
 
@@ -10,7 +12,7 @@ mecanicosRoutes.post('/registro', registroMecanicoController);
 mecanicosRoutes.patch('/:id',modificacionDatosMecanicoController);
 
 //RUTA DE ELIMINACION DE MECANICOS
-mecanicosRoutes.delete('/:id', /*AGREGAR HANDLER CONTROLADOR DE ELIMINACION DE MECANICOS*/);
+mecanicosRoutes.delete('/:id', borrarMecanicoController);
 
 
 
