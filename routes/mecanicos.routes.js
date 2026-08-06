@@ -3,6 +3,7 @@ import { registroMecanicoController } from '../controllers/mecanicos.controllers
 
 const mecanicosRoutes = express.Router();
 
+//RUTA DE REGISTRO DE MECANICOS
 mecanicosRoutes.post('/registro', registroMecanicoController);
 
 
