@@ -33,7 +33,6 @@ const modificacionDatosMecanicoModel = async(id,data) => {
     return resultado[0];
 }
 
-
 export {
     encontrarMecanicoModel,
     encontrarMecanicoPorId,
