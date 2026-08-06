@@ -27,12 +27,16 @@ const registroMecanicoModel = async(data) => {
 }
 
 const modificacionDatosMecanicoModel = async(id,data) => {
-
+    const [resultado] = await db.query(`UPDATE Mecanicos SET ? 
+        WHERE id = ?`,[data,id]);
+    
+    return resultado[0];
 }
 
 
 export {
     encontrarMecanicoModel,
     encontrarMecanicoPorId,
-    registroMecanicoModel
+    registroMecanicoModel,
+    modificacionDatosMecanicoModel
 }
