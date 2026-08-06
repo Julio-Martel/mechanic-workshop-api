@@ -7,6 +7,13 @@ const encontrarMecanicoModel = async(tel) => {
     return resultado[0];
 }
 
+const encontrarMecanicoPorId = async(id) => {
+    const [resultado] = await db.query(`SELECT * FROM Mecanicos
+        WHERE id = ?`,[id]);
+    
+    return resultado[0];
+}
+
 const registroMecanicoModel = async(data) => {
     const [resultado] = await db.query(`INSERT INTO Mecanicos(nombre,especialidad,telefono,fecha_ingreso)
         VALUES(?,?,?,?)`,
@@ -19,7 +26,13 @@ const registroMecanicoModel = async(data) => {
     return resultado[0];
 }
 
+const modificacionDatosMecanicoModel = async(id,data) => {
+
+}
+
+
 export {
     encontrarMecanicoModel,
+    encontrarMecanicoPorId,
     registroMecanicoModel
 }
