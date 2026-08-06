@@ -1,3 +1,4 @@
+import e, { json } from "express";
 import { registroMecanicoService,
          modificacionDatosMecanicoService,
          borrarMecanicoService } from "../services/mecanicos.services.js"
@@ -60,10 +61,17 @@ const modificacionDatosMecanicoController = async(req,res) => {
 const borrarMecanicoController = async(req,res) => {
     try{
         const {id} = req.params;
+        const mecanicoBorrado = await borrarMecanicoController(id);
 
-
+        res.status(202).json({
+            mensaje: 'Mecanico borrado con exito!'
+        })
 
     } catch(error){
+        if(error.message === 'ID INEXISTENTE'){
+            mensaje: 'ID de mecanico no existe'
+        }
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
