@@ -33,9 +33,17 @@ const modificacionDatosMecanicoModel = async(id,data) => {
     return resultado[0];
 }
 
+const borrarMecanicoModel = async(id) => {
+    const [resultado] = await db.query(`DELETE FROM Mecanicos 
+        WHERE id = ?`,[id]);
+
+    return resultado[0];
+}
+
 export {
     encontrarMecanicoModel,
     encontrarMecanicoPorId,
     registroMecanicoModel,
-    modificacionDatosMecanicoModel
+    modificacionDatosMecanicoModel,
+    borrarMecanicoModel
 }
