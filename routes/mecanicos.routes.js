@@ -14,7 +14,7 @@ mecanicosRoutes.patch('/:id',modificacionDatosMecanicoController);
 //RUTA DE ELIMINACION DE MECANICOS
 mecanicosRoutes.delete('/:id', borrarMecanicoController);
 
-
+mecanicosRoutes.get('/', /*AGREGAR HANDLER DE OBTENER TODOS LOS MECANICOS*/)
 
 export default mecanicosRoutes;
 
