@@ -1,7 +1,7 @@
-import e, { json } from "express";
 import { registroMecanicoService,
          modificacionDatosMecanicoService,
-         borrarMecanicoService } from "../services/mecanicos.services.js"
+         borrarMecanicoService,
+         todosLosMecanicosService } from "../services/mecanicos.services.js"
 
 const registroMecanicoController = async(req,res) => {
     try {
@@ -78,9 +78,31 @@ const borrarMecanicoController = async(req,res) => {
     }
 }
 
+const todosLosMecanicosController = async(req,res) => {
+    try{
+        const mecanicos = await todosLosMecanicosService();
+
+        res.status(202).json({
+            mensaje: 'Mecanicos:',
+            mecanicos: mecanicos
+        })
+
+    } catch(error){
+        if(error.message === 'SIN MECANICOS'){
+            return res.status(404).json({
+                mensaje: 'No hay mecanicos cargados en la base de datos...'
+            })
+        }
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
 
 export {
     registroMecanicoController,
     modificacionDatosMecanicoController,
-    borrarMecanicoController
+    borrarMecanicoController,
+    todosLosMecanicosController
 }
