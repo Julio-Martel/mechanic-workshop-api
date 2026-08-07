@@ -1,7 +1,8 @@
 import express from 'express';
 import { registroMecanicoController, 
         modificacionDatosMecanicoController,
-        borrarMecanicoController } from '../controllers/mecanicos.controllers.js';
+        borrarMecanicoController,
+        todosLosMecanicosController } from '../controllers/mecanicos.controllers.js';
 
 const mecanicosRoutes = express.Router();
 
@@ -14,7 +15,8 @@ mecanicosRoutes.patch('/:id',modificacionDatosMecanicoController);
 //RUTA DE ELIMINACION DE MECANICOS
 mecanicosRoutes.delete('/:id', borrarMecanicoController);
 
-mecanicosRoutes.get('/', /*AGREGAR HANDLER DE OBTENER TODOS LOS MECANICOS*/)
+//RUTA DE OBTENCION DE TODOS LOS MECANICOS
+mecanicosRoutes.get('/', todosLosMecanicosController);
 
 export default mecanicosRoutes;
 
