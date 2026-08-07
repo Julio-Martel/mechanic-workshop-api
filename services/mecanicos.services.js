@@ -54,12 +54,11 @@ const borrarMecanicoService = async(id) => {
 const todosLosMecanicosService = async() => {
     const mecanicos = await todosLosMecanicosModel();
 
-    if(mecanicos.length === 0){
+    if(mecanicos === undefined){
         throw new Error("SIN MECANICOS");
     }
 
     return mecanicos;
-
 }
 
 export {
