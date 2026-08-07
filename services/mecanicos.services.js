@@ -2,7 +2,8 @@ import { encontrarMecanicoModel,
         registroMecanicoModel,
         encontrarMecanicoPorId,
         modificacionDatosMecanicoModel,
-        borrarMecanicoModel } from "../models/mecanicos.model.js";
+        borrarMecanicoModel,
+        todosLosMecanicosModel } from "../models/mecanicos.model.js";
 
 const registroMecanicoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -50,9 +51,20 @@ const borrarMecanicoService = async(id) => {
     return mecanicoBorrado;
 }
 
+const todosLosMecanicosService = async() => {
+    const mecanicos = await todosLosMecanicosModel();
+
+    if(mecanicos.length === 0){
+        throw new Error("SIN MECANICOS");
+    }
+
+    return mecanicos;
+
+}
 
 export {
     registroMecanicoService,
     modificacionDatosMecanicoService,
-    borrarMecanicoService
+    borrarMecanicoService,
+    todosLosMecanicosService
 }
