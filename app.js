@@ -2,6 +2,7 @@ import express from 'express';
 import clientesRoutes from './routes/clientes.routes.js';
 import vehiculosRoutes from './routes/vehiculos.routes.js';
 import mecanicosRoutes from './routes/mecanicos.routes.js';
+import servicioRoutes from './routes/servicios.routes.js';
 
 const app = express();
 
@@ -15,5 +16,8 @@ app.use('/vehiculos', vehiculosRoutes);
 
 //RUTA CRUD DE MECANICOS
 app.use('/mecanicos', mecanicosRoutes);
+
+//RUTA CRUD SERVICIOS
+app.use('/servicios', servicioRoutes);
 
 export default app;
