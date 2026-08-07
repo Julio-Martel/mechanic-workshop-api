@@ -40,10 +40,17 @@ const borrarMecanicoModel = async(id) => {
     return resultado[0];
 }
 
+const todosLosMecanicosModel = async() => {
+    const [resultado] = await db.query(`SELECT * FROM Mecanicos`);
+
+    resultado;
+}
+
 export {
     encontrarMecanicoModel,
     encontrarMecanicoPorId,
     registroMecanicoModel,
     modificacionDatosMecanicoModel,
-    borrarMecanicoModel
+    borrarMecanicoModel,
+    todosLosMecanicosModel
 }
