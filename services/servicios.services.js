@@ -10,8 +10,15 @@ const crearServicioService = async(data) => {
         throw new Error("DATOS INCOMPLETOS");
     }
 
+    const servicioDuplicado = await servicioDuplicadoPorDescripcion(data.descripcion);
 
+    if(servicioDuplicado){
+        throw new Error("SERVICIO DUPLICADO");
+    }
 
+    const crearServicio = await crearServicioModel(data);    
+
+    return crearServicio;
 }
 
 export {
