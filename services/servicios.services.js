@@ -10,10 +10,7 @@ const crearServicioService = async(data) => {
         throw new Error("DATOS INCOMPLETOS");
     }
 
-    let descrip = data.descripcion;
-    let minus = descripcion.toLowerCase();
-
-    const servicioDuplicado = await servicioDuplicadoPorDescripcion(minus);
+    const servicioDuplicado = await servicioDuplicadoPorDescripcion(data.nombre);
 
     if(servicioDuplicado){
         throw new Error("SERVICIO DUPLICADO");
@@ -23,6 +20,13 @@ const crearServicioService = async(data) => {
 
     return crearServicio;
 }
+
+/*
+    ARREGLAR ESTO, EL ERROR INDICA QUE EL OBJETO NO ES ITERABLE
+
+
+*/
+
 
 export {
     crearServicioService
