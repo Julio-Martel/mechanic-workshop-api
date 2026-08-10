@@ -23,13 +23,32 @@ const crearServicioService = async(data) => {
     return crearServicio;
 }
 
-/*
-    ARREGLAR ESTO, EL ERROR INDICA QUE EL OBJETO NO ES ITERABLE
+const modificacionSerivicioService = async(id,data) => {
+    if(!id){
+        throw new Error("FALTA ID");
+    }
+    
+    if(!data || Object.keys(data).length === 0){
+        throw new Error("BODY VACIO");
+    }
 
+    if(!data.nombre || !data.descripcion || !data.precio){
+        throw new Error("DATOS INCOMPLETOS");
+    }
 
-*/
+    const servicioExistente = await encontrarServicioPorId(id);
+
+    if(servicioExistente === undefined){
+        throw new Error("INEXISTENTE");
+    }
+
+    const modificarServicio = await modificacionSerivicioModel(data,id);
+
+    return modificarServicio;
+}
 
 
 export {
-    crearServicioService
+    crearServicioService,
+    modificacionSerivicioService
 }
