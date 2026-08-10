@@ -1,5 +1,7 @@
 import { servicioDuplicadoPorDescripcion, 
-         crearServicioModel } from "../models/servicios.models.js";
+         crearServicioModel,
+         encontrarServicioPorId,
+         modificacionSerivicioModel } from "../models/servicios.models.js";
 
 const crearServicioService = async(data) => {
     if(!data || Object.keys(data).length === 0){
