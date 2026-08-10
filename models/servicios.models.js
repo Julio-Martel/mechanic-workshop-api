@@ -17,7 +17,24 @@ const servicioDuplicadoPorDescripcion = async(titulo) => {
     return resultado[0];
 };
 
+const encontrarServicioPorId = async(id) => {
+    const [resultado] = await db.query(`SELECT * FROM Servicios
+        WHERE id = ?`,[id]);
+    
+    return resultado[0];
+}
+
+const modificacionSerivicioModel = async(data,id) => {
+    const [resultado] = await db.query(`UPDATE Servicios SET ? 
+        WHERE id = ?`,[data,id]);
+
+    return resultado;
+}
+
+
 export {
     crearServicioModel,
-    servicioDuplicadoPorDescripcion
+    servicioDuplicadoPorDescripcion,
+    encontrarServicioPorId,
+    modificacionSerivicioModel
 }
