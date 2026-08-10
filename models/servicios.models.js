@@ -1,13 +1,13 @@
 import db from '../config/db.js';
 
 const crearServicioModel = async(data) => {
-    const [resultado] = db.query(`INSERT INTO Servicios(nombre,descripcion,precio)
+    const [resultado] = await db.query(`INSERT INTO Servicios(nombre,descripcion,precio)
         VALUES(?,?,?)`,
         [ data.nombre,
           data.descripcion,
           data.precio]);
 
-    return resultado;
+    return resultado.insertId;
 }
 
 const servicioDuplicadoPorDescripcion = async(titulo) => {
