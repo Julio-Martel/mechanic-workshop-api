@@ -2,7 +2,8 @@ import { servicioDuplicadoPorDescripcion,
          crearServicioModel,
          encontrarServicioPorId,
          modificacionSerivicioModel,
-         servicioDuplicadoPorNombre } from "../models/servicios.models.js";
+         servicioDuplicadoPorNombre,
+         eliminarServicioModel } from "../models/servicios.models.js";
 
 const crearServicioService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -52,8 +53,25 @@ const modificacionSerivicioService = async(id,data) => {
     return modificarServicio;
 }
 
+const eliminarServicioService = async(id) => {
+    const servicioExistente = await encontrarServicioPorId(id);
+
+    if(!servicioExistente){
+        throw new Error("ID INEXISTENTE");
+    }
+
+    const servicioEliminado = await eliminarServicioModel(id);
+
+    if(servicioEliminado.affectedRows === 0){
+        throw new Error("SIN CAMBIOS");   
+    }
+
+    return servicioEliminado;
+}
+
 
 export {
     crearServicioService,
-    modificacionSerivicioService
+    modificacionSerivicioService,
+    eliminarServicioService
 }
