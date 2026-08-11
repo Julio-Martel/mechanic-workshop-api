@@ -75,13 +75,13 @@ const modificacionSerivicioController = async(req,res) => {
 const eliminarServicioController = async(req,res) => {
     try {
         const {id} = req.params;
-        const servicioEliminado = await eliminarServicioController(id);
+        const servicioEliminado = await eliminarServicioService(id);
 
         res.status(202).json({
             mensaje: 'Servicio eliminado con exito!'
         })
 
-    } catch(Error){
+    } catch(error){
         if(error.message === 'ID INEXISTENTE'){
             return res.status(404).json({
                 mensaje: 'Servicio no encontrado.'
@@ -93,7 +93,9 @@ const eliminarServicioController = async(req,res) => {
                 mensaje: 'No se pudo completar la operacion'
             })
         }
-    
+        
+        console.log(error);
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
