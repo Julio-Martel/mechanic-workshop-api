@@ -1,5 +1,6 @@
 import { crearServicioService,
-        modificacionSerivicioService } from "../services/servicios.services.js";
+        modificacionSerivicioService,
+        eliminarServicioService } from "../services/servicios.services.js";
 
 const crearServicioController = async(req,res) => {
     try {
@@ -52,11 +53,12 @@ const modificacionSerivicioController = async(req,res) => {
             })
         }
     
-        if(error.message === 'DATOS INCOMPLETOS'){
+        if(error.message === 'NOMBRE DUPLICADO'){
             return res.status(403).json({
-                mensaje: 'Debe mandar al menos un dato para poder modificar el servicio.'
+                mensaje: 'Nombre ya en la lista, utilize otro'
             })
         }
+
 
         if(error.message === 'INEXISTENTE'){
             return res.status(404).json({
@@ -70,7 +72,37 @@ const modificacionSerivicioController = async(req,res) => {
     }
 }
 
+const eliminarServicioController = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const servicioEliminado = await eliminarServicioController(id);
+
+        res.status(202).json({
+            mensaje: 'Servicio eliminado con exito!'
+        })
+
+    } catch(Error){
+        if(error.message === 'ID INEXISTENTE'){
+            return res.status(404).json({
+                mensaje: 'Servicio no encontrado.'
+            })
+        }
+    
+        if(error.message === 'SIN CAMBIOS'){
+            return res.status(403).json({
+                mensaje: 'No se pudo completar la operacion'
+            })
+        }
+    
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+} 
+
+
 export {
     crearServicioController,
-    modificacionSerivicioController
+    modificacionSerivicioController,
+    eliminarServicioController
 }
