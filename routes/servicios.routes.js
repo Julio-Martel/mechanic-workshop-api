@@ -1,7 +1,8 @@
 import express from 'express';
 import { crearServicioController, 
          modificacionSerivicioController,
-         eliminarServicioController } from '../controllers/servicios.controllers.js';
+         eliminarServicioController,
+         listarServiciosController } from '../controllers/servicios.controllers.js';
 
 const servicioRoutes = express.Router();
 
@@ -13,5 +14,8 @@ servicioRoutes.post('/modificacion/:id',modificacionSerivicioController);
 
 //RUTA ELIMINACION DE SERVICIOS
 servicioRoutes.delete('/:id', eliminarServicioController);
+
+//RUTA LISTER SERVICIOS
+servicioRoutes.get('/', listarServiciosController);
 
 export default servicioRoutes;
