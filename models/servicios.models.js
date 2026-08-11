@@ -46,6 +46,11 @@ const eliminarServicioModel = async(id) => {
     return resultado;
 }
 
+const listarServiciosModels = async() => {
+    const [resultados] = await db.query(`SELECT * FROM Servicios`);
+
+    return resultados;
+}
 
 export {
     crearServicioModel,
@@ -53,5 +58,6 @@ export {
     encontrarServicioPorId,
     modificacionSerivicioModel,
     servicioDuplicadoPorNombre,
-    eliminarServicioModel
+    eliminarServicioModel,
+    listarServiciosModels
 }
