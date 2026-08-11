@@ -105,7 +105,7 @@ const eliminarServicioController = async(req,res) => {
 
 const listarServiciosController = async(req,res) => {
     try{
-        const todosLosServicios = await listarServiciosController();
+        const todosLosServicios = await listarServiciosService();
 
         res.status(202).json({
             mensaje: `SERVICIOS`,
