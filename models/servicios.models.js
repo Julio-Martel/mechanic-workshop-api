@@ -39,10 +39,19 @@ const servicioDuplicadoPorNombre = async(data) => {
     return resultado[0];
 }
 
+const eliminarServicioModel = async(id) => {
+    const [resultado] = await db.query(`DELETE FROM Servicios 
+        WHERE id = ?`,[id]);
+    
+    return resultado;
+}
+
+
 export {
     crearServicioModel,
     servicioDuplicadoPorDescripcion,
     encontrarServicioPorId,
     modificacionSerivicioModel,
-    servicioDuplicadoPorNombre
+    servicioDuplicadoPorNombre,
+    eliminarServicioModel
 }
