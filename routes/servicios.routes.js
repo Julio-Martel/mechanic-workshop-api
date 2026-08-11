@@ -7,8 +7,9 @@ const servicioRoutes = express.Router();
 servicioRoutes.post('/',crearServicioController);
 
 //RUTA EDICION DE SERVICIOS
-servicioRoutes.post('/:id',modificacionSerivicioController);
+servicioRoutes.post('/modificacion/:id',modificacionSerivicioController);
 
-
+//RUTA ELIMINACION DE SERVICIOS
+servicioRoutes.delete('/:id',/*AGREGAR HANDLER DE ELIMINACION DE SERVICIOS*/)
 
 export default servicioRoutes;
