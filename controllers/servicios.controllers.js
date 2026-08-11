@@ -1,6 +1,7 @@
 import { crearServicioService,
         modificacionSerivicioService,
-        eliminarServicioService } from "../services/servicios.services.js";
+        eliminarServicioService,
+        listarServiciosService } from "../services/servicios.services.js";
 
 const crearServicioController = async(req,res) => {
     try {
@@ -102,9 +103,31 @@ const eliminarServicioController = async(req,res) => {
     }
 } 
 
+const listarServiciosController = async(req,res) => {
+    try{
+        const todosLosServicios = await listarServiciosController();
+
+        res.status(202).json({
+            mensaje: `SERVICIOS`,
+            servicios: todosLosServicios
+        });
+
+    } catch(error){
+        if(error.message === 'SIN DATOS'){
+            return res.status(404).json({
+                mensaje: 'No hay servicios en la base de datos'
+            })
+        }
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
 
 export {
     crearServicioController,
     modificacionSerivicioController,
-    eliminarServicioController
+    eliminarServicioController,
+    listarServiciosController
 }
