@@ -1,7 +1,8 @@
 import { servicioDuplicadoPorDescripcion, 
          crearServicioModel,
          encontrarServicioPorId,
-         modificacionSerivicioModel } from "../models/servicios.models.js";
+         modificacionSerivicioModel,
+         servicioDuplicadoPorNombre } from "../models/servicios.models.js";
 
 const crearServicioService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -32,14 +33,18 @@ const modificacionSerivicioService = async(id,data) => {
         throw new Error("BODY VACIO");
     }
 
-    if(!data.nombre || !data.descripcion || !data.precio){
-        throw new Error("DATOS INCOMPLETOS");
-    }
-
     const servicioExistente = await encontrarServicioPorId(id);
 
     if(servicioExistente === undefined){
         throw new Error("INEXISTENTE");
+    }
+
+    if(data.nombre){
+        const nombreDuplicado = await servicioDuplicadoPorNombre(data.nombre);
+
+        if(nombreDuplicado){
+            throw new Error("NOMBRE DUPLICADO");
+        }
     }
 
     const modificarServicio = await modificacionSerivicioModel(data,id);
