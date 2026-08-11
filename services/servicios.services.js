@@ -3,7 +3,8 @@ import { servicioDuplicadoPorDescripcion,
          encontrarServicioPorId,
          modificacionSerivicioModel,
          servicioDuplicadoPorNombre,
-         eliminarServicioModel } from "../models/servicios.models.js";
+         eliminarServicioModel,
+         listarServiciosModels } from "../models/servicios.models.js";
 
 const crearServicioService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -69,9 +70,19 @@ const eliminarServicioService = async(id) => {
     return servicioEliminado;
 }
 
+const listarServiciosService = async() => {
+    const todosLosServicios = await listarServiciosModels();
+
+    if(todosLosServicios === undefined){
+        throw new Error("SIN DATOS");
+    }
+
+    return todosLosServicios;
+}
 
 export {
     crearServicioService,
     modificacionSerivicioService,
-    eliminarServicioService
+    eliminarServicioService,
+    listarServiciosService
 }
