@@ -20,4 +20,7 @@ app.use('/mecanicos', mecanicosRoutes);
 //RUTA CRUD SERVICIOS
 app.use('/servicios', servicioRoutes);
 
+//RUTA CRUD REPUESTOS
+app.use('/repuestos', /*AGREGAR HANDLER DE RUTAS*/);
+
 export default app;
