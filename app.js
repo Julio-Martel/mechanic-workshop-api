@@ -3,6 +3,7 @@ import clientesRoutes from './routes/clientes.routes.js';
 import vehiculosRoutes from './routes/vehiculos.routes.js';
 import mecanicosRoutes from './routes/mecanicos.routes.js';
 import servicioRoutes from './routes/servicios.routes.js';
+import repuestosRoutes from './routes/repuestos.routes.js';
 
 const app = express();
 
@@ -21,6 +22,6 @@ app.use('/mecanicos', mecanicosRoutes);
 app.use('/servicios', servicioRoutes);
 
 //RUTA CRUD REPUESTOS
-app.use('/repuestos', /*AGREGAR HANDLER DE RUTAS*/);
+app.use('/repuestos', repuestosRoutes);
 
 export default app;
