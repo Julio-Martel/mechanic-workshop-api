@@ -11,7 +11,14 @@ const registrarRepuestoModel = async(data) => {
     return resultados.insertId;
 }
 
+const encontrarRepuestoPorNombre = async(data) => {
+    const [resultados] = await db.query(`SELECT * FROM Repuestos
+        WHERE nombre = ?`,[data.nombre]);
+
+    return resultados[0];
+}
 
 export {
-    registrarRepuestoModel
+    registrarRepuestoModel,
+    encontrarRepuestoPorNombre
 }
