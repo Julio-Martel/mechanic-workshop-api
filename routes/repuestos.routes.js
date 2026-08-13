@@ -1,9 +1,10 @@
 import express from 'express';
+import { registrarRepuestoController } from '../controllers/repuestos.controllers.js';
 
 const repuestosRoutes = express.Router();
 
 //RUTA REGISTRO DE REPUESTO
-repuestosRoutes.post('/', /*AGREGAR HANDLER REGISTRO DE REPUESTO*/);
+repuestosRoutes.post('/', registrarRepuestoController);
 
 
 
