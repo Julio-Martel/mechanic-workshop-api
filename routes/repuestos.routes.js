@@ -1,5 +1,7 @@
 import express from 'express';
-import { registrarRepuestoController } from '../controllers/repuestos.controllers.js';
+import { registrarRepuestoController,
+         actualizarStockController
+ } from '../controllers/repuestos.controllers.js';
 
 const repuestosRoutes = express.Router();
 
@@ -7,7 +9,7 @@ const repuestosRoutes = express.Router();
 repuestosRoutes.post('/', registrarRepuestoController);
 
 //RUTA ACTUALIZAR STOCK DE REPUESTO
-repuestosRoutes.patch('/:id',/*AGREGAR HANDLER DE ACUTUALIZACION DE STOCK*/);
+repuestosRoutes.patch('/:id',actualizarStockController);
 
 //RUTA CONSULTAR DISPONIBILIDAD DE REPUESTO
 repuestosRoutes.get();
