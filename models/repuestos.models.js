@@ -18,7 +18,15 @@ const encontrarRepuestoPorNombre = async(data) => {
     return resultados[0];
 }
 
+const eliminarRepuestoModel = async(id) => {
+    const [resultado] = await db.query(`DELETE FROM Repuestos
+        WHERE id = ?`,[id]);
+
+    return resultado.affectedRows;
+}
+
 export {
     registrarRepuestoModel,
-    encontrarRepuestoPorNombre
+    encontrarRepuestoPorNombre,
+    eliminarRepuestoModel
 }
