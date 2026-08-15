@@ -1,6 +1,7 @@
 import express from 'express';
 import { registrarRepuestoController,
-         actualizarStockController
+         actualizarStockController,
+         eliminarRepuestoController
  } from '../controllers/repuestos.controllers.js';
 
 const repuestosRoutes = express.Router();
@@ -15,6 +16,6 @@ repuestosRoutes.patch('/:id',actualizarStockController);
 repuestosRoutes.get();
 
 //RUTA DE ELIMINACION DE UN REPUESTOS
-repuestosRoutes.delete('/:id',/*AGREGAR HANDLER DE ELIMINACION DE REPUESTOS*/);
+repuestosRoutes.delete('/:id',eliminarRepuestoController);
 
 export default repuestosRoutes;
