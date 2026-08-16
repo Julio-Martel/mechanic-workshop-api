@@ -13,7 +13,7 @@ repuestosRoutes.post('/', registrarRepuestoController);
 repuestosRoutes.patch('/:id',actualizarStockController);
 
 //RUTA CONSULTAR DISPONIBILIDAD DE REPUESTO
-/*repuestosRoutes.get();*/
+repuestosRoutes.get('/disponibilidad',/*AGREGAR HANDLER DE DISPONIBILIDAD DE REPUESTOS*/);
 
 //RUTA DE ELIMINACION DE UN REPUESTOS
 repuestosRoutes.delete('/:id',eliminarRepuestoController);
