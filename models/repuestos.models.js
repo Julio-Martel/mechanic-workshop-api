@@ -25,8 +25,20 @@ const eliminarRepuestoModel = async(id) => {
     return resultado.affectedRows;
 }
 
+const actualizarStockModel = async(id,cantidad) => {
+    const [resultado] = await db.query(`UPDATE Repuestos
+        SET stock = stock - ?
+        WHERE id = ?
+        AND stock >= 0`,
+        [id,cantidad]);
+
+    return resultado.affectedRows;
+}
+
+
 export {
     registrarRepuestoModel,
     encontrarRepuestoPorNombre,
-    eliminarRepuestoModel
+    eliminarRepuestoModel,
+    actualizarStockModel
 }
