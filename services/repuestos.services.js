@@ -1,6 +1,7 @@
 import { registrarRepuestoModel,
         encontrarRepuestoPorNombre,
-        eliminarRepuestoModel
+        eliminarRepuestoModel,
+        actualizarStockModel
  } from "../models/repuestos.models.js";
 
 const registrarRepuestoService = async(data) => {
@@ -25,8 +26,36 @@ const eliminarRepuestoService = async(id) => {
     return eliminarRepuesto;
 }
 
+const actualizarStockService = async(id,cantidad) => {
+    
+    if(!cantidad || Object.keys(cantidad).length === 0){
+        throw new Error("BODY VACIO");
+    }
+
+    if(parseInt(cantidad.cantidad) < 0){
+        throw new Error("NUMERO NEGATIVO");
+    }
+
+    if(isNaN(cantidad.cantidad)){
+        throw new Error("NO ES NUMERO");
+    }
+
+    const actualizarStock = await actualizarStockModel(id,cantidad.cantidad);
+
+
+    if(actualizarStock === undefined){
+        throw new Error("NO ENCONTRADO");
+    }
+
+    if(actualizarStock === 0){
+        throw new Error("SIN CAMBIOS");
+    }
+
+    return actualizarStock;
+}
 
 export {
     registrarRepuestoService,
-    eliminarRepuestoService
+    eliminarRepuestoService,
+    actualizarStockService
 }
