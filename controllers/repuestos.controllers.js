@@ -1,5 +1,6 @@
 import { registrarRepuestoService,
-        eliminarRepuestoService
+        eliminarRepuestoService,
+        actualizarStockService
  } from "../services/repuestos.services.js";
 
 const registrarRepuestoController = async(req,res) => {
@@ -16,7 +17,9 @@ const registrarRepuestoController = async(req,res) => {
                 mensaje: 'Nombre duplicado. Ingrese otro'
             })
         }
-    
+        
+        console.log(error)
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
@@ -24,13 +27,48 @@ const registrarRepuestoController = async(req,res) => {
 }
 
 
-/*const actualizarStockController = async(req,res) => {
+const actualizarStockController = async(req,res) => {
     try {
+        const {id} = req.params;
+        const {cantidad} = req.body;
+
+        const stockActualizado = await actualizarStockService(id,req.body);
+
+        res.status(202).json({
+            mensaje: 'Stock actualizado.'
+        })
 
     } catch(error){
+        if(error.message === 'BODY VACIO'){
+            return res.status(403).json({
+                mensaje: 'Debe mandar la cantidad'
+            })
+        }
+    
+        if(error.message === 'NUMERO NEGATIVO'){
+            return res.status(403).json({
+                mensaje: 'Se debe mandar un numero positivo.'
+            })
+        }
+    
+        if(error.message === 'NO ENCONTRADO'){
+            return res.status(404).json({
+                mensaje: 'ID de repuesto no encontrado.'
+            })
+        }
 
+        if(error.message === 'NO ES NUMERO'){
+            return res.status(403).json({
+                mensaje: 'Se debe ingresar un numero.'
+            })
+        }
+        console.log(error)
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
     }
-}*/
+}
 
 const eliminarRepuestoController = async(req,res) => {
     try{
@@ -54,10 +92,8 @@ const eliminarRepuestoController = async(req,res) => {
     }
 }
 
-
-
 export {
     registrarRepuestoController,
-    //actualizarStockController
+    actualizarStockController,
     eliminarRepuestoController
 }
