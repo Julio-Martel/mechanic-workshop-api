@@ -61,14 +61,10 @@ const repuestosDispService = async(stock) => {
     if(!stock){
         repuestosFiltrados = `SELECT * FROM Repuestos`;
     } else {
-        repuestosFiltrados = `SELECT * FROM Repuestos WHERE stock > 0`;
+        repuestosFiltrados = `SELECT * FROM Repuestos WHERE stock > 160`;
     }
 
-
     const filtrarRepuestos = await repuestosDispModel(repuestosFiltrados);
-
-    console.log(filtrarRepuestos)
-
 
     return filtrarRepuestos;
 }
