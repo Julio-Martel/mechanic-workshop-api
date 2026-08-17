@@ -4,6 +4,7 @@ import vehiculosRoutes from './routes/vehiculos.routes.js';
 import mecanicosRoutes from './routes/mecanicos.routes.js';
 import servicioRoutes from './routes/servicios.routes.js';
 import repuestosRoutes from './routes/repuestos.routes.js';
+import ordenesRoutes from './routes/ordenes.routes.js';
 
 const app = express();
 
@@ -25,6 +26,6 @@ app.use('/servicios', servicioRoutes);
 app.use('/repuestos', repuestosRoutes);
 
 //RUTA CRUD ORDENES
-app.use('/ordenes',/*AGREGAR HANDLER DE RUTAS*/)
+app.use('/ordenes', ordenesRoutes);
 
 export default app;
