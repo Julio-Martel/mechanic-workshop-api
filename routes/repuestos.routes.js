@@ -1,7 +1,8 @@
 import express from 'express';
 import { registrarRepuestoController,
          actualizarStockController,
-         eliminarRepuestoController
+         eliminarRepuestoController,
+         repuestosDispController
  } from '../controllers/repuestos.controllers.js';
 
 const repuestosRoutes = express.Router();
@@ -13,7 +14,7 @@ repuestosRoutes.post('/', registrarRepuestoController);
 repuestosRoutes.patch('/:id',actualizarStockController);
 
 //RUTA CONSULTAR DISPONIBILIDAD DE REPUESTO
-repuestosRoutes.get('/disponibilidad',/*AGREGAR HANDLER DE DISPONIBILIDAD DE REPUESTOS*/);
+repuestosRoutes.get('/disponibilidad', repuestosDispController);
 
 //RUTA DE ELIMINACION DE UN REPUESTOS
 repuestosRoutes.delete('/:id',eliminarRepuestoController);
