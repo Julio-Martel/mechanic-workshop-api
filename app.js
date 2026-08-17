@@ -24,4 +24,7 @@ app.use('/servicios', servicioRoutes);
 //RUTA CRUD REPUESTOS
 app.use('/repuestos', repuestosRoutes);
 
+//RUTA CRUD ORDENES
+app.use('/ordenes',/*AGREGAR HANDLER DE RUTAS*/)
+
 export default app;
