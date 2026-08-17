@@ -1,6 +1,8 @@
+import { json } from "express";
 import { registrarRepuestoService,
         eliminarRepuestoService,
-        actualizarStockService
+        actualizarStockService,
+        repuestosDispService
  } from "../services/repuestos.services.js";
 
 const registrarRepuestoController = async(req,res) => {
@@ -18,8 +20,6 @@ const registrarRepuestoController = async(req,res) => {
             })
         }
         
-        console.log(error)
-
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
@@ -62,7 +62,6 @@ const actualizarStockController = async(req,res) => {
                 mensaje: 'Se debe ingresar un numero.'
             })
         }
-        console.log(error)
 
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
@@ -92,8 +91,25 @@ const eliminarRepuestoController = async(req,res) => {
     }
 }
 
+const repuestosDispController = async(req,res) => {
+    try{
+        const {stock} = req.query;
+        const repuestosFiltrados = await repuestosDispService(stock);
+
+        res.status(202).json({
+            repuestos: repuestosFiltrados
+        })
+
+    }catch(error){
+        res.status(505),json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }   
+}
+
 export {
     registrarRepuestoController,
     actualizarStockController,
-    eliminarRepuestoController
+    eliminarRepuestoController,
+    repuestosDispController
 }
