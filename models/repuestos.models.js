@@ -34,9 +34,18 @@ const actualizarStockModel = async(id,cantidad) => {
     return resultado.affectedRows;
 }
 
+const repuestosDispModel = async(fil) => {
+
+    const [resultados] = await db.query(fil);
+    
+    return resultados;
+}
+
+
 export {
     registrarRepuestoModel,
     encontrarRepuestoPorNombre,
     eliminarRepuestoModel,
-    actualizarStockModel
+    actualizarStockModel,
+    repuestosDispModel
 }
