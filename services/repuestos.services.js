@@ -1,7 +1,8 @@
 import { registrarRepuestoModel,
         encontrarRepuestoPorNombre,
         eliminarRepuestoModel,
-        actualizarStockModel
+        actualizarStockModel,
+        repuestosDispModel
  } from "../models/repuestos.models.js";
 
 const registrarRepuestoService = async(data) => {
@@ -54,8 +55,27 @@ const actualizarStockService = async(id,cantidad) => {
     return actualizarStock;
 }
 
+const repuestosDispService = async(stock) => {
+     let repuestosFiltrados;
+
+    if(!stock){
+        repuestosFiltrados = `SELECT * FROM Repuestos`;
+    } else {
+        repuestosFiltrados = `SELECT * FROM Repuestos WHERE stock > 0`;
+    }
+
+
+    const filtrarRepuestos = await repuestosDispModel(repuestosFiltrados);
+
+    console.log(filtrarRepuestos)
+
+
+    return filtrarRepuestos;
+}
+
 export {
     registrarRepuestoService,
     eliminarRepuestoService,
-    actualizarStockService
+    actualizarStockService,
+    repuestosDispService
 }
