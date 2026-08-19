@@ -1,9 +1,10 @@
 import express from 'express';
+import { crearOrdenController } from '../controllers/ordenes.controllers.js';
 
 const ordenesRoutes = express.Router();
 
 //RUTA CREAR ORDEN
-ordenesRoutes.post('/crear', /*AGREGAR HANDLER DE CREACION DE ORDEN*/);
+ordenesRoutes.post('/crear', crearOrdenController);
 
 //RUTA ASIGNACION VEHICULO
 ordenesRoutes.post('/asignarVehiculo', /*AGREGAR HANDLER DE ASIGNACION DE VEHICULO*/);
