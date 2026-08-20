@@ -34,10 +34,19 @@ const consultaVehiculosPorClienteModel = async(id) => {
     return resultados;
 }
 
+const verificarVehiculoModel = async(id) => {
+    const [resultado] = await db.query(`SELECT * FROM Vehiculos
+        WHERE id = ?`,[id]);
+    
+    return resultado[0];
+}
+
+
 export {
     registroVehiculoModel,
     modificacionVehiculoModel,
     eliminacionVehiculoModel,
-    consultaVehiculosPorClienteModel
+    consultaVehiculosPorClienteModel,
+    verificarVehiculoModel
 }
 
