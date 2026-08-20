@@ -3,15 +3,8 @@ import { crearOrdenController } from '../controllers/ordenes.controllers.js';
 
 const ordenesRoutes = express.Router();
 
-//RUTA CREAR ORDEN.
-//NECESITO AGREGAR LAS VERIFICAS ID DE VEHICULO Y MECANICO EN SUS RESPECTIVOS MODELS
+//RUTA CREAR ORDEN
 ordenesRoutes.post('/crear', crearOrdenController);
-
-//RUTA ASIGNACION VEHICULO
-ordenesRoutes.post('/asignarVehiculo', /*AGREGAR HANDLER DE ASIGNACION DE VEHICULO*/);
-
-//RUTA ASIGNACION MECANICO
-ordenesRoutes.post('/asignarMecanico', /*AGREGAR HANDLER DE ASIGNACION DE */)
 
 //RUTA CAMBIO DE ESTADO DE ORDEN
 ordenesRoutes.path('/cambiar', /*AGREGAR HANDLER DE CAMBIO DE ESTADO*/);
