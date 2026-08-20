@@ -5,7 +5,8 @@ const crearOrdenController = async(req,res) => {
         const ordenCreada =  await crearOrdenServices(req.body);
         
         res.status(202).json({
-            mensaje: 'Orden creada con exito.'
+            mensaje: 'Orden creada con exito.',
+            ordenCreada: ordenCreada
         })
     
     } catch(error){
