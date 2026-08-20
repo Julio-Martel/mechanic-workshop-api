@@ -3,7 +3,8 @@ import { crearOrdenController } from '../controllers/ordenes.controllers.js';
 
 const ordenesRoutes = express.Router();
 
-//RUTA CREAR ORDEN
+//RUTA CREAR ORDEN.
+//NECESITO AGREGAR LAS VERIFICAS ID DE VEHICULO Y MECANICO EN SUS RESPECTIVOS MODELS
 ordenesRoutes.post('/crear', crearOrdenController);
 
 //RUTA ASIGNACION VEHICULO
