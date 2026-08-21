@@ -1,5 +1,8 @@
 import express from 'express';
-import { crearOrdenController } from '../controllers/ordenes.controllers.js';
+import { crearOrdenController,
+        cambiarEstadoController,
+        consultarOrdenController
+ } from '../controllers/ordenes.controllers.js';
 
 const ordenesRoutes = express.Router();
 
@@ -7,10 +10,10 @@ const ordenesRoutes = express.Router();
 ordenesRoutes.post('/crear', crearOrdenController);
 
 //RUTA CAMBIO DE ESTADO DE ORDEN
-ordenesRoutes.path('/cambiar', /*AGREGAR HANDLER DE CAMBIO DE ESTADO*/);
+ordenesRoutes.path('/:id', cambiarEstadoController);
 
 //RUTA CONSULTAR ORDEN
-ordenesRoutes.get('/:id', /*AGREGAR HANDLER DE CONSULTA DE ORDEN*/);
+ordenesRoutes.get('/:id', consultarOrdenController);
 
 //RUTA CANCELAR ORDEN
 ordenesRoutes.patch('/:id', /*AGREGAR HANDLER DE CANCELACION DE ORDEN*/);
