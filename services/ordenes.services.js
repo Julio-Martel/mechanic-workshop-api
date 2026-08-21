@@ -1,6 +1,8 @@
 import { verificarVehiculoModel } from "../models/vehiculos.models.js";
 import { encontrarMecanicoPorId } from "../models/mecanicos.model.js";
-import { crearOrdenModel } from "../models/ordenes.models.js";
+import { crearOrdenModel, 
+         verificarOrdenCanceladaFinalizadaModel, 
+         cambiarEstadoModel } from "../models/ordenes.models.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -25,10 +27,34 @@ const crearOrdenServices = async(data) => {
 
     const crearOrden = await crearOrdenModel(data);
 
+    if(!crearOrden){
+        throw new Error("SIN CAMBIOS");
+    }
+
     return crearOrden;
 }
 
+const cambiarEstadoService = async(id,data) => {
+    if(!data || Object.keys(data).length === 0){
+        throw new Error("BODY VACIO");   
+    }
+
+    if(data.estado !== 'finalizada' || data.estado !== 'cancelada' || data.estado !== 'pendiente' || data.estado !== 'en reperacion'){
+        throw new Error("ESTADO INCORRECTO");
+    }
+
+    const verificarEstadoCancelFin = await verificarOrdenCanceladaFinalizadaModel(id);
+
+    if(verificarEstadoCancelFin !== undefined){
+        throw new Error("NO SE PUEDE CAMBIAR ESTADO");
+    }
+
+    const cambiarEstado = await cambiarEstadoModel(id,data);
+
+    return cambiarEstado;
+}
 
 export {
-    crearOrdenServices
+    crearOrdenServices,
+    cambiarEstadoService
 }
