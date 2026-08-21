@@ -3,7 +3,8 @@ import { encontrarMecanicoPorId } from "../models/mecanicos.model.js";
 import { crearOrdenModel, 
          verificarOrdenCanceladaFinalizadaModel, 
          cambiarEstadoModel,
-        consultarOrdenModel } from "../models/ordenes.models.js";
+         consultarOrdenModel,
+         cancelarOrdenModel } from "../models/ordenes.models.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -65,6 +66,15 @@ const consultarOrdenService = async(id) => {
     return consultarOrden;
 }
 
+const cancelarOrdenVehiculoService = async(id) => {
+    const ordenCancelada = await cancelarOrdenModel(id);
+
+    if(ordenCancelada === 0){
+        throw new Error("SIN CANCELAR");
+    }
+
+    return ordenCancelada;
+}
 
 export {
     crearOrdenServices,
