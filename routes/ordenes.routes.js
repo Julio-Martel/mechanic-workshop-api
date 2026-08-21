@@ -1,7 +1,8 @@
 import express from 'express';
 import { crearOrdenController,
         cambiarEstadoController,
-        consultarOrdenController
+        consultarOrdenController,
+        cancelarOrdenVehiculoController
  } from '../controllers/ordenes.controllers.js';
 
 const ordenesRoutes = express.Router();
@@ -16,6 +17,6 @@ ordenesRoutes.path('/:id', cambiarEstadoController);
 ordenesRoutes.get('/:id', consultarOrdenController);
 
 //RUTA CANCELAR ORDEN
-ordenesRoutes.patch('/:id', /*AGREGAR HANDLER DE CANCELACION DE ORDEN*/);
+ordenesRoutes.patch('/:id', cancelarOrdenVehiculoController);
 
 export default ordenesRoutes;
