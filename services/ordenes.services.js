@@ -2,7 +2,8 @@ import { verificarVehiculoModel } from "../models/vehiculos.models.js";
 import { encontrarMecanicoPorId } from "../models/mecanicos.model.js";
 import { crearOrdenModel, 
          verificarOrdenCanceladaFinalizadaModel, 
-         cambiarEstadoModel } from "../models/ordenes.models.js";
+         cambiarEstadoModel,
+        consultarOrdenModel } from "../models/ordenes.models.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -54,7 +55,19 @@ const cambiarEstadoService = async(id,data) => {
     return cambiarEstado;
 }
 
+const consultarOrdenService = async(id) => { 
+    const consultarOrden = await consultarOrdenModel(id);
+
+    if(consultarOrden === undefined){
+        throw new Error("ID INEXISTENTE");
+    }
+
+    return consultarOrden;
+}
+
+
 export {
     crearOrdenServices,
-    cambiarEstadoService
+    cambiarEstadoService,
+    consultarOrdenService
 }
