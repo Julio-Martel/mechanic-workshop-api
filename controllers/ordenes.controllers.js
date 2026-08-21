@@ -1,5 +1,6 @@
 import { crearOrdenServices,
-         cambiarEstadoService
+         cambiarEstadoService,
+         consultarOrdenService
 } from "../services/ordenes.services.js";
 
 const crearOrdenController = async(req,res) => {
@@ -83,8 +84,32 @@ const cambiarEstadoController = async(req,res) => {
     }
 }
 
+const consultarOrdenController = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const orden = await consultarOrdenService(id);
+
+        res.status(202).json({
+            mensaje: 'Orden:',
+            orden: orden
+        })
+
+    } catch(error){
+        if(error.message === 'ID INEXISTENTE'){
+            return res.status(404).json({
+                mensaje: 'No se ha encontrado una orden con ese nro de ID'
+            })
+        }
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
+
 
 export {
     crearOrdenController,
-    cambiarEstadoController
+    cambiarEstadoController,
+    consultarOrdenController
 }
