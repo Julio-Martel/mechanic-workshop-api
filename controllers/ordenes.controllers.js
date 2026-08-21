@@ -1,6 +1,7 @@
 import { crearOrdenServices,
          cambiarEstadoService,
-         consultarOrdenService
+         consultarOrdenService,
+         cancelarOrdenVehiculoService
 } from "../services/ordenes.services.js";
 
 const crearOrdenController = async(req,res) => {
@@ -107,9 +108,32 @@ const consultarOrdenController = async(req,res) => {
     }
 }
 
+const cancelarOrdenVehiculoController = async(req,res) => {
+    try{
+        const {id} = req.params;
+        const cancelarOrden = await cancelarOrdenVehiculoService(id);
+
+        res.status(202).json({
+            mensaje: 'Orden cancelada con exito!'
+        })
+
+    }catch(error){
+        if(error.message === 'SIN CAMBIOS'){
+            return res.status(404).json({
+                mensaje: 'No se ha realizado la cancelacion.'
+            })
+        }
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }    
+}
+
 
 export {
     crearOrdenController,
     cambiarEstadoController,
-    consultarOrdenController
+    consultarOrdenController,
+    cancelarOrdenVehiculoController
 }
