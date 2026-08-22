@@ -82,7 +82,9 @@ const eliminarController = async(req,res) => {
         }
 
         if(error.message === 'USUARIO NO ENCONTRADO'){
-            mensaje: 'Usuario inexistente'
+            return res.status(404).json({
+                mensaje: 'Usuario no encontrado'
+            })
         }
 
         res.status(500).json({
