@@ -98,10 +98,10 @@ const consultarController = async(req,res) => {
     try {
         const {id} = req.params;
         const clienteObtenido = await consultarService(id);
-
+        
         res.status(202).json({
             mensaje: 'DETALLES DEL CLIENTE: ',
-            cliente: clienteObtenido[0]
+            cliente: clienteObtenido
         });
 
     } catch(error){
