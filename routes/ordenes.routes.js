@@ -11,7 +11,7 @@ const ordenesRoutes = express.Router();
 ordenesRoutes.post('/crear', crearOrdenController);
 
 //RUTA CAMBIO DE ESTADO DE ORDEN
-ordenesRoutes.path('/:id', cambiarEstadoController);
+ordenesRoutes.patch('/:id', cambiarEstadoController);
 
 //RUTA CONSULTAR ORDEN
 ordenesRoutes.get('/:id', consultarOrdenController);
