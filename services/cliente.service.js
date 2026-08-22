@@ -66,7 +66,7 @@ const consultarService = async(id) => {
 }
 
 const clientesService = async() => {
-    const clientes = await todosLosClientes;
+    const clientes = await todosLosClientes();
 
     if(clientes.length === 0){
         throw new Error("NO HAY CLIENTES");
