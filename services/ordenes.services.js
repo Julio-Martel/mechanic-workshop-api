@@ -79,5 +79,6 @@ const cancelarOrdenVehiculoService = async(id) => {
 export {
     crearOrdenServices,
     cambiarEstadoService,
-    consultarOrdenService
+    consultarOrdenService,
+    cancelarOrdenVehiculoService
 }
