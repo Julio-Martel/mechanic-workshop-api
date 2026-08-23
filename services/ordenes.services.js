@@ -29,9 +29,16 @@ const crearOrdenServices = async(data) => {
 
     const crearOrden = await crearOrdenModel(data);
 
+    console.log(crearOrden)
+
+    // ACA DEBO IMPLEMENTAR LA REGLA DE NEGOCIO QUE DICE QUE DEBO EVITAR QUE UN VEHICULO NO DEBE TENER OTRA ORDEN DEBIDO A REPARACION O PENDIENTE
+
+
     if(!crearOrden){
         throw new Error("SIN CAMBIOS");
     }
+
+    
 
     return crearOrden;
 }
