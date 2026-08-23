@@ -69,7 +69,9 @@ const borrarMecanicoController = async(req,res) => {
 
     } catch(error){
         if(error.message === 'ID INEXISTENTE'){
-            mensaje: 'ID de mecanico no existe'
+            res.status(404).json({
+                mensaje: 'El id de mecanico no existe.'
+            })
         }
 
         res.status(505).json({
