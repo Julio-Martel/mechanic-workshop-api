@@ -11,7 +11,7 @@ const crearOrdenServices = async(data) => {
         throw new Error("BODY VACIO");
     }
 
-    if(!data.id_vehiculo || !data.id_mecanico || !data.fecha_ingreso || !data.fecha_entrega || !data.estado){
+    if(!data.id_vehiculo || !data.id_mecanico || !data.fecha_entrega || !data.estado){
         throw new Error("DEBE MANDAR TODOS LOS DATOS");
     }
 
