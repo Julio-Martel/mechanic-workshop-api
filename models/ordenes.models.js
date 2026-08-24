@@ -9,7 +9,10 @@ const crearOrdenModel = async(data) => {
 
 const verificarOrdenCanceladaFinalizadaModel = async(id) => {
     const [resultado] = await db.query(`SELECT * FROM Orden 
-        WHERE id = ? AND estado = ? || estado = ?`,['finalizada', 'cancelada']);
+        WHERE id = ? AND estado = ? || estado = ?`,
+        [  id,
+          'finalizada', 
+          'cancelada']);
 
     return resultado[0];
 }
