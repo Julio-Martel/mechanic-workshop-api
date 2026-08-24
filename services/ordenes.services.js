@@ -4,7 +4,9 @@ import { crearOrdenModel,
          verificarOrdenCanceladaFinalizadaModel, 
          cambiarEstadoModel,
          consultarOrdenModel,
-         cancelarOrdenModel } from "../models/ordenes.models.js";
+         cancelarOrdenModel,
+         comprobarDuplicadoOrdenVehiculo,
+        limiteOrdenes } from "../models/ordenes.models.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -21,24 +23,32 @@ const crearOrdenServices = async(data) => {
         throw new Error("ID VEHICULO NO EXISTE");
     }
 
+    const verificarEstadoDuplicado = await comprobarDuplicadoOrdenVehiculo(data.id_vehiculo);
+
+    if(verificarEstadoDuplicado){
+        throw new Error("ORDEN DUPLICADA");
+    }
+
     const verificarMecanico = await encontrarMecanicoPorId(data.id_mecanico);
 
     if(!verificarMecanico){
         throw new Error("ID MECANICO NO EXISTE");
     }
 
+    const verificarLimiteOrdenesDelMecanico = await limiteOrdenes(data.id_mecanico);
+
+    // TESTEAR ESTO
+        
+    if(verificarLimiteOrdenesDelMecanico > 2){
+        throw new Error("No se pueden asignar mas dos ordenes a este mecanico");     
+    }
+
+
     const crearOrden = await crearOrdenModel(data);
-
-    console.log(crearOrden)
-
-    // ACA DEBO IMPLEMENTAR LA REGLA DE NEGOCIO QUE DICE QUE DEBO EVITAR QUE UN VEHICULO NO DEBE TENER OTRA ORDEN DEBIDO A REPARACION O PENDIENTE
-
 
     if(!crearOrden){
         throw new Error("SIN CAMBIOS");
     }
-
-    
 
     return crearOrden;
 }
