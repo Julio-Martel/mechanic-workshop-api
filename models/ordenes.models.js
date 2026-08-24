@@ -58,6 +58,17 @@ const comprobarDuplicadoOrdenVehiculo = async(id_vehiculo) => {
     return resultado[0];
 }
 
+const limiteOrdenes = async(id_mecanico) => {
+    const [limite] = await db.query(`SELECT COUNT(*) 
+        AS total FROM Orden 
+        WHERE id_mecanico = ? AND estado IN(?,?)`,
+        [ id_mecanico, 
+          'pendiente', 
+          'en reparacion']);
+
+    return limite.total;
+}
+
 
 export {
     crearOrdenModel,
@@ -65,5 +76,6 @@ export {
     cambiarEstadoModel,
     consultarOrdenModel,
     cancelarOrdenModel,
-    comprobarDuplicadoOrdenVehiculo
+    comprobarDuplicadoOrdenVehiculo,
+    limiteOrdenes
 }
