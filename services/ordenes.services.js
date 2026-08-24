@@ -55,13 +55,11 @@ const cambiarEstadoService = async(id,data) => {
         throw new Error("BODY VACIO");   
     }
 
-    if(data.estado !== 'finalizada' || data.estado !== 'cancelada' || data.estado !== 'en reperacion'){
+    if(data.estado !== 'finalizada' && data.estado !== 'cancelada' && data.estado !== 'en reperacion'){
         throw new Error("ESTADO INCORRECTO");
     }
 
     const verificarEstadoCancelFin = await verificarOrdenCanceladaFinalizadaModel(id);
-
-
 
     if(verificarEstadoCancelFin !== undefined){
     
