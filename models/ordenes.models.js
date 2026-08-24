@@ -76,7 +76,6 @@ const limiteOrdenes = async (id_mecanico) => {
     return limite[0].total;
 }
 
-
 export {
     crearOrdenModel,
     verificarOrdenCanceladaFinalizadaModel,
