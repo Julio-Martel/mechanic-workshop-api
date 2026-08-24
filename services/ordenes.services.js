@@ -37,10 +37,12 @@ const crearOrdenServices = async(data) => {
 
     const verificarLimiteOrdenesDelMecanico = await limiteOrdenes(data.id_mecanico);
 
+    console.log(verificarLimiteOrdenesDelMecanico)
+
     // TESTEAR ESTO
         
-    if(verificarLimiteOrdenesDelMecanico > 2){
-        throw new Error("No se pueden asignar mas dos ordenes a este mecanico");     
+    if(verificarLimiteOrdenesDelMecanico > 3){
+        throw new Error("SUPERA EL LIMITE");     
     }
 
 
@@ -64,9 +66,13 @@ const cambiarEstadoService = async(id,data) => {
 
     const verificarEstadoCancelFin = await verificarOrdenCanceladaFinalizadaModel(id);
 
+
+
     if(verificarEstadoCancelFin !== undefined){
+    
         throw new Error("NO SE PUEDE CAMBIAR ESTADO");
     }
+
 
     const cambiarEstado = await cambiarEstadoModel(id,data);
 
