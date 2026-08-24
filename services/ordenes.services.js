@@ -36,15 +36,10 @@ const crearOrdenServices = async(data) => {
     }
 
     const verificarLimiteOrdenesDelMecanico = await limiteOrdenes(data.id_mecanico);
-
-    console.log(verificarLimiteOrdenesDelMecanico)
-
-    // TESTEAR ESTO
         
     if(verificarLimiteOrdenesDelMecanico > 3){
         throw new Error("SUPERA EL LIMITE");     
     }
-
 
     const crearOrden = await crearOrdenModel(data);
 
