@@ -14,8 +14,6 @@ const crearOrdenController = async(req,res) => {
     
     } catch(error){
 
-        console.log(error)
-
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'No se pueden mandar el body vacio'
@@ -72,8 +70,7 @@ const cambiarEstadoController = async(req,res) => {
         const estadoCambiado = await cambiarEstadoService(id,req.body);
 
         res.status(202).json({
-            mensaje: 'Estado de orden actualizado.',
-            estadoCambiado: estadoCambiado
+            mensaje: 'Estado de orden actualizado.'
         })
 
     } catch(error){
