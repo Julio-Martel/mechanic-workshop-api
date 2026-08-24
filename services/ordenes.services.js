@@ -66,7 +66,6 @@ const cambiarEstadoService = async(id,data) => {
         throw new Error("NO SE PUEDE CAMBIAR ESTADO");
     }
 
-
     const cambiarEstado = await cambiarEstadoModel(id,data);
 
     return cambiarEstado;
