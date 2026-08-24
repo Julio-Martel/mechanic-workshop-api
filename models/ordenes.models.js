@@ -1,8 +1,8 @@
 import db from '../config/db.js';
 
 const crearOrdenModel = async(data) => {
-    const [resultado] = await db.query(`INSERT INTO Orden(id_vehiculo, id_mecanico, fecha_ingreso, fecha_entrega, estado)
-        VALUES(?,?,?,?,?)`,[data.id_mecanico, data.id_vehiculo, data.fecha_ingreso, data.fecha_entrega, data.estado]);
+    const [resultado] = await db.query(`INSERT INTO Orden(id_vehiculo, id_mecanico, fecha_entrega, estado)
+        VALUES(?,?,?,?)`,[data.id_mecanico, data.id_vehiculo, data.fecha_entrega, data.estado]);
 
     return resultado;
 }
@@ -44,11 +44,23 @@ const cancelarOrdenModel = async(id) => {
     return resultado.affectedRows;
 }
 
+const comprobarDuplicadoOrdenVehiculo = async(id_vehiculo) => {
+     const [resultado] = await db.query(`SELECT * FROM Orden WHERE 
+        id_vehiculo = ? AND estado = ? || estado = ?`,
+        [ id_vehiculo, 
+          'en reparacion', 
+          'pendiente'
+        ]);
+
+    return resultado[0];
+}
+
 
 export {
     crearOrdenModel,
     verificarOrdenCanceladaFinalizadaModel,
     cambiarEstadoModel,
     consultarOrdenModel,
-    cancelarOrdenModel
+    cancelarOrdenModel,
+    comprobarDuplicadoOrdenVehiculo
 }
