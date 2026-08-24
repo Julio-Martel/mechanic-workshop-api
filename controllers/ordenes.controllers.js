@@ -9,11 +9,12 @@ const crearOrdenController = async(req,res) => {
         const ordenCreada =  await crearOrdenServices(req.body);
         
         res.status(202).json({
-            mensaje: 'Orden creada con exito.',
-            ordenCreada: ordenCreada
+            mensaje: 'Orden creada con exito.'
         })
     
     } catch(error){
+
+        console.log(error)
 
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
@@ -45,6 +46,12 @@ const crearOrdenController = async(req,res) => {
             })
         }
 
+        if(error.message === 'SUPERA EL LIMITE'){
+            return res.status(403).json({
+                mensaje: 'Se ha sobrepasado el limite de ordenes asignadas a este mecanico.'
+            })
+        }
+
         if(error.message === 'SIN CAMBIOS'){
             return res.status(403).json({
                 mensaje: 'No se han podido realizar los cambios'
@@ -55,7 +62,6 @@ const crearOrdenController = async(req,res) => {
             mensaje: 'ERROR INTERNO'
         })
 
-        console.log(error)
     }
 }
 
