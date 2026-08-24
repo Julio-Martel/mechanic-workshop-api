@@ -14,6 +14,7 @@ const crearOrdenController = async(req,res) => {
         })
     
     } catch(error){
+
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'No se pueden mandar el body vacio'
@@ -26,7 +27,7 @@ const crearOrdenController = async(req,res) => {
             })
         }
 
-        if(error.message === 'ID VEHICULO NO EXISTE"'){
+        if(error.message === 'ID VEHICULO NO EXISTE'){
             return res.status(404).json({
                 mensaje: 'Vehiculo no encontrado con ese id'
             })
@@ -38,14 +39,23 @@ const crearOrdenController = async(req,res) => {
             })
         }
 
+        if(error.message === 'ORDEN DUPLICADA'){
+            return res.status(403).json({
+                mensaje: 'Este vehiculo no puede tener mas de una orden en pendiente o en reparacion'
+            })
+        }
+
         if(error.message === 'SIN CAMBIOS'){
             return res.status(403).json({
                 mensaje: 'No se han podido realizar los cambios'
             })
         }
+        
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
+
+        console.log(error)
     }
 }
 
