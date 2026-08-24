@@ -55,7 +55,7 @@ const cambiarEstadoService = async(id,data) => {
         throw new Error("BODY VACIO");   
     }
 
-    if(data.estado !== 'finalizada' || data.estado !== 'cancelada' || data.estado !== 'pendiente' || data.estado !== 'en reperacion'){
+    if(data.estado !== 'finalizada' || data.estado !== 'cancelada' || data.estado !== 'en reperacion'){
         throw new Error("ESTADO INCORRECTO");
     }
 
