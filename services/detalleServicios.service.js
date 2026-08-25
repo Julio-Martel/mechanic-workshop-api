@@ -1,5 +1,6 @@
 import { crearDetalleServicio } from "../models/detalleServicios.model.js";
 import { consultarOrdenModel } from "../models/ordenes.models.js";
+import { encontrarServicioPorId } from "../models/servicios.models.js";
 
 const crearDetalleServicioService = async(data) => {
     const verificarOrden = await consultarOrdenModel(data.id_orden);
@@ -8,14 +9,17 @@ const crearDetalleServicioService = async(data) => {
         throw new Error("ID INEXISTENTE ORDEN");   
     }
 
-    // VERIFICAR EL ID DEL SERVICIO PARA LA CREACION DEL DETALLE DE SERVICIO
-   // const verificarServicio = await
+   const verificarServicio = await encontrarServicioPorId(data.id_servicio);
 
-   
+    if(verificarServicio){
+        throw new Error("ID INEXISTENTE SERVICIO");
+    }
+
+    
 
 
 }
 
 export {
     crearDetalleServicioService
-}
+} 
