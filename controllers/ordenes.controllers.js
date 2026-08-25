@@ -92,6 +92,12 @@ const cambiarEstadoController = async(req,res) => {
             })
         }
 
+        if(error.message === 'SIN CANTIDAD MINIMA'){
+            return res.status(403).json({
+                mensaje: 'No se puede finalizar una orden si no tiene al menos un servicio asignado.'
+            })
+        }
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
@@ -142,6 +148,7 @@ const cancelarOrdenVehiculoController = async(req,res) => {
         })
     }    
 }
+
 
 
 export {
