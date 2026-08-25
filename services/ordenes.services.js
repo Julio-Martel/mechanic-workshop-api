@@ -7,7 +7,7 @@ import { crearOrdenModel,
          cancelarOrdenModel,
          comprobarDuplicadoOrdenVehiculo,
         limiteOrdenes } from "../models/ordenes.models.js";
-import { serviciosAsociadosAUnaOrden } from "../models/servicios.models.js";
+import { serviciosAsociadosAUnaOrden } from "../models/detalleServicios.model.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -68,7 +68,12 @@ const cambiarEstadoService = async(id,data) => {
     }
 
     if(!data.estado === 'finalizada'){
-         
+        const cantidadMinima = await serviciosAsociadosAUnaOrden(id);
+        
+        if(cantidadMinima === 0) {
+            throw new Error("SIN CANTIDAD MINIMA");
+        }
+    
     }
 
     const cambiarEstado = await cambiarEstadoModel(id,data);
