@@ -7,6 +7,7 @@ import { crearOrdenModel,
          cancelarOrdenModel,
          comprobarDuplicadoOrdenVehiculo,
         limiteOrdenes } from "../models/ordenes.models.js";
+import { serviciosAsociadosAUnaOrden } from "../models/servicios.models.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -64,6 +65,10 @@ const cambiarEstadoService = async(id,data) => {
     if(verificarEstadoCancelFin !== undefined){
     
         throw new Error("NO SE PUEDE CAMBIAR ESTADO");
+    }
+
+    if(!data.estado === 'finalizada'){
+         
     }
 
     const cambiarEstado = await cambiarEstadoModel(id,data);
