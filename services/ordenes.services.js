@@ -67,7 +67,7 @@ const cambiarEstadoService = async(id,data) => {
         throw new Error("NO SE PUEDE CAMBIAR ESTADO");
     }
 
-    if(!data.estado === 'finalizada'){
+    if(data.estado === 'finalizada'){
         const cantidadMinima = await serviciosAsociadosAUnaOrden(id);
         
         if(cantidadMinima === 0) {
