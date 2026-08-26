@@ -41,11 +41,21 @@ const repuestosDispModel = async(fil) => {
     return resultados;
 }
 
+const encontrarRepuestoPorId = async(id) => {
+    const [resultado] = await db.query(`SELECT * FROM Repuesto
+        WHERE id = ?`,
+        [id]);
+ 
+    return resultado[0];
+}
+
+
 
 export {
     registrarRepuestoModel,
     encontrarRepuestoPorNombre,
     eliminarRepuestoModel,
     actualizarStockModel,
-    repuestosDispModel
+    repuestosDispModel,
+    encontrarRepuestoPorId
 }
