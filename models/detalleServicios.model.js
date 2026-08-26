@@ -11,6 +11,17 @@ const crearDetalleServicio = async(data) => {
     return resultado.affectedRows;
 }
 
+const serviciosAsociadosAUnaOrden = async(id_orden) => {
+    const [resultados] = await db.query(`SELECT COUNT(*) AS total FROM Detalle
+        WHERE id_orden = ?`,
+    [id_orden]);
+
+    return resultados[0].total;
+
+}
+
+
 export {
-    crearDetalleServicio
+    crearDetalleServicio,
+    serviciosAsociadosAUnaOrden
 }

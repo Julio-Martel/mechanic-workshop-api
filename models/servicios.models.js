@@ -52,6 +52,11 @@ const listarServiciosModels = async() => {
     return resultados;
 }
 
+const serviciosAsociadosAUnaOrden = async(id_orden) => {
+
+}
+
+
 export {
     crearServicioModel,
     servicioDuplicadoPorDescripcion,
@@ -59,5 +64,6 @@ export {
     modificacionSerivicioModel,
     servicioDuplicadoPorNombre,
     eliminarServicioModel,
-    listarServiciosModels
+    listarServiciosModels,
+    serviciosAsociadosAUnaOrden
 }
