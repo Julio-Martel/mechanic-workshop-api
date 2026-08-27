@@ -1,5 +1,5 @@
 import { crearDetalleServicio } from "../models/detalleServicios.model.js";
-import { consultarOrdenModel } from "../models/ordenes.models.js";
+import { consultarOrdenModel  ,verificarOrdenCanceladaFinalizadaModel} from "../models/ordenes.models.js";
 import { encontrarServicioPorId } from "../models/servicios.models.js";
 
 const crearDetalleServicioService = async(data) => {
@@ -11,6 +11,13 @@ const crearDetalleServicioService = async(data) => {
         throw new Error("DATOS INCOMPLETOS");
         
     }   
+
+    const verificarOrdenFinalizada = await verificarOrdenCanceladaFinalizadaModel(data.id_orden);
+
+
+    if(verificarOrdenFinalizada !== undefined){
+        throw new Error("NO SE PUEDE CREAR DETALLE SERVICIO");
+    }
 
     const verificarOrden = await consultarOrdenModel(data.id_orden);
 

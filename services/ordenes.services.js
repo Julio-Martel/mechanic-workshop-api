@@ -64,7 +64,7 @@ const cambiarEstadoService = async(id,data) => {
 
     if(verificarEstadoCancelFin !== undefined){
     
-        throw new Error("NO SE PUEDE CAMBIAR ESTADO");
+        throw new Error(`NO SE PUEDE CAMBIAR ESTADO`);
     }
 
     if(data.estado === 'finalizada'){
