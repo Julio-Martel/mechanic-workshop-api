@@ -7,11 +7,9 @@ const crearDetalleRepuestoService = async(data) => {
         throw new Error("BODY VACIO");
     }
 
-    /*
-        AGREGAR CONDICIONAL FALTANTE
-    
-    */
-
+    if(!data.id_orden || !data.id_repuesto || !data.cantidad){
+        throw new Error("FALTAN DATOS");
+    }
 
     const verificarOrden = await consultarOrdenModel(data.id_orden);
 
