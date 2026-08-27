@@ -10,6 +10,18 @@ const crearDetalleRepuestoController = async(req,res) => {
         })
 
     }catch(error){
+        if(error.message === 'BODY VACIO'){
+            return res.status(403).json({
+                mensaje: 'No puede mandar el body vacio'
+            })
+        }
+
+        if(error.message === 'FALTAN DATOS'){
+            return res.status(403).json({
+                mensaje: 'Faltan datos.'
+            })
+        }
+
         if(error.message === 'ID INEXISTENTE ORDEN'){
             return res.status(404).json({
                 mensaje: 'No existe ese ID de orden.'
