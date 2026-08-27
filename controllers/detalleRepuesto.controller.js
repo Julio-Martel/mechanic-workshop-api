@@ -16,6 +16,10 @@ const crearDetalleRepuestoController = async(req,res) => {
             })
         }
 
+
+        // PUNTO 16 DEL ENUNCIADO SOBRE LAS ORDENES FINALIZADAS
+
+
         if(error.message === 'FALTAN DATOS'){
             return res.status(403).json({
                 mensaje: 'Faltan datos.'
