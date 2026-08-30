@@ -25,7 +25,7 @@ ordenesRoutes.patch('/:id', cancelarOrdenVehiculoController);
 //RUTA DETALLE DEL SERVICIO
 ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 
-//RUTA DETALLE DEL REPUESTO
+//RUTA DETALLE DEL REPUESTO 
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
 export default ordenesRoutes;
