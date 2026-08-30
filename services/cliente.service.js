@@ -1,7 +1,7 @@
 import { verificarClientePorDni, registrarCliente, 
          modificarCliente, encontrarCliente, 
          eliminarCliente, consultarCliente,
-         todosLosClientes } from "../models/cliente.model.js";
+         todosLosClientes, vehiculosRegistradosDeUnCliente} from "../models/cliente.model.js";
 
 const registroService = async(data) => {
 
@@ -41,6 +41,13 @@ const modificarServices = async(id,data) => {
 }
 
 const eliminarService = async(id) => {
+
+    const poseeVehiculosRegistrados = await vehiculosRegistradosDeUnCliente(id);
+
+    if(poseeVehiculosRegistrados > 0){
+        throw new Error("TIENE VEHICULOS");
+    }
+
     const usuarioEliminado = await eliminarCliente(id);
 
     if(usuarioEliminado[0] === undefined){
