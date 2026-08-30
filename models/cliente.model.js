@@ -53,6 +53,15 @@ const todosLosClientes = async() => {
     return resultados;
 }
 
+const vehiculosRegistradosDeUnCliente = async(id_cliente) => {
+    const [resultados] = await db.query(`SELECT COUNT(*) AS Total FROM Vehiculos
+        WHERE id_cliente = ?`,
+        [id_cliente]);
+
+    return resultados[0].Total;
+}
+
+
 export {
     encontrarCliente,
     verificarClientePorDni,
@@ -60,5 +69,6 @@ export {
     modificarCliente,
     eliminarCliente,
     consultarCliente,
-    todosLosClientes
+    todosLosClientes,
+    vehiculosRegistradosDeUnCliente
 }
