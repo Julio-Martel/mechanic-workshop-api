@@ -41,12 +41,21 @@ const verificarVehiculoModel = async(id) => {
     return resultado[0];
 }
 
+const ordenesAsociadasAVehiculo = async(id_vehiculo) => {
+    const [resultados] = await db.query(`SELECT COUNT(*) AS Total FROM Orden
+        WHERE id_vehiculo = ?`,
+        [id_vehiculo]);
+
+    return resultados[0].Total;
+}
+
 
 export {
     registroVehiculoModel,
     modificacionVehiculoModel,
     eliminacionVehiculoModel,
     consultaVehiculosPorClienteModel,
-    verificarVehiculoModel
+    verificarVehiculoModel,
+    ordenesAsociadasAVehiculo
 }
 
