@@ -25,7 +25,7 @@ app.use('/servicios', servicioRoutes);
 //RUTA CRUD REPUESTOS
 app.use('/repuestos', repuestosRoutes);
 
-//RUTA CRUD ORDENES
+//RUTA ORDENES
 app.use('/ordenes', ordenesRoutes);
 
 export default app;
