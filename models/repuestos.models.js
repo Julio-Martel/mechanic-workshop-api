@@ -49,7 +49,14 @@ const encontrarRepuestoPorId = async(id) => {
     return resultado[0];
 }
 
+const descontarStockRepuesto = async(data) => {
+    const [resultado] = await db.query(`UPDATE Repuesto
+        SET stock = stock - ? WHERE id = ? AND stock >= ?`,
+    [data.cantidad, 
+     data.id_repuesto]);
 
+    return resultado.affectedRows;
+}
 
 export {
     registrarRepuestoModel,
@@ -57,5 +64,6 @@ export {
     eliminarRepuestoModel,
     actualizarStockModel,
     repuestosDispModel,
-    encontrarRepuestoPorId
+    encontrarRepuestoPorId,
+    descontarStockRepuesto
 }

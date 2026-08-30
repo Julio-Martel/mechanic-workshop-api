@@ -11,6 +11,8 @@ const crearDetalleRepuestoModel = async(data) => {
     return resultado.affectedRows;
 }
 
+
+
 export {
     crearDetalleRepuestoModel
 }
