@@ -87,6 +87,12 @@ const eliminarController = async(req,res) => {
             })
         }
 
+        if(error.message === 'TIENE VEHICULOS'){
+            return res.status(403).json({
+                mensaje: 'El cliente tiene vehiculos asociados. No se puede eliminar.'
+            })
+        }
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
             error: error
