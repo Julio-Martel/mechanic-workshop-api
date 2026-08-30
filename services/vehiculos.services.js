@@ -1,6 +1,7 @@
 import { encontrarCliente } from "../models/cliente.model.js"
 import { registroVehiculoModel, modificacionVehiculoModel,
-        eliminacionVehiculoModel, consultaVehiculosPorClienteModel} from "../models/vehiculos.models.js";
+        eliminacionVehiculoModel, consultaVehiculosPorClienteModel,
+        ordenesAsociadasAVehiculo} from "../models/vehiculos.models.js";
 
 const registroVehiculoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -40,6 +41,13 @@ const modificacionVehiculoService = async(id,data) => {
 }
 
 const eliminacionVehiculoService = async(id) => {
+
+    const ordenesAsociadas = await ordenesAsociadasAVehiculo(id);
+
+    if(ordenesAsociadas > 0){
+        throw new Error("TIENE ORDENES");
+    }
+
     const vehiculoEliminado = await eliminacionVehiculoModel(id);
 
     if(!vehiculoEliminado){
