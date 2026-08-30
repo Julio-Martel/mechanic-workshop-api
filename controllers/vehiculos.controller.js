@@ -29,6 +29,12 @@ const registroController = async(req,res) => {
             })
         }
 
+        if(error.message = 'TIENE ORDENES'){
+            return res.status(403).json({
+                mensaje: 'El vehiculo tiene un historial de ordenes. No se puede eliminar.'
+            })
+        }
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO'
         });       
