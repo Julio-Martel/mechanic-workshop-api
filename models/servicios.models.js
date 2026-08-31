@@ -52,6 +52,15 @@ const listarServiciosModels = async() => {
     return resultados;
 }
 
+const seriviciosAsociadosAUnaOrden = async(id_servicio) => {
+    const [resultados] = await db.query(`SELECT COUNT(*) AS Total FROM Detalle
+        WHERE id_servicio = ?`,
+        [id_servicio]);
+
+    return resultados[0].Total;
+}
+
+
 
 export {
     crearServicioModel,
@@ -61,4 +70,5 @@ export {
     servicioDuplicadoPorNombre,
     eliminarServicioModel,
     listarServiciosModels,
+    seriviciosAsociadosAUnaOrden
 }
