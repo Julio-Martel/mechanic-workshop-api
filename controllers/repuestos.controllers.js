@@ -14,9 +14,16 @@ const registrarRepuestoController = async(req,res) => {
       });
 
     }catch(error){
+
         if(error.message === 'NOMBRE DUPLICADO'){
             return res.status(403).json({
                 mensaje: 'Nombre duplicado. Ingrese otro'
+            })
+        }
+
+        if(error.message === 'STOCK NEGATIVO'){
+            return res.status(400).json({
+                mensaje: 'El stock debe ser mayor o igual a 0.'
             })
         }
         
