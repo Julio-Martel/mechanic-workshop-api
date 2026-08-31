@@ -14,7 +14,7 @@ const registrarCliente = async(data) => {
 
 const verificarClientePorDni = async(dni,email) => {
     const [resultado] = await db.query(`SELECT * FROM Clientes 
-        WHERE dni = ? AND email = ?`,[dni,email]);
+        WHERE dni = ? OR email = ?`,[dni,email]);
 
     return resultado[0];
 }

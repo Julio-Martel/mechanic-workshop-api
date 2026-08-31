@@ -42,7 +42,7 @@ const repuestosDispModel = async(fil) => {
 }
 
 const encontrarRepuestoPorId = async(id) => {
-    const [resultado] = await db.query(`SELECT * FROM Repuesto
+    const [resultado] = await db.query(`SELECT * FROM Repuestos
         WHERE id = ?`,
         [id]);
  
