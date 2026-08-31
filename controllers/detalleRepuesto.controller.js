@@ -5,8 +5,7 @@ const crearDetalleRepuestoController = async(req,res) => {
         const crearDetalleRepuesto = await crearDetalleRepuestoController(req.body);
 
         res.status(202).json({
-            mensaje: 'Detalle del servicio creado:',
-            crearDetalleRepuesto: crearDetalleRepuesto
+            mensaje: 'Detalle del repuesto creado'
         })
 
     }catch(error){
@@ -15,10 +14,6 @@ const crearDetalleRepuestoController = async(req,res) => {
                 mensaje: 'No puede mandar el body vacio'
             })
         }
-
-
-        // PUNTO 16 DEL ENUNCIADO SOBRE LAS ORDENES FINALIZADAS
-
 
         if(error.message === 'FALTAN DATOS'){
             return res.status(403).json({
