@@ -13,6 +13,10 @@ const registrarRepuestoService = async(data) => {
         throw new Error("NOMBRE DUPLICADO");
     }
 
+    if(data.stock < 0){
+        throw new Error("STOCK NEGATIVO");
+    }
+
     const registrarRepuesto = await registrarRepuestoModel(data);
 
     return registrarRepuesto;
