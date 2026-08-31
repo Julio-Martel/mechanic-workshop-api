@@ -2,7 +2,8 @@ import { registrarRepuestoModel,
         encontrarRepuestoPorNombre,
         eliminarRepuestoModel,
         actualizarStockModel,
-        repuestosDispModel
+        repuestosDispModel,
+        repuestosAsociadosAUnaOrden
  } from "../models/repuestos.models.js";
 
 const registrarRepuestoService = async(data) => {
@@ -18,6 +19,13 @@ const registrarRepuestoService = async(data) => {
 }
 
 const eliminarRepuestoService = async(id) => {
+
+    const repuestosAsosciadosOrden = await repuestosAsociadosAUnaOrden(id);
+
+    if(repuestosAsosciadosOrden) {
+        throw new Error("TIENE ORDENES");
+    }
+
     const eliminarRepuesto = await eliminarRepuestoModel(id);
 
     if(eliminarRepuesto === 0){

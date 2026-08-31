@@ -6,14 +6,14 @@ import { verificarClientePorDni, registrarCliente,
 const registroService = async(data) => {
 
     if(!data || Object.keys(data).length === 0){
-        throw new Error('FORMULARIO VACIO');
+        throw new Error('BODY VACIO');
     }
 
     if(!data.nombre || !data.apellido || !data.dni || !data.telefono || !data.email){
         throw new Error('FORMULARIO INCOMPLETO');
     }
 
-    const verificarCliente = await verificarClientePorDni(data.dni);
+    const verificarCliente = await verificarClientePorDni(data.dni,data.email);
 
     if(verificarCliente !== undefined){
         throw new Error('CLIENTE YA REGISTRADO');

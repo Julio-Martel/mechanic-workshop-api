@@ -27,11 +27,11 @@ const crearDetalleServicioService = async(data) => {
 
    const verificarServicio = await encontrarServicioPorId(data.id_servicio);
 
-    if(verificarServicio){
+    if(!verificarServicio){
         throw new Error("ID INEXISTENTE SERVICIO");
     }
 
-    const detalleServicio = await crearDetalleServicio(data.id_orden, data.id_servicio, data.precio_aplicado);
+    const detalleServicio = await crearDetalleServicio(data);
 
     return detalleServicio;
 }
