@@ -23,7 +23,7 @@ const crearDetalleRepuestoService = async(data) => {
         throw new Error("ID INEXISTENTE REPUESTO");
     }
 
-    const cantidadEnStock = verificarRepuesto[0].stock;
+    const cantidadEnStock = verificarRepuesto.stock;
 
     if(cantidadEnStock < data.cantidad){
         throw new Error("STOCK INSUFICIENTE");
