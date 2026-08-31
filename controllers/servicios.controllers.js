@@ -94,8 +94,12 @@ const eliminarServicioController = async(req,res) => {
                 mensaje: 'No se pudo completar la operacion'
             })
         }
-        
-        console.log(error);
+
+        if(error.message === 'SERVICIOS ASOCIADOS'){
+            return res.status(403).json({
+                mensaje: 'El servicio se ha utilizado en ordenes historicas. Por el momento no se puede eliminar.'
+            })
+        }
 
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
