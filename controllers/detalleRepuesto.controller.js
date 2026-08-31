@@ -2,13 +2,14 @@ import { crearDetalleRepuestoService } from "../services/detalleRepuesto.service
 
 const crearDetalleRepuestoController = async(req,res) => {
     try{
-        const crearDetalleRepuesto = await crearDetalleRepuestoController(req.body);
+        const crearDetalleRepuesto = await crearDetalleRepuestoService(req.body);
 
         res.status(202).json({
             mensaje: 'Detalle del repuesto creado'
         })
 
     }catch(error){
+        console.log(error);
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'No puede mandar el body vacio'
