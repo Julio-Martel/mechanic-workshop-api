@@ -49,13 +49,15 @@ const encontrarRepuestoPorId = async(id) => {
     return resultado[0];
 }
 
-const descontarStockRepuesto = async(data) => {
-    const [resultado] = await db.query(`UPDATE Repuesto
-        SET stock = stock - ? WHERE id = ? AND stock >= ?`,
-    [data.cantidad, 
-     data.id_repuesto]);
+const descontarStockRepuesto = async(id_repuesto, cantidad) => {
+    const [resultado] = await db.query(`UPDATE Repuestos
+        SET stock = stock - ? 
+        WHERE id = ? AND stock >= ?`,
+    [cantidad, 
+     id_repuesto,
+     cantidad]);
 
-    return resultado.affectedRows;
+    return resultado;
 }
 
 const repuestosAsociadosAUnaOrden = async(id_repuesto) => {
