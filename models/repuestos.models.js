@@ -58,6 +58,14 @@ const descontarStockRepuesto = async(data) => {
     return resultado.affectedRows;
 }
 
+const repuestosAsociadosAUnaOrden = async(id_repuesto) => {
+    const [resultado] = await db.query(`SELECT COUNT(*) AS Total FROM DetalleRepuesto
+        WHERE id_repuesto = ?`,
+    [id_repuesto]);
+
+    return resultado[0].Total;
+}
+
 export {
     registrarRepuestoModel,
     encontrarRepuestoPorNombre,
@@ -65,5 +73,6 @@ export {
     actualizarStockModel,
     repuestosDispModel,
     encontrarRepuestoPorId,
-    descontarStockRepuesto
+    descontarStockRepuesto,
+    repuestosAsociadosAUnaOrden
 }
