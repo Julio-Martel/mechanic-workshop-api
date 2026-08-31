@@ -85,6 +85,12 @@ const eliminarRepuestoController = async(req,res) => {
             })
         }
         
+        if(error.message === 'TIENE ORDENES'){
+            return res.status(403).json({
+                mensaje: 'El repuesto tiene ordenes asociadas. No se puede eliminar.'
+            })
+        }
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
