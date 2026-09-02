@@ -17,11 +17,19 @@ const serviciosAsociadosAUnaOrden = async(id_orden) => {
     [id_orden]);
 
     return resultados[0].total;
+}
 
+const totalDeServicios = async(id_orden) => {
+    const [resultado] = await db.query(`SELECT SUM(precio_aplicado)
+        AS Total FROM Detalle WHERE id_orden = ?`,
+        [id_orden]);
+
+    return resultado[0].Total;
 }
 
 
 export {
     crearDetalleServicio,
-    serviciosAsociadosAUnaOrden
+    serviciosAsociadosAUnaOrden,
+    totalDeServicios
 }
