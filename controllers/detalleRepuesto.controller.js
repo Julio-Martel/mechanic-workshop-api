@@ -9,7 +9,7 @@ const crearDetalleRepuestoController = async(req,res) => {
         })
 
     }catch(error){
-        console.log(error);
+
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'No puede mandar el body vacio'
