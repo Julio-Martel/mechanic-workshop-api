@@ -6,7 +6,7 @@ const crearDetalleServicio = async(data) => {
     [ data.id_orden,
       data.id_servicio,
       data.precio_aplicado
-    ])   
+    ]); 
 
     return resultado.affectedRows;
 }
