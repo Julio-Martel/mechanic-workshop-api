@@ -151,9 +151,6 @@ const cancelarOrdenVehiculoController = async(req,res) => {
     }    
 }
 
-
-
-
 export {
     crearOrdenController,
     cambiarEstadoController,
