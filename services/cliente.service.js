@@ -63,6 +63,7 @@ const eliminarService = async(id) => {
 }
 
 const consultarService = async(id) => {
+    
     const clienteObtenido = await consultarCliente(id);
 
     if(clienteObtenido === undefined){
