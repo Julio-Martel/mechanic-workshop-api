@@ -11,8 +11,17 @@ const crearDetalleRepuestoModel = async(data) => {
     return resultado.affectedRows;
 }
 
+const totaDeRepuestos = async(id_orden) => {
+    const [resultado]  = await db.query(`SELECT SUM(d.cantidad * s.precio) AS Total
+        FROM DetalleRepuesto d JOIN Repuestos s ON d.id_repuesto = r.id
+        WHERE d.id_orden = ?`,
+        [id_orden]);
+
+    return resultado[0].Total;
+}
 
 
 export {
-    crearDetalleRepuestoModel
+    crearDetalleRepuestoModel,
+    totaDeRepuestos
 }
