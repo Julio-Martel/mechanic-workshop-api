@@ -56,14 +56,13 @@ const eliminarService = async(id) => {
 
     if(usuarioEliminado.affectedRows === 0){
         throw new Error(`NO SE PUDO BORRAR`);
-        
     }
 
     return usuarioEliminado;
 }
 
 const consultarService = async(id) => {
-    
+
     const clienteObtenido = await consultarCliente(id);
 
     if(clienteObtenido === undefined){
