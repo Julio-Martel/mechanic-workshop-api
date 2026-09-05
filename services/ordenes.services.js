@@ -7,7 +7,11 @@ import { crearOrdenModel,
          cancelarOrdenModel,
          comprobarDuplicadoOrdenVehiculo,
         limiteOrdenes } from "../models/ordenes.models.js";
-import { serviciosAsociadosAUnaOrden } from "../models/detalleServicios.model.js";
+import { serviciosAsociadosAUnaOrden,
+        totalDeServicios
+ } from "../models/detalleServicios.model.js";
+
+import { totaDeRepuestos } from "../models/detalleRepuesto.models.js";
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -88,7 +92,17 @@ const consultarOrdenService = async(id) => {
         throw new Error("ID INEXISTENTE");
     }
 
-    return consultarOrden;
+    const totalDeLosServicios = await totalDeServicios(id);
+    const totalDeLosRepuestos = await totaDeRepuestos(id);
+
+    const totalDelaOrden = totalDeLosServicios + totalDeLosRepuestos;
+
+    const dataOrden = {
+        detalleOrden: consultarOrden,
+        total: totalDelaOrden
+    };
+
+    return dataOrden;
 }
 
 const cancelarOrdenVehiculoService = async(id) => {
