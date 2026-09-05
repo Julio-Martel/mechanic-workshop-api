@@ -2,7 +2,8 @@ import express from 'express';
 import { crearOrdenController,
         cambiarEstadoController,
         consultarOrdenController,
-        cancelarOrdenVehiculoController
+        cancelarOrdenVehiculoController,
+        quitarRepuestoDelDetalle
  } from '../controllers/ordenes.controllers.js';
 
 import { crearDetalleServicioController } from '../controllers/detalleServicio.controller.js';
@@ -28,7 +29,7 @@ ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 //RUTA DETALLE DEL REPUESTO 
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
-ordenesRoutes.post('/quitar/detalle/repuesto/:id', /*AGREGAR HANDLER*/)
+ordenesRoutes.post('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle)
 
 
 export default ordenesRoutes;
