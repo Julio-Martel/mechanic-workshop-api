@@ -123,6 +123,8 @@ const consultarOrdenController = async(req,res) => {
             })
         }
 
+        console.log(error)
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
@@ -151,9 +153,14 @@ const cancelarOrdenVehiculoController = async(req,res) => {
     }    
 }
 
+const quitarRepuestoDelDetalle = async(req,res) => {
+
+}
+
 export {
     crearOrdenController,
     cambiarEstadoController,
     consultarOrdenController,
-    cancelarOrdenVehiculoController
+    cancelarOrdenVehiculoController,
+    quitarRepuestoDelDetalle
 }
