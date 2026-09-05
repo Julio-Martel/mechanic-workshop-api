@@ -28,7 +28,7 @@ ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 //RUTA DETALLE DEL REPUESTO 
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
-ordenesRoutes.post('/quitar/detalle/repuesto', /*AGREGAR HANDLER*/)
+ordenesRoutes.post('/quitar/detalle/repuesto/:id', /*AGREGAR HANDLER*/)
 
 
 export default ordenesRoutes;
