@@ -30,8 +30,8 @@ const cambiarEstadoModel = async(id,data) => {
     return resultado.affectedRows;
 }
 
-const consultarOrdenModel = async(id) => {
-    const [resultado] = await db.query(`SELECT * FROM Orden
+const consultarOrdenModel = async(conexion,id) => {
+    const [resultado] = await conexion.query(`SELECT * FROM Orden
         WHERE id = ?`,[id]);
 
     return resultado[0];

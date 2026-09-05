@@ -41,16 +41,16 @@ const repuestosDispModel = async(fil) => {
     return resultados;
 }
 
-const encontrarRepuestoPorId = async(id) => {
-    const [resultado] = await db.query(`SELECT * FROM Repuestos
+const encontrarRepuestoPorId = async(conexion,id) => {
+    const [resultado] = await conexion.query(`SELECT * FROM Repuestos
         WHERE id = ?`,
         [id]);
  
     return resultado[0];
 }
 
-const descontarStockRepuesto = async(id_repuesto, cantidad) => {
-    const [resultado] = await db.query(`UPDATE Repuestos
+const descontarStockRepuesto = async(conexion,id_repuesto, cantidad) => {
+    const [resultado] = await conexion.query(`UPDATE Repuestos
         SET stock = stock - ? 
         WHERE id = ? AND stock >= ?`,
     [cantidad, 
