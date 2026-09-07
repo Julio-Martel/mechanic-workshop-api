@@ -28,6 +28,14 @@ const buscarDetalleRepuesto = async(conexion,id) => {
     return resultado[0];
 }
 
+const eliminarDetalleRepuesto = async(id) => {
+    const [resultado] = await db.query(`DELETE FROM DetalleRepuesto
+        WHERE id = ?`,
+        [id]);
+
+    return resultado.affectedRows;
+}
+
 
 
 export {
