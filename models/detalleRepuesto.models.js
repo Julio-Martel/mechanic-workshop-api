@@ -20,7 +20,18 @@ const totaDeRepuestos = async(id_orden) => {
     return resultado[0].Total;
 }
 
+const buscarDetalleRepuesto = async(conexion,id) => {
+    const [resultado] = await conexion.query(`SELECT * FROM DetalleRepuesto 
+        WHERE id = ?`,
+        [id]);
+
+    return resultado[0];
+}
+
+
+
 export {
     crearDetalleRepuestoModel,
-    totaDeRepuestos
+    totaDeRepuestos,
+    buscarDetalleRepuesto
 }
