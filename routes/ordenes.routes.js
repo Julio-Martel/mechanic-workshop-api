@@ -30,7 +30,7 @@ ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 //RUTA DETALLE DEL REPUESTO 
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
-ordenesRoutes.post('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle)
+ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle)
 
 
 export default ordenesRoutes;
