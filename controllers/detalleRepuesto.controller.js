@@ -46,6 +46,21 @@ const crearDetalleRepuestoController = async(req,res) => {
     }
 }
 
+const quitarRepuestoDelDetalle = async(req,res) => {
+    try {
+        const {id} = req.params; 
+
+
+
+    } catch(error){
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
+
+
 export {
-    crearDetalleRepuestoController
+    crearDetalleRepuestoController,
+    quitarRepuestoDelDetalle
 }
