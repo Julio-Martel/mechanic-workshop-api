@@ -21,9 +21,13 @@ const totaDeRepuestos = async(id_orden) => {
 }
 
 const buscarDetalleRepuesto = async(conexion,id) => {
-    const [resultado] = await conexion.query(`SELECT * FROM DetalleRepuesto 
-        WHERE id = ?`,
-        [id]);
+    const [resultado] = await conexion.query(`SELECT * FROM DetalleRepuesto dr JOIN Orden o
+        ON dr.id_orden = o.id
+        WHERE dr.id = ? AND o.estado IN(?,?)`,
+        [id,
+         'pendiente',
+         'en reparacion'
+        ]);
 
     return resultado[0];
 }

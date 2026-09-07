@@ -68,8 +68,15 @@ const repuestosAsociadosAUnaOrden = async(id_repuesto) => {
     return resultado[0].Total;
 }
 
-const incrementarStockDevuelto = async() => {
+const incrementarStockDevuelto = async(conexion,id,cantidad) => {
+    const [resultado] = await conexion.query(`UPDATE FROM Repuestos 
+        SET stock = stock + ?
+        WHERE id = ?`,
+    [conexion,
+     id,
+     cantidad]);
 
+    return resultado.affectedRows;
 }
 
 
