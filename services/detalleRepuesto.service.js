@@ -1,7 +1,11 @@
 import { consultarOrdenModel } from "../models/ordenes.models.js"
 import { encontrarRepuestoPorId, descontarStockRepuesto } from "../models/repuestos.models.js";
-import { crearDetalleRepuestoModel } from "../models/detalleRepuesto.models.js";
+import { crearDetalleRepuestoModel, 
+         buscarDetalleRepuesto,
+         eliminarDetalleRepuesto, } from "../models/detalleRepuesto.models.js";
 import db from '../config/db.js'
+import { incrementarStockDevuelto } from "../models/repuestos.models.js";
+
 
 const crearDetalleRepuestoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -53,7 +57,50 @@ const crearDetalleRepuestoService = async(data) => {
     }
 }   
 
+const quitarRepuestoDelDetalleService = async(id) => {
+    const conexion = await db.getConnection();
+
+    try {
+        await conexion.beginTransaction();
+
+        const detalleEncontrado = await buscarDetalleRepuesto(conexion,id);
+
+        if(!detalleEncontrado){
+            throw new Error("NO ENCONTRADO");
+        }
+
+        const cantidadRepuesto = detalleEncontrado.cantidad;
+
+        const detalleEliminado = await eliminarDetalleRepuesto(conexion,id);
+
+        if(detalleEliminado === 0){
+            throw new Error("SIN CAMBIOS");
+        }
+
+        const stockDevuelto = await incrementarStockDevuelto(conexion, detalleEncontrado.id_repuesto, cantidadRepuesto);
+
+        if(stockDevuelto === 0){
+            throw new Error("NO SE REALIZARON CAMBIOS");
+        }
+
+
+
+
+    } catch(error){
+
+        conexion.rollback();
+        throw error;
+
+    } finally {
+        conexion.release();
+    }
+
+}
+
+
+
 
 export {
-    crearDetalleRepuestoService
+    crearDetalleRepuestoService,
+    quitarRepuestoDelDetalleService
 }
