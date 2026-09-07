@@ -83,8 +83,7 @@ const quitarRepuestoDelDetalleService = async(id) => {
             throw new Error("NO SE REALIZARON CAMBIOS");
         }
 
-
-
+        await conexion.commit();
 
     } catch(error){
 
@@ -96,9 +95,6 @@ const quitarRepuestoDelDetalleService = async(id) => {
     }
 
 }
-
-
-
 
 export {
     crearDetalleRepuestoService,
