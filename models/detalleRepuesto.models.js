@@ -28,8 +28,8 @@ const buscarDetalleRepuesto = async(conexion,id) => {
     return resultado[0];
 }
 
-const eliminarDetalleRepuesto = async(id) => {
-    const [resultado] = await db.query(`DELETE FROM DetalleRepuesto
+const eliminarDetalleRepuesto = async(conexion,id) => {
+    const [resultado] = await conexion.query(`DELETE FROM DetalleRepuesto
         WHERE id = ?`,
         [id]);
 
@@ -41,5 +41,6 @@ const eliminarDetalleRepuesto = async(id) => {
 export {
     crearDetalleRepuestoModel,
     totaDeRepuestos,
-    buscarDetalleRepuesto
+    buscarDetalleRepuesto,
+    eliminarDetalleRepuesto
 }

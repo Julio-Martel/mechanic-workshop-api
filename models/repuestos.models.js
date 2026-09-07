@@ -68,6 +68,12 @@ const repuestosAsociadosAUnaOrden = async(id_repuesto) => {
     return resultado[0].Total;
 }
 
+const incrementarStockDevuelto = async() => {
+
+}
+
+
+
 export {
     registrarRepuestoModel,
     encontrarRepuestoPorNombre,
@@ -76,5 +82,6 @@ export {
     repuestosDispModel,
     encontrarRepuestoPorId,
     descontarStockRepuesto,
-    repuestosAsociadosAUnaOrden
+    repuestosAsociadosAUnaOrden,
+    incrementarStockDevuelto
 }
