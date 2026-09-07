@@ -2,9 +2,10 @@ import express from 'express';
 import { crearOrdenController,
         cambiarEstadoController,
         consultarOrdenController,
-        cancelarOrdenVehiculoController,
-        quitarRepuestoDelDetalle
+        cancelarOrdenVehiculoController
  } from '../controllers/ordenes.controllers.js';
+
+ import { quitarRepuestoDelDetalle } from '../controllers/detalleRepuesto.controller.js';
 
 import { crearDetalleServicioController } from '../controllers/detalleServicio.controller.js';
 import { crearDetalleRepuestoController } from '../controllers/detalleRepuesto.controller.js';
