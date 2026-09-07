@@ -1,4 +1,4 @@
-import { crearDetalleRepuestoService } from "../services/detalleRepuesto.service.js"
+import { crearDetalleRepuestoService, quitarRepuestoDelDetalleService } from "../services/detalleRepuesto.service.js"
 
 const crearDetalleRepuestoController = async(req,res) => {
     try{
@@ -49,8 +49,12 @@ const crearDetalleRepuestoController = async(req,res) => {
 const quitarRepuestoDelDetalle = async(req,res) => {
     try {
         const {id} = req.params; 
+        
+        await quitarRepuestoDelDetalleService(id);
 
-
+        res.status(202).json({
+            mensaje: 'Repuesto quitado con exito!'
+        })
 
     } catch(error){
         res.status(505).json({
@@ -58,7 +62,6 @@ const quitarRepuestoDelDetalle = async(req,res) => {
         })
     }
 }
-
 
 export {
     crearDetalleRepuestoController,
