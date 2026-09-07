@@ -154,7 +154,11 @@ const cancelarOrdenVehiculoController = async(req,res) => {
 }
 
 const quitarRepuestoDelDetalle = async(req,res) => {
+    try {
 
+    } catch(error){
+        
+    }
 }
 
 export {
