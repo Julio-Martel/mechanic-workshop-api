@@ -57,6 +57,12 @@ const quitarRepuestoDelDetalle = async(req,res) => {
         })
 
     } catch(error){
+        if(error.message === 'NO ENCONTRADO'){
+            return res.status(404).json({
+                mensaje: 'No existe ese ID de detalle del repuesto'
+            });
+        }
+        console.log(error)
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
