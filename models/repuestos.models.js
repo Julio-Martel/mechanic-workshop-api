@@ -73,8 +73,7 @@ const incrementarStockDevuelto = async(conexion,id,cantidad) => {
     const [resultado] = await conexion.query(`UPDATE Repuestos 
         SET stock = stock + ?
         WHERE id = ?`,
-    [conexion,
-     cantidad,
+    [cantidad,
      id]);
 
     return resultado.affectedRows;
