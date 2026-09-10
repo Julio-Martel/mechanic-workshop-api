@@ -97,7 +97,6 @@ const todosLosMecanicosController = async(req,res) => {
             })
         }
 
-        console.log(error)
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
