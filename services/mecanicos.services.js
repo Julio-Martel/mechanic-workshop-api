@@ -3,7 +3,8 @@ import { encontrarMecanicoModel,
         encontrarMecanicoPorId,
         modificacionDatosMecanicoModel,
         borrarMecanicoModel,
-        todosLosMecanicosModel } from "../models/mecanicos.model.js";
+        todosLosMecanicosModel,
+        cantidadTotalDeMecanicos } from "../models/mecanicos.model.js";
 
 const registroMecanicoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -53,12 +54,19 @@ const borrarMecanicoService = async(id) => {
 
 const todosLosMecanicosService = async() => {
     const mecanicos = await todosLosMecanicosModel();
+    const totalMecanicos = await cantidadTotalDeMecanicos();
 
     if(mecanicos === undefined){
         throw new Error("SIN MECANICOS");
     }
 
-    return mecanicos;
+    const datosMecanicos = {
+        totalMecanicos: totalMecanicos,
+        listadoMecanicos: mecanicos
+    }
+
+
+    return datosMecanicos;
 }
 
 export {
