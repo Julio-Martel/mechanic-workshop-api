@@ -88,7 +88,7 @@ const todosLosMecanicosController = async(req,res) => {
         res.status(202).json({
             mensaje: 'Mecanicos:',
             mecanicos: mecanicos
-        })
+        });
 
     } catch(error){
         if(error.message === 'SIN MECANICOS'){
@@ -99,7 +99,7 @@ const todosLosMecanicosController = async(req,res) => {
 
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
-        })
+        });
     }
 }
 
