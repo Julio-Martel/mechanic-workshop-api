@@ -6,7 +6,9 @@ import { crearOrdenModel,
          consultarOrdenModel,
          cancelarOrdenModel,
          comprobarDuplicadoOrdenVehiculo,
-        limiteOrdenes } from "../models/ordenes.models.js";
+        limiteOrdenes,
+        cantidadTotalOrdenesFinalizadas,
+        totalOrdenes } from "../models/ordenes.models.js";
 import { serviciosAsociadosAUnaOrden,
         totalDeServicios
  } from "../models/detalleServicios.model.js";
@@ -78,6 +80,10 @@ const cambiarEstadoService = async(id,data) => {
             throw new Error("SIN CANTIDAD MINIMA");
         }
     
+        
+
+
+
     }
 
     const cambiarEstado = await cambiarEstadoModel(id,data);
@@ -115,9 +121,27 @@ const cancelarOrdenVehiculoService = async(id) => {
     return ordenCancelada;
 }
 
+const todasLasOrdenesService = async() => {
+    const cantidadActualOrdenes = await totalOrdenes();
+    
+    if(cantidadActualOrdenes === 0){
+        throw new Error("SIN ORDENES");
+    }
+    
+    const ordenesFinalizadas = await cantidadTotalOrdenesFinalizadas();
+
+    if(ordenesFinalizadas === 0){
+        throw new Error("SIN ORDENES FINALIZADAS");
+    }
+
+    return ordenesFinalizadas;
+}
+
+
 export {
     crearOrdenServices,
     cambiarEstadoService,
     consultarOrdenService,
-    cancelarOrdenVehiculoService
+    cancelarOrdenVehiculoService,
+    todasLasOrdenesService
 }
