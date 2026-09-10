@@ -153,9 +153,19 @@ const cancelarOrdenVehiculoController = async(req,res) => {
     }    
 }
 
+const todasLasOrdenesController = async(req,res) => {
+    try {
+        // AGREGAR AQUI EL REQ.QUERY PARA FILTRAR EN ESTADO FINALIZADO SI ES NECESARIO
+    } catch(error){
+
+    }
+}
+
+
 export {
     crearOrdenController,
     cambiarEstadoController,
     consultarOrdenController,
     cancelarOrdenVehiculoController,
+    todasLasOrdenesController
 }
