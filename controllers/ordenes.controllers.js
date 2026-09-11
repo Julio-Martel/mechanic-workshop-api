@@ -1,7 +1,8 @@
 import { crearOrdenServices,
          cambiarEstadoService,
          consultarOrdenService,
-         cancelarOrdenVehiculoService
+         cancelarOrdenVehiculoService,
+         todasLasOrdenesService
 } from "../services/ordenes.services.js";
 
 
@@ -155,9 +156,30 @@ const cancelarOrdenVehiculoController = async(req,res) => {
 
 const todasLasOrdenesController = async(req,res) => {
     try {
-        // AGREGAR AQUI EL REQ.QUERY PARA FILTRAR EN ESTADO FINALIZADO SI ES NECESARIO
-    } catch(error){
+        const ordenesFinalizadas = await todasLasOrdenesService();
 
+        res.status(202).json({
+            mensaje: `Total de ordenes finalizadas: 
+            ${ordenesFinalizadas}`
+        })
+
+    } catch(error){
+        if(error.message === 'SIN ORDENES'){
+            return res.status(404).json({
+                mensaje: 'No hay ordenes en la base de datos.'
+            })
+        }
+    
+        if(error.message === 'SIN ORDENES FINALIZADAS'){
+            return res.status(404).json({
+                mensaje: 'No hay ordenes finalizadas.'
+            })
+        }
+        
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    
     }
 }
 
