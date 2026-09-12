@@ -17,6 +17,6 @@ vehiculosRoutes.delete('/:id', eliminacionVehiculoController);
 vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
 
 //RUTA VER TODOS LOS VEHICULOS DE UN DETERMINADO CLIENTE
-vehiculosRoutes.get('/vehiculos/cliente/:id',/*AGREGAR HANDLER*/);
+//vehiculosRoutes.get('/vehiculos/cliente/:id',/*AGREGAR HANDLER*/);
 
 export default vehiculosRoutes;

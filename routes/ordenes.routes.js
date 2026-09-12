@@ -2,7 +2,8 @@ import express from 'express';
 import { crearOrdenController,
         cambiarEstadoController,
         consultarOrdenController,
-        cancelarOrdenVehiculoController
+        cancelarOrdenVehiculoController,
+        todasLasOrdenesController
  } from '../controllers/ordenes.controllers.js';
 
  import { quitarRepuestoDelDetalle } from '../controllers/detalleRepuesto.controller.js';
@@ -31,6 +32,9 @@ ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
 ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle)
+
+//RUTA VER ORDENES FINALIZADAS TESTEAR!
+ordenesRoutes.get('/todas', todasLasOrdenesController);
 
 
 export default ordenesRoutes;
