@@ -76,6 +76,21 @@ const limiteOrdenes = async (id_mecanico) => {
     return limite[0].total;
 }
 
+const totalOrdenes = async() => {
+    const [resultado] = await db.query(`SELECT COUNT(*) AS Total FROM Orden`);
+
+    return resultado[0].Total;
+}
+
+const cantidadTotalOrdenesFinalizadas = async() => {
+    const [resultado] = await db.query(`SELECT COUNT(*) AS Total FROM Orden
+        WHERE estado = ?`,
+        ['finalizada']);
+
+    return resultado[0].Total;
+}
+
+
 export {
     crearOrdenModel,
     verificarOrdenCanceladaFinalizadaModel,
@@ -83,5 +98,7 @@ export {
     consultarOrdenModel,
     cancelarOrdenModel,
     comprobarDuplicadoOrdenVehiculo,
-    limiteOrdenes
+    limiteOrdenes,
+    cantidadTotalOrdenesFinalizadas,
+    totalOrdenes
 }
