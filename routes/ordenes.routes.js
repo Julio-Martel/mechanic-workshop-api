@@ -33,8 +33,8 @@ ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
 ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle)
 
-//RUTA VER ORDENES FINALIZADAS TESTEAR!
-ordenesRoutes.get('/todas', todasLasOrdenesController);
+//RUTA VER ORDENES FINALIZADAS
+ordenesRoutes.get('/todasLasOrdenesFinales/finales', todasLasOrdenesController);
 
 
 export default ordenesRoutes;
