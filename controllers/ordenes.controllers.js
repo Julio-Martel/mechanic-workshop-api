@@ -154,8 +154,6 @@ const cancelarOrdenVehiculoController = async(req,res) => {
     }    
 }
 
-// TESTEAR ESTO!
-
 const todasLasOrdenesController = async(req,res) => {
     try {
         const ordenesFinalizadas = await todasLasOrdenesService();
