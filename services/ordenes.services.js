@@ -14,6 +14,8 @@ import { serviciosAsociadosAUnaOrden,
  } from "../models/detalleServicios.model.js";
 
 import { totaDeRepuestos } from "../models/detalleRepuesto.models.js";
+import db from '../config/db.js';
+
 
 const crearOrdenServices = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -92,7 +94,9 @@ const cambiarEstadoService = async(id,data) => {
 }
 
 const consultarOrdenService = async(id) => { 
-    const consultarOrden = await consultarOrdenModel(id);
+    const conexion = await db.getConnection();
+
+    const consultarOrden = await consultarOrdenModel(conexion,id);
 
     if(consultarOrden === undefined){
         throw new Error("ID INEXISTENTE");
