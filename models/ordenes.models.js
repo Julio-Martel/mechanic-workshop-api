@@ -82,10 +82,11 @@ const totalOrdenes = async() => {
     return resultado[0].Total;
 }
 
-const cantidadTotalOrdenesFinalizadas = async() => {
+const cantidadTotalOrdenesFiltradas = async(estado) => {
+
     const [resultado] = await db.query(`SELECT COUNT(*) AS Total FROM Orden
         WHERE estado = ?`,
-        ['finalizada']);
+        [estado]);
 
     return resultado[0].Total;
 }
@@ -110,6 +111,6 @@ export {
     cancelarOrdenModel,
     comprobarDuplicadoOrdenVehiculo,
     limiteOrdenes,
-    cantidadTotalOrdenesFinalizadas,
+    cantidadTotalOrdenesFiltradas,
     totalOrdenes
 }
