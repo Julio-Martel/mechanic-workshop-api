@@ -96,7 +96,6 @@ const cambiarEstadoService = async(id,data) => {
 
 const consultarOrdenService = async(id) => { 
     const conexion = await db.getConnection();
-
     const consultarOrden = await consultarOrdenModel(conexion,id);
 
     if(consultarOrden === undefined){
