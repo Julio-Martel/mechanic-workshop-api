@@ -103,6 +103,27 @@ const todosLosMecanicosController = async(req,res) => {
     }
 }
 
+const totalReparacionesPorMecanico = async(req,res) => {
+    try {
+        const todosLosMecanicos = await todosLosMecanicosService();
+
+
+
+
+
+    } catch(error){
+        if(error.message === 'SIN MECANICOS'){
+            return res.status(404).json({
+                mensaje: 'No hay mecanicos cargados en la base de datos...'
+            })
+        }
+
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        });
+    }
+}
+
 export {
     registroMecanicoController,
     modificacionDatosMecanicoController,
