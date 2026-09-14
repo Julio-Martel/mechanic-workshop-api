@@ -125,8 +125,6 @@ const consultarOrdenController = async(req,res) => {
             })
         }
 
-        console.log(error)
-
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
@@ -155,15 +153,14 @@ const cancelarOrdenVehiculoController = async(req,res) => {
     }    
 }
 
-const todasLasOrdenesController = async(req,res) => {
+const filtrarOrdenesVerCantidad = async(req,res) => {
     try {
         const {estado} = req.query;
 
         const ordenesFiltradas = await todasLasOrdenesService(estado);
 
         res.status(202).json({
-            mensaje: `Total de ordenes finalizadas: 
-            ${ordenesFiltradas}`
+            mensaje: `Total de ordenes en estado ${estado}: ${ordenesFiltradas}`
         })
 
     } catch(error){
@@ -192,5 +189,5 @@ export {
     cambiarEstadoController,
     consultarOrdenController,
     cancelarOrdenVehiculoController,
-    todasLasOrdenesController
+    filtrarOrdenesVerCantidad
 }
