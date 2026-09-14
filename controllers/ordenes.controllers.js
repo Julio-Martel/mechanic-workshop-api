@@ -1,3 +1,4 @@
+import { escape } from "mysql2";
 import { crearOrdenServices,
          cambiarEstadoService,
          consultarOrdenService,
@@ -156,11 +157,13 @@ const cancelarOrdenVehiculoController = async(req,res) => {
 
 const todasLasOrdenesController = async(req,res) => {
     try {
-        const ordenesFinalizadas = await todasLasOrdenesService();
+        const {estado} = req.query;
+
+        const ordenesFiltradas = await todasLasOrdenesService(estado);
 
         res.status(202).json({
             mensaje: `Total de ordenes finalizadas: 
-            ${ordenesFinalizadas}`
+            ${ordenesFiltradas}`
         })
 
     } catch(error){
@@ -170,9 +173,9 @@ const todasLasOrdenesController = async(req,res) => {
             })
         }
     
-        if(error.message === 'SIN ORDENES FINALIZADAS'){
+        if(error.message === 'SIN ORDENES FILTRADAS'){
             return res.status(404).json({
-                mensaje: 'No hay ordenes finalizadas.'
+                mensaje: `No hay ordenes en el estado que ha ingresado.`
             })
         }
         
