@@ -91,18 +91,6 @@ const cantidadTotalOrdenesFiltradas = async(estado) => {
     return resultado[0].Total;
 }
 
-/*
-
-    IMPLEMENTARE UNA CONSULTA SQL MEDIANTE FILTROS, 
-    YA QUE SI EL ADMIN INGRESA ESTADO PENDIENTE, QUE MUESTRE EL TOTAL
-    DE PENDIENTES, O CON CUALQUIER ESTADO QUE INGRES
-    SIN NECESIDAD DE TENER VARIAS CONSULTAS ESPECIFICAS PARA CADA ESTADO
-    USARE EL REQ.QUERY
-
-*/
-
-
-
 export {
     crearOrdenModel,
     verificarOrdenCanceladaFinalizadaModel,
