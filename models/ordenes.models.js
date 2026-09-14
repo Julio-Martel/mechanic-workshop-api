@@ -91,6 +91,13 @@ const cantidadTotalOrdenesFiltradas = async(estado) => {
     return resultado[0].Total;
 }
 
+const todasdLasOrdenesModel = async() => {
+    const [resultados] = await db.query(`SELECT * FROM Orden`);
+
+    return resultados[0];
+}
+
+
 export {
     crearOrdenModel,
     verificarOrdenCanceladaFinalizadaModel,
@@ -100,5 +107,6 @@ export {
     comprobarDuplicadoOrdenVehiculo,
     limiteOrdenes,
     cantidadTotalOrdenesFiltradas,
-    totalOrdenes
+    totalOrdenes,
+    todasdLasOrdenesModel
 }

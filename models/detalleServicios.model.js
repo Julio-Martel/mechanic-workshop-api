@@ -27,9 +27,18 @@ const totalDeServicios = async(id_orden) => {
     return resultado[0].Total;
 }
 
+const todosLosDetallesServicio = async() => {
+    const [resultados] = await db.query(`SELECT * FROM Detalle`);
+
+    return resultados[0];
+}
+
+
+
 
 export {
     crearDetalleServicio,
     serviciosAsociadosAUnaOrden,
-    totalDeServicios
+    totalDeServicios,
+    todosLosDetallesServicio
 }
