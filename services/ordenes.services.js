@@ -7,8 +7,9 @@ import { crearOrdenModel,
          cancelarOrdenModel,
          comprobarDuplicadoOrdenVehiculo,
         limiteOrdenes,
-        cantidadTotalOrdenesFinalizadas,
+        cantidadTotalOrdenesFiltradas,
         totalOrdenes } from "../models/ordenes.models.js";
+        
 import { serviciosAsociadosAUnaOrden,
         totalDeServicios
  } from "../models/detalleServicios.model.js";
@@ -125,20 +126,20 @@ const cancelarOrdenVehiculoService = async(id) => {
     return ordenCancelada;
 }
 
-const todasLasOrdenesService = async() => {
+const todasLasOrdenesService = async(estado) => {
     const cantidadActualOrdenes = await totalOrdenes();
     
     if(cantidadActualOrdenes === 0){
         throw new Error("SIN ORDENES");
     }
     
-    const ordenesFinalizadas = await cantidadTotalOrdenesFinalizadas();
+    const ordenesFiltradas = await cantidadTotalOrdenesFiltradas(estado);
 
-    if(ordenesFinalizadas === 0){
-        throw new Error("SIN ORDENES FINALIZADAS");
+    if(ordenesFiltradas === 0){
+        throw new Error(`SIN ORDENES FILTRADAS`);
     }
 
-    return ordenesFinalizadas;
+    return ordenesFiltradas;
 }
 
 
