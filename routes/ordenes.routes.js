@@ -3,7 +3,7 @@ import { crearOrdenController,
         cambiarEstadoController,
         consultarOrdenController,
         cancelarOrdenVehiculoController,
-        todasLasOrdenesController
+        filtrarOrdenesVerCantidad
  } from '../controllers/ordenes.controllers.js';
 
  import { quitarRepuestoDelDetalle } from '../controllers/detalleRepuesto.controller.js';
@@ -16,6 +16,15 @@ const ordenesRoutes = express.Router();
 //RUTA CREAR ORDEN
 ordenesRoutes.post('/crear', crearOrdenController);
 
+//RUTA VER ORDENES FINALIZADAS
+ordenesRoutes.get('/filtrar', filtrarOrdenesVerCantidad);
+
+//RUTA DETALLE DEL SERVICIO
+ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
+
+//RUTA DETALLE DEL REPUESTO 
+ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
+
 //RUTA CAMBIO DE ESTADO DE ORDEN
 ordenesRoutes.patch('/:id', cambiarEstadoController);
 
@@ -25,16 +34,8 @@ ordenesRoutes.get('/:id', consultarOrdenController);
 //RUTA CANCELAR ORDEN
 ordenesRoutes.patch('/:id', cancelarOrdenVehiculoController);
 
-//RUTA DETALLE DEL SERVICIO
-ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
+ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle);
 
-//RUTA DETALLE DEL REPUESTO 
-ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
-
-ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle)
-
-//RUTA VER ORDENES FINALIZADAS
-ordenesRoutes.get('/filtrarOrdenes', todasLasOrdenesController);
 
 
 export default ordenesRoutes;
