@@ -1,4 +1,3 @@
-import { escape } from "mysql2";
 import { crearOrdenServices,
          cambiarEstadoService,
          consultarOrdenService,
@@ -112,6 +111,8 @@ const consultarOrdenController = async(req,res) => {
     try {
         const {id} = req.params;
         const orden = await consultarOrdenService(id);
+
+        console.log(id)
 
         res.status(202).json({
             mensaje: 'Orden:',
