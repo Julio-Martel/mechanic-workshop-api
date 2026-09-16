@@ -85,6 +85,9 @@ const todosLosMecanicosController = async(req,res) => {
     try{
         const mecanicos = await todosLosMecanicosService();
 
+        console.log(mecanicos.listadoMecanicos[0]);
+
+
         res.status(202).json({
             mensaje: 'Mecanicos:',
             mecanicos: mecanicos
@@ -107,9 +110,10 @@ const totalReparacionesPorMecanico = async(req,res) => {
     try {
         const todosLosMecanicos = await todosLosMecanicosService();
 
-
-
-
+        res.status(202).json({
+            mensaje: 'Todos los mecanicos',
+            mecanicos: todosLosMecanicos
+        })
 
     } catch(error){
         if(error.message === 'SIN MECANICOS'){
@@ -128,5 +132,6 @@ export {
     registroMecanicoController,
     modificacionDatosMecanicoController,
     borrarMecanicoController,
-    todosLosMecanicosController
+    todosLosMecanicosController,
+    totalReparacionesPorMecanico
 }
