@@ -77,7 +77,9 @@ const totalReparacionesPorMecanicoService = async() => {
 
 
     todosLosMecanicos.forEach(mecanico => {
-        mecanico.id
+        const id_mecanico = mecanico.id;
+        //const APLICAR EL MODEL DE TOTAL DE REPARACIONES POR MECANICO 
+
     });
 
 
