@@ -68,6 +68,21 @@ const todosLosMecanicosService = async() => {
     return datosMecanicos;
 }
 
+const totalReparacionesPorMecanicoService = async() => {
+    const todosLosMecanicos = await todosLosMecanicosModel();
+    const totales = [];
+
+
+    for(let i = 0; i < todosLosMecanicos.length; i++){
+        for(let j = 0; j < todosLosMecanicos[j]; j++){
+            // PENSAR ESTA LOGICA
+        }
+    }
+
+
+
+}
+
 export {
     registroMecanicoService,
     modificacionDatosMecanicoService,
