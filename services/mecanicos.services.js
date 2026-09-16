@@ -6,6 +6,8 @@ import { encontrarMecanicoModel,
         todosLosMecanicosModel,
         cantidadTotalDeMecanicos } from "../models/mecanicos.model.js";
 
+import { totalDeReparacionesPorMecanico } from "../models/detalleServicios.model.js";
+
 const registroMecanicoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
         throw new Error("BODY VACIO");
@@ -70,14 +72,13 @@ const todosLosMecanicosService = async() => {
 
 const totalReparacionesPorMecanicoService = async() => {
     const todosLosMecanicos = await todosLosMecanicosModel();
+    
     const totales = [];
 
 
-    for(let i = 0; i < todosLosMecanicos.length; i++){
-        for(let j = 0; j < todosLosMecanicos[j]; j++){
-            // PENSAR ESTA LOGICA
-        }
-    }
+    todosLosMecanicos.forEach(mecanico => {
+        mecanico.id
+    });
 
 
 
