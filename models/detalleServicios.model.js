@@ -43,9 +43,6 @@ const totalDeReparacionesPorMecanico = async(id_mecanico) => {
     resultado[0].Total;
 }
 
-
-
-
 export {
     crearDetalleServicio,
     serviciosAsociadosAUnaOrden,
