@@ -43,7 +43,7 @@ const borrarMecanicoModel = async(id) => {
 const todosLosMecanicosModel = async() => {
     const [resultado] = await db.query(`SELECT * FROM Mecanicos`);
 
-    return resultado;
+    return resultado[0];
 }
 
 const cantidadTotalDeMecanicos = async() => {
