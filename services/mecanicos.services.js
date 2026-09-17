@@ -75,20 +75,25 @@ const totalReparacionesPorMecanicoService = async() => {
     
     const totales = [];
 
-
-    todosLosMecanicos.forEach(mecanico => {
+    todosLosMecanicos.forEach(mecanico = async() => {
         const id_mecanico = mecanico.id;
-        //const APLICAR EL MODEL DE TOTAL DE REPARACIONES POR MECANICO 
+        const totalReparacion = await totalDeReparacionesPorMecanico(id_mecanico);
 
+        const data = {
+            id_mecanico: id_mecanico,
+            totalReparacion: totalReparacion
+        }
+
+        totales.push(data);
     });
 
-
-
+    return totales;
 }
 
 export {
     registroMecanicoService,
     modificacionDatosMecanicoService,
     borrarMecanicoService,
-    todosLosMecanicosService
+    todosLosMecanicosService,
+    totalReparacionesPorMecanicoService
 }
