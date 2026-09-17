@@ -3,8 +3,8 @@ import { registroMecanicoController,
         modificacionDatosMecanicoController,
         borrarMecanicoController,
         todosLosMecanicosController,
-totalReparacionesPorMecanico } from '../controllers/mecanicos.controllers.js';
-import { totalDeReparacionesPorMecanico } from '../models/detalleServicios.model.js';
+        totalReparacionesPorMecanicoController 
+} from '../controllers/mecanicos.controllers.js';
 
 const mecanicosRoutes = express.Router();
 
@@ -21,7 +21,7 @@ mecanicosRoutes.delete('/:id', borrarMecanicoController);
 mecanicosRoutes.get('/', todosLosMecanicosController);
 
 //RUTA DE OBTECION DEL TOTAL DE REPACION DE CADA MECANICO
-mecanicosRoutes.get('/totales', totalDeReparacionesPorMecanico);
+mecanicosRoutes.get('/totales', totalReparacionesPorMecanicoController);
 
 export default mecanicosRoutes;
 
