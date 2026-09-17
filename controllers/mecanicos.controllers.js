@@ -1,7 +1,8 @@
 import { registroMecanicoService,
          modificacionDatosMecanicoService,
          borrarMecanicoService,
-         todosLosMecanicosService } from "../services/mecanicos.services.js"
+         todosLosMecanicosService,
+        totalReparacionesPorMecanicoService } from "../services/mecanicos.services.js"
 
 const registroMecanicoController = async(req,res) => {
     try {
@@ -106,9 +107,9 @@ const todosLosMecanicosController = async(req,res) => {
     }
 }
 
-const totalReparacionesPorMecanico = async(req,res) => {
+const totalReparacionesPorMecanicoController = async(req,res) => {
     try {
-        const todosLosMecanicos = await todosLosMecanicosService();
+        const todosLosMecanicos = await totalReparacionesPorMecanicoService();
 
         res.status(202).json({
             mensaje: 'Todos los mecanicos',
@@ -122,6 +123,8 @@ const totalReparacionesPorMecanico = async(req,res) => {
             })
         }
 
+        console.log(error)
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         });
@@ -133,5 +136,5 @@ export {
     modificacionDatosMecanicoController,
     borrarMecanicoController,
     todosLosMecanicosController,
-    totalReparacionesPorMecanico
+    totalReparacionesPorMecanicoController
 }

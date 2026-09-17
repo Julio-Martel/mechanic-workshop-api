@@ -69,7 +69,7 @@ const cambiarEstadoController = async(req,res) => {
     try {
         const {id} = req.params;
 
-        const estadoCambiado = await cambiarEstadoService(id,req.body);
+        await cambiarEstadoService(id,req.body);
 
         res.status(202).json({
             mensaje: 'Estado de orden actualizado.'
