@@ -65,6 +65,11 @@ const crearOrdenController = async(req,res) => {
     }
 }
 
+
+/*
+    ORDEN DE REPARACION ACTIVA ESTA NO APARECE EN EL LISTADO
+*/
+
 const cambiarEstadoController = async(req,res) => {
     try {
         const {id} = req.params;
