@@ -16,6 +16,8 @@ import { serviciosAsociadosAUnaOrden,
  } from "../models/detalleServicios.model.js";
 
 import { totaDeRepuestos } from "../models/detalleRepuesto.models.js";
+import { servicioMasUtilizado } from "../utils/servicioMasUtilizadoUtils.js";
+
 import db from '../config/db.js';
 
 
@@ -132,7 +134,9 @@ const todasLasOrdenesService = async(estado) => {
 
     if(estado === undefined){
         const todasdLasOrdenes = await todasdLasOrdenesModel();
-    
+        
+         
+
         const dataTodasLasOrdenes = {
             cantidadOrdenes: cantidadActualOrdenes,
             ordenes: todasdLasOrdenes
