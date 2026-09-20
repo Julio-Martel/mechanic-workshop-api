@@ -34,13 +34,12 @@ const todosLosDetallesServicio = async() => {
 }
 
 const totalDeReparacionesPorMecanico = async(id_mecanico) => {
-    const [resultado] = await db.query(`SELECT COUNT(*) FROM Orden
-        AS Total FROM Detalle 
-        WHERE id_mecanico = ? AND estado = ?`,
+    const [resultado] = await db.query(`SELECT COUNT(*) AS Total
+        FROM Orden WHERE id_mecanico = ? AND estado = ?`,
         [id_mecanico, 'en reparacion']
     );
 
-    resultado[0].Total;
+    return resultado[0].Total;
 }
 
 export {
