@@ -75,8 +75,11 @@ const totalReparacionesPorMecanicoService = async () => {
 
     const promesas = todosLosMecanicos.map(async (mecanico) => {
         const id_mecanico = mecanico.id;
+        console.log(mecanico.id)
         const totalReparacion = await totalDeReparacionesPorMecanico(id_mecanico);
         
+        console.log(totalReparacion)
+
         if(totalReparacion !== undefined){
             return {
                 id_mecanico: id_mecanico,

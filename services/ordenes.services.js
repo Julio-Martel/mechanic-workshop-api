@@ -83,11 +83,6 @@ const cambiarEstadoService = async(id,data) => {
         if(cantidadMinima === 0) {
             throw new Error("SIN CANTIDAD MINIMA");
         }
-    
-        
-
-
-
     }
 
     const cambiarEstado = await cambiarEstadoModel(id,data);
