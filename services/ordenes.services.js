@@ -12,6 +12,7 @@ import { crearOrdenModel,
     todasdLasOrdenesModel} from "../models/ordenes.models.js";
         
 import { serviciosAsociadosAUnaOrden,
+        todosLosDetallesServicio,
         totalDeServicios
  } from "../models/detalleServicios.model.js";
 
@@ -26,7 +27,7 @@ const crearOrdenServices = async(data) => {
         throw new Error("BODY VACIO");
     }
 
-    if(!data.id_vehiculo || !data.id_mecanico || !data.fecha_entrega || !data.estado){
+    if(!data.id_vehiculo || !data.id_mecanico || !data.fecha_entrega){
         throw new Error("DEBE MANDAR TODOS LOS DATOS");
     }
 
@@ -134,12 +135,16 @@ const todasLasOrdenesService = async(estado) => {
 
     if(estado === undefined){
         const todasdLasOrdenes = await todasdLasOrdenesModel();
-        
-         
+        const todosDetallesServicios = await todosLosDetallesServicio();
+
+         const mayorServicioUtilizado = servicioMasUtilizado(todosDetallesServicios);
+
+
 
         const dataTodasLasOrdenes = {
             cantidadOrdenes: cantidadActualOrdenes,
-            ordenes: todasdLasOrdenes
+            ordenes: todasdLasOrdenes,
+            mayorServicioUtilizado: mayorServicioUtilizado
         }
 
         ordenesFiltradas = dataTodasLasOrdenes;
@@ -156,7 +161,6 @@ const todasLasOrdenesService = async(estado) => {
 
     return ordenesFiltradas;
 }
-
 
 export {
     crearOrdenServices,
