@@ -36,6 +36,4 @@ ordenesRoutes.patch('/:id', cancelarOrdenVehiculoController);
 
 ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle);
 
-
-
 export default ordenesRoutes;
