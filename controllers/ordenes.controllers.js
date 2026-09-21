@@ -5,7 +5,6 @@ import { crearOrdenServices,
          todasLasOrdenesService
 } from "../services/ordenes.services.js";
 
-
 const crearOrdenController = async(req,res) => {
     try {
         const ordenCreada =  await crearOrdenServices(req.body);
@@ -165,6 +164,7 @@ const filtrarOrdenesVerCantidad = async(req,res) => {
         })
 
     } catch(error){
+        console.log(error)
 
         if(error.message === 'SIN ORDENES'){
             return res.status(404).json({
