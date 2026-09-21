@@ -1,19 +1,31 @@
-const servicioMasUtilizado = async(todasdLasOrdenes) => {
-    let acum1 = 0;
-    for(let i = i + 1; i < todasdLasOrdenes.lenght; i++){
+const servicioMasUtilizado = (todosDetallesServicios) => {
+    let mayorCantidad = 0;
+    let servicioMayor = null;
+
+    for(let i = 0; i < todosDetallesServicios.length; i++){
+
         let acum2 = 0;
-        for(let j = 0; j < todasdLasOrdenes.lenght; j++){
-            if(todasdLasOrdenes[j].id_servicio === i){
-                acum2 = acum2 + 1;
+        let valorActual = i + 1;
+
+        for(let j = 0; j < todosDetallesServicios.length; j++){
+
+            if(todosDetallesServicios[j].id_servicio === valorActual){
+                acum2++;
             }
         }
 
-        if(acum2 > acum1){
-            acum1 = acum2;
+        if(acum2 > mayorCantidad){
+            mayorCantidad = acum2;
+            servicioMayor = valorActual;
         }
     }
 
-   return acum1; 
+    const data = {
+        id_servicio: servicioMayor,
+        mayorCantidad: mayorCantidad
+    }
+
+    return data;
 }
 
 export {
