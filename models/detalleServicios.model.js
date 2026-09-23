@@ -42,11 +42,23 @@ const totalDeReparacionesPorMecanico = async(id_mecanico) => {
     return resultado[0].Total;
 }
 
+const agruparServiciosPorVecesUtilizadosModels = async() => {
+    const [resultados] = db.query(`SELECT id_servicio, COUNT(*) AS Cantidad
+        FROM Detalle GROUP BY id_servicio`
+    );
+
+    resultados[0].Cantidad;
+}
+
+
+
 export {
     crearDetalleServicio,
     serviciosAsociadosAUnaOrden,
     totalDeServicios,
     todosLosDetallesServicio,
-    totalDeReparacionesPorMecanico
+    totalDeReparacionesPorMecanico,
+    agruparServiciosPorVecesUtilizadosModels
+
 }  
 
