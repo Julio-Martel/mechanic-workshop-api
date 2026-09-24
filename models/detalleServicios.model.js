@@ -62,6 +62,7 @@ export {
     serviciosAsociadosAUnaOrden,
     totalDeServicios,
     todosLosDetallesServicio,
+    todosLosDetallesServiciosModel,
     totalDeReparacionesPorMecanico,
     agruparServiciosPorVecesUtilizadosModels
 }  
