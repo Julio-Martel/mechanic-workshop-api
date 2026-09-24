@@ -22,6 +22,9 @@ ordenesRoutes.get('/filtrar', filtrarOrdenesVerCantidad);
 //RUTA DETALLE DEL SERVICIO
 ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 
+//RUTA VER TODOS LOS DETALLES DEL SERVICIO
+ordenesRoutes.get('/',/*AGREGAR HANDLER DE LOS DETALLES DEL SERVICIOS*/);
+
 //RUTA DETALLE DEL REPUESTO 
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
 
