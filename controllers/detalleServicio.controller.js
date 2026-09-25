@@ -1,4 +1,4 @@
-import { crearDetalleServicioService } from "../services/detalleServicios.service.js";
+import { crearDetalleServicioService, todosLosDetallesServiciosService } from "../services/detalleServicios.service.js";
 
 const crearDetalleServicioController = async(req,res) => {
     try{
@@ -39,6 +39,37 @@ const crearDetalleServicioController = async(req,res) => {
     }
 }
 
+// TESTEAR ESTO
+const todosLosDetallesServiciosController = async(req,res) => {
+    try {
+        const detallesServicios = await todosLosDetallesServiciosService();
+
+        res.status(202).json({
+            mensaje: 'Datos de los detalles de los servicios: ',
+            data: detallesServicios
+        });
+
+    } catch(error){
+        if(error.message === 'SIN DATOS'){
+            return res.status(404).json({
+                mensaje: 'Sin detalles de datos en la base de datos.'
+            })
+        }
+    
+        if(error.message === 'SIN DETALLES DE SERVICIOS'){
+            return res.status(404).json({
+                mensaje: 'Sin cantidades obtenidas'
+            })
+        }
+    
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
+}
+
+
 export {
-    crearDetalleServicioController
+    crearDetalleServicioController,
+    todosLosDetallesServiciosController
 }
