@@ -39,7 +39,8 @@ const crearDetalleServicioController = async(req,res) => {
     }
 }
 
-// TESTEAR ESTO
+// TESTEAR ESTO PERO PRIMERO SE DEBEN AGREGAR DATOS EN LA BD
+
 const todosLosDetallesServiciosController = async(req,res) => {
     try {
         const detallesServicios = await todosLosDetallesServiciosService();
