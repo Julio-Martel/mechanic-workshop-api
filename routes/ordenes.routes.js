@@ -8,7 +8,7 @@ import { crearOrdenController,
 
  import { quitarRepuestoDelDetalle } from '../controllers/detalleRepuesto.controller.js';
 
-import { crearDetalleServicioController } from '../controllers/detalleServicio.controller.js';
+import { crearDetalleServicioController, todosLosDetallesServiciosController } from '../controllers/detalleServicio.controller.js';
 import { crearDetalleRepuestoController } from '../controllers/detalleRepuesto.controller.js';
 
 const ordenesRoutes = express.Router();
@@ -23,7 +23,7 @@ ordenesRoutes.get('/filtrar', filtrarOrdenesVerCantidad);
 ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
 
 //RUTA VER TODOS LOS DETALLES DEL SERVICIO
-ordenesRoutes.get('/',/*AGREGAR HANDLER DE LOS DETALLES DEL SERVICIOS*/);
+ordenesRoutes.get('/',todosLosDetallesServiciosController);
 
 //RUTA DETALLE DEL REPUESTO 
 ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
