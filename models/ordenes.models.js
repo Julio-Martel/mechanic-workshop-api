@@ -97,6 +97,14 @@ const todasdLasOrdenesModel = async() => {
     return resultados[0];
 }
 
+const ordenesRecientesModels = async() => {
+    const [resultados] = await db.query(`SELECT fecha_ingreso
+        FROM Orden ORDER BY DESC LIMIT 5`);
+
+    return resultados;
+}
+
+
 
 export {
     crearOrdenModel,
@@ -108,5 +116,6 @@ export {
     limiteOrdenes,
     cantidadTotalOrdenesFiltradas,
     totalOrdenes,
-    todasdLasOrdenesModel
+    todasdLasOrdenesModel,
+    ordenesRecientesModels
 }
