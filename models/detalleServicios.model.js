@@ -12,7 +12,7 @@ const crearDetalleServicio = async(data) => {
 }
 
 const todosLosDetallesServiciosModel = async() => {
-    const [resultados] = await db.query(`SELECT * FROM Detalles`);
+    const [resultados] = await db.query(`SELECT * FROM Detalle`);
 
     return resultados[0];
 }
