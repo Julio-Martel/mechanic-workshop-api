@@ -53,7 +53,7 @@ const agruparServiciosPorVecesUtilizadosModels = async() => {
         FROM Detalle GROUP BY id_servicio`
     );
 
-    resultados[0].Cantidad;
+    return resultados;
 }
 
 
