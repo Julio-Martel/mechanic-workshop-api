@@ -7,7 +7,7 @@ import { crearOrdenServices,
 
 const crearOrdenController = async(req,res) => {
     try {
-        const ordenCreada =  await crearOrdenServices(req.body);
+        await crearOrdenServices(req.body);
         
         res.status(202).json({
             mensaje: 'Orden creada con exito.'
@@ -111,8 +111,6 @@ const consultarOrdenController = async(req,res) => {
         const {id} = req.params;
         const orden = await consultarOrdenService(id);
 
-        console.log(id)
-
         res.status(202).json({
             mensaje: 'Orden:',
             orden: orden
@@ -164,7 +162,6 @@ const filtrarOrdenesVerCantidad = async(req,res) => {
         })
 
     } catch(error){
-        console.log(error)
 
         if(error.message === 'SIN ORDENES'){
             return res.status(404).json({
@@ -184,6 +181,7 @@ const filtrarOrdenesVerCantidad = async(req,res) => {
     
     }
 }
+
 
 export {
     crearOrdenController,
