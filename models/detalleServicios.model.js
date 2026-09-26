@@ -49,7 +49,7 @@ const totalDeReparacionesPorMecanico = async(id_mecanico) => {
 }
 
 const agruparServiciosPorVecesUtilizadosModels = async() => {
-    const [resultados] = db.query(`SELECT id_servicio, COUNT(*) AS Cantidad
+    const [resultados] = await db.query(`SELECT id_servicio, COUNT(*) AS Cantidad
         FROM Detalle GROUP BY id_servicio`
     );
 
