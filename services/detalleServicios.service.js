@@ -1,4 +1,4 @@
-import { crearDetalleServicio } from "../models/detalleServicios.model.js";
+import { crearDetalleServicio, todosLosDetallesServiciosModel, agruparServiciosPorVecesUtilizadosModels } from "../models/detalleServicios.model.js";
 import { consultarOrdenModel  ,verificarOrdenCanceladaFinalizadaModel} from "../models/ordenes.models.js";
 import { encontrarServicioPorId } from "../models/servicios.models.js";
 
@@ -36,6 +36,30 @@ const crearDetalleServicioService = async(data) => {
     return detalleServicio;
 }
 
+const todosLosDetallesServiciosService = async() => {
+    
+    const todosLosDetallesServicios = await todosLosDetallesServiciosModel();
+
+    if(todosLosDetallesServicios.length === 0){
+        throw new Error("SIN DATOS");
+    }
+
+    const cantidad = await agruparServiciosPorVecesUtilizadosModels();
+
+    if(cantidad === 0){
+        throw new Error("SIN DETALLES DE SERVICIOS");
+    }
+
+    let data = {
+        detallesServiciosTodos: todosLosDetallesServicios,
+        cantidad: cantidad
+    }
+
+    return data;
+}
+
+
 export {
-    crearDetalleServicioService
+    crearDetalleServicioService,
+    todosLosDetallesServiciosService
 } 

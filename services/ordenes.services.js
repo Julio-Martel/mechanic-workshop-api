@@ -9,7 +9,7 @@ import { crearOrdenModel,
         limiteOrdenes,
         cantidadTotalOrdenesFiltradas,
         totalOrdenes ,
-    todasdLasOrdenesModel} from "../models/ordenes.models.js";
+    todasdLasOrdenesModel, ordenesRecientesModels} from "../models/ordenes.models.js";
         
 import { serviciosAsociadosAUnaOrden,
         todosLosDetallesServicio,
@@ -137,15 +137,16 @@ const todasLasOrdenesService = async(estado) => {
         const todasdLasOrdenes = await todasdLasOrdenesModel();
         const todosDetallesServicios = await todosLosDetallesServicio();
 
-         const mayorServicioUtilizado = servicioMasUtilizado(todosDetallesServicios);
-
+        const mayorServicioUtilizado = servicioMasUtilizado(todosDetallesServicios);
+        const ordenesRecientes = await ordenesRecientesModels();
 
 
         const dataTodasLasOrdenes = {
             cantidadOrdenes: cantidadActualOrdenes,
             ordenes: todasdLasOrdenes,
-            mayorServicioUtilizado: mayorServicioUtilizado
-        }
+            mayorServicioUtilizado: mayorServicioUtilizado,
+            ordenesRecientes: ordenesRecientes
+        };
 
         ordenesFiltradas = dataTodasLasOrdenes;
 
