@@ -12,6 +12,11 @@ const registroVehiculosController = async(req,res) => {
 
     } catch(error){
 
+        /*
+            SEGUIR AGREGANDO MAS VEHICULOS HASTA TENER AL MENOS 15
+        */
+
+
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'No se puede mandar el body esta vacio'
