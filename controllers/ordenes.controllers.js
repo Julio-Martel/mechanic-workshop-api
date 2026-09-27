@@ -162,7 +162,7 @@ const filtrarOrdenesVerCantidad = async(req,res) => {
         })
 
     } catch(error){
-
+        console.log(error)
         if(error.message === 'SIN ORDENES'){
             return res.status(404).json({
                 mensaje: 'No hay ordenes en la base de datos.'

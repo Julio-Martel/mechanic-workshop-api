@@ -1,9 +1,11 @@
 import { registroVehiculoService, modificacionVehiculoService, 
     eliminacionVehiculoService, consultaVehiculosPorClienteService } from "../services/vehiculos.services.js"
 
-const registroController = async(req,res) => {
+const registroVehiculosController = async(req,res) => {
     try{
         const vehiculoRegistrado = await registroVehiculoService(req.body);
+
+        console.log(req.body)
 
         res.status(202).json({
             mensaje: 'VEHICULOS REGISTRADO CON EXITO',
@@ -26,12 +28,6 @@ const registroController = async(req,res) => {
         if(error.message === 'ID INEXISTENTE'){
             return res.status(404).json({
                 mensaje: 'El ID del cliente no existe'
-            })
-        }
-
-        if(error.message = 'TIENE ORDENES'){
-            return res.status(403).json({
-                mensaje: 'El vehiculo tiene un historial de ordenes. No se puede eliminar.'
             })
         }
 
@@ -110,7 +106,7 @@ const consultaVehiculosPorClienteController = async(req,res) => {
 }
 
 export {
-    registroController,
+    registroVehiculosController,
     modificacionController,
     eliminacionVehiculoController,
     consultaVehiculosPorClienteController
