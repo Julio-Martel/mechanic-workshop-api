@@ -12,7 +12,7 @@ const mecanicosRoutes = express.Router();
 //mecanicosRoutes.get('/', todosLosMecanicosController);
 
 //RUTA DE REGISTRO DE MECANICOS
-//mecanicosRoutes.post('/registro', registroMecanicoController);
+mecanicosRoutes.post('/registro', registroMecanicoController);
 
 //RUTA DE OBTECION DEL TOTAL DE REPACION DE CADA MECANICO
 mecanicosRoutes.get('/totales/reparaciones', totalReparacionesPorMecanicoController);
