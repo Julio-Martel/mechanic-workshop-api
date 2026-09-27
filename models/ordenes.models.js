@@ -2,7 +2,7 @@ import db from '../config/db.js';
 
 const crearOrdenModel = async(data) => {
     const [resultado] = await db.query(`INSERT INTO Orden(id_vehiculo, id_mecanico, fecha_entrega, estado)
-        VALUES(?,?,?,?)`,[ data.id_vehiculo,data.id_mecanico, data.fecha_entrega, data.estado]);
+        VALUES(?,?,?,?)`,[ data.id_vehiculo,data.id_mecanico, data.fecha_entrega, 'pendiente']);
 
     return resultado;
 }
@@ -98,8 +98,8 @@ const todasdLasOrdenesModel = async() => {
 }
 
 const ordenesRecientesModels = async() => {
-    const [resultados] = await db.query(`SELECT fecha_ingreso
-        FROM Orden ORDER BY DESC LIMIT 5`);
+    const [resultados] = await db.query(`SELECT *
+        FROM Orden ORDER BY fecha_ingreso DESC LIMIT 5`);
 
     return resultados;
 }
