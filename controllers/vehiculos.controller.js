@@ -5,8 +5,6 @@ const registroVehiculosController = async(req,res) => {
     try{
         const vehiculoRegistrado = await registroVehiculoService(req.body);
 
-        console.log(req.body)
-
         res.status(202).json({
             mensaje: 'VEHICULOS REGISTRADO CON EXITO',
             datos: vehiculoRegistrado
