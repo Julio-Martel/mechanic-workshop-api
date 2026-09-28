@@ -3,7 +3,7 @@ import { registrarRepuestoService,
         eliminarRepuestoService,
         actualizarStockService,
         repuestosDispService,
-        filtrarRepuestosService
+        todosLosRepuestosService
  } from "../services/repuestos.services.js";
 
 const registrarRepuestoController = async(req,res) => {
@@ -123,7 +123,7 @@ const repuestosDispController = async(req,res) => {
 
 const filtrarRepuestosController = async(req,res) => {
     try {
-        const repuestos = await filtrarRepuestosService(req.query);
+        const repuestos = await todosLosRepuestosService();
         
         res.status(202).json({
             mensaje: 'Datos de repuestos',
@@ -131,6 +131,9 @@ const filtrarRepuestosController = async(req,res) => {
         });
 
     } catch(error){
+        console.log('asdasdasd')
+        console.log(error)
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         });
