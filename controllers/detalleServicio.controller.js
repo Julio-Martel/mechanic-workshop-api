@@ -39,8 +39,6 @@ const crearDetalleServicioController = async(req,res) => {
     }
 }
 
-// TESTEAR ESTO PERO PRIMERO SE DEBEN AGREGAR DATOS EN LA BD
-
 const todosLosDetallesServiciosController = async(req,res) => {
     try {
         const detallesServicios = await todosLosDetallesServiciosService();
@@ -51,9 +49,6 @@ const todosLosDetallesServiciosController = async(req,res) => {
         });
 
     } catch(error){
-
-        /*SEGUIR COMPROBANDO*/
-        console.log(error)
 
         if(error.message === 'SIN DATOS'){
             return res.status(404).json({
