@@ -78,6 +78,11 @@ const incrementarStockDevuelto = async(conexion,id,cantidad) => {
     return resultado.affectedRows;
 }
 
+const todosLosRepuestosModel = async() => {
+    const [repuestos] = await db.query(`SELECT * FROM Repuestos`);
+
+    return repuestos;
+}
 
 
 export {
@@ -89,5 +94,6 @@ export {
     encontrarRepuestoPorId,
     descontarStockRepuesto,
     repuestosAsociadosAUnaOrden,
-    incrementarStockDevuelto
+    incrementarStockDevuelto,
+    todosLosRepuestosModel
 }
