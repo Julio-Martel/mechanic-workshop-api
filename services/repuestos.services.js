@@ -3,7 +3,9 @@ import { registrarRepuestoModel,
         eliminarRepuestoModel,
         actualizarStockModel,
         repuestosDispModel,
-        repuestosAsociadosAUnaOrden
+        repuestosAsociadosAUnaOrden,
+        todosLosRepuestosModel,
+        repuestosConMenorStock
  } from "../models/repuestos.models.js";
 
 const registrarRepuestoService = async(data) => {
@@ -81,9 +83,23 @@ const repuestosDispService = async(stock) => {
     return filtrarRepuestos;
 }
 
+const todosLosRepuestosService = async() => {
+    const todosLosRepuestos = await todosLosRepuestosModel();
+    const topRepuestosConMenosStock = await repuestosConMenorStock();
+
+    let data = {
+        todosLosRepuestos: todosLosRepuestos,
+        topRepuestosConMenosStock: topRepuestosConMenosStock
+    }
+
+    return data;
+}
+
+
 export {
     registrarRepuestoService,
     eliminarRepuestoService,
     actualizarStockService,
-    repuestosDispService
+    repuestosDispService,
+    todosLosRepuestosService
 }
