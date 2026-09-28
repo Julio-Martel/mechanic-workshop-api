@@ -28,15 +28,6 @@ const servicioMasUtilizado = (todosDetallesServicios) => {
     return data;
 }
 
-/*
-
-    SE HA COMPLETADO EL PUNTO EN EL QUE DEBEMOS MOSTRAR
-    LOS CINCO REPUESTOS CON MENOR STOCK
-
-*/
-
-
-
 export {
   servicioMasUtilizado
 }
