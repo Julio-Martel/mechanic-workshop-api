@@ -84,6 +84,13 @@ const todosLosRepuestosModel = async() => {
     return repuestos;
 }
 
+const repuestosConMenorStock = async() => {
+    const [repuestos] = await db.query(`SELECT * FROM Repuestos
+        ORDER BY stock ASC LIMIT 5`);
+
+    return repuestos;
+}
+
 
 export {
     registrarRepuestoModel,
@@ -95,5 +102,6 @@ export {
     descontarStockRepuesto,
     repuestosAsociadosAUnaOrden,
     incrementarStockDevuelto,
-    todosLosRepuestosModel
+    todosLosRepuestosModel,
+    repuestosConMenorStock
 }
