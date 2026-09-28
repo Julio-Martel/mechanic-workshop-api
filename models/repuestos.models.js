@@ -69,7 +69,6 @@ const repuestosAsociadosAUnaOrden = async(id_repuesto) => {
 }
 
 const incrementarStockDevuelto = async(conexion,id,cantidad) => {
-    console.log(`valorrrr ${cantidad}`)
     const [resultado] = await conexion.query(`UPDATE Repuestos 
         SET stock = stock + ?
         WHERE id = ?`,
