@@ -2,7 +2,8 @@ import { json } from "express";
 import { registrarRepuestoService,
         eliminarRepuestoService,
         actualizarStockService,
-        repuestosDispService
+        repuestosDispService,
+        filtrarRepuestosService
  } from "../services/repuestos.services.js";
 
 const registrarRepuestoController = async(req,res) => {
@@ -122,7 +123,7 @@ const repuestosDispController = async(req,res) => {
 
 const filtrarRepuestosController = async(req,res) => {
     try {
-        const repuestos = 
+        const repuestos = await filtrarRepuestosService(req.query);
         
         res.status(202).json({
             mensaje: 'Datos de repuestos',
