@@ -120,9 +120,26 @@ const repuestosDispController = async(req,res) => {
     }   
 }
 
+const todosLosRepuestosController = async(req,res) => {
+    try {
+        const repuestos = 
+        
+        res.status(202).json({
+            mensaje: 'Datos de repuestos',
+            data: repuestos
+        });
+
+    } catch(error){
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        });
+    }
+}
+
 export {
     registrarRepuestoController,
     actualizarStockController,
     eliminarRepuestoController,
-    repuestosDispController
+    repuestosDispController,
+    todosLosRepuestosController
 }
