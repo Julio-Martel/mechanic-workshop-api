@@ -21,10 +21,12 @@ const verificarOrdenCanceladaFinalizadaModel = async(id) => {
 }
 
 const cambiarEstadoModel = async(id,data) => {
+    console.log(id,data)
     const [resultado] = await db.query(`UPDATE Orden 
-        SET estado = ? WHERE id = ? AND estado = ?`,
-        [data.estado,
-         id,
+        SET estado = ? WHERE id = ?  AND (estado = ? OR estado IS NULL)`,
+        [ 
+          data.estado,
+          id,
          'pendiente']);
 
     return resultado.affectedRows;
@@ -94,7 +96,7 @@ const cantidadTotalOrdenesFiltradas = async(estado) => {
 const todasdLasOrdenesModel = async() => {
     const [resultados] = await db.query(`SELECT * FROM Orden`);
 
-    return resultados[0];
+    return resultados;
 }
 
 const ordenesRecientesModels = async() => {
