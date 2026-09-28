@@ -99,7 +99,7 @@ const todasdLasOrdenesModel = async() => {
 
 const ordenesRecientesModels = async() => {
     const [resultados] = await db.query(`SELECT *
-        FROM Orden ORDER BY fecha_ingreso DESC LIMIT 5`);
+        FROM Orden ORDER BY id DESC LIMIT 5`);
 
     return resultados;
 }
