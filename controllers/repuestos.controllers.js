@@ -7,7 +7,7 @@ import { registrarRepuestoService,
 
 const registrarRepuestoController = async(req,res) => {
     try{
-      const repuestoRegistrado = await registrarRepuestoService(req.body);
+       await registrarRepuestoService(req.body);
       
       res.status(202).json({
         mensaje: 'Repuesto registrado'
