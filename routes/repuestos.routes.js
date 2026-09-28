@@ -19,4 +19,8 @@ repuestosRoutes.get('/disponibilidad', repuestosDispController);
 //RUTA DE ELIMINACION DE UN REPUESTOS
 repuestosRoutes.delete('/:id',eliminarRepuestoController);
 
+//RUTA DE TODOS LOS REPUESTOS
+repuestosRoutes.get('/',/*HANDLER DE TODOS LOS REPUESTOS*/)
+
+
 export default repuestosRoutes;
