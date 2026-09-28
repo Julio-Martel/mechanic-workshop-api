@@ -120,7 +120,7 @@ const repuestosDispController = async(req,res) => {
     }   
 }
 
-const todosLosRepuestosController = async(req,res) => {
+const filtrarRepuestosController = async(req,res) => {
     try {
         const repuestos = 
         
@@ -141,5 +141,5 @@ export {
     actualizarStockController,
     eliminarRepuestoController,
     repuestosDispController,
-    todosLosRepuestosController
+    filtrarRepuestosController
 }
