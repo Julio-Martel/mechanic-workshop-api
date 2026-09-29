@@ -39,6 +39,8 @@ const crearOrdenServices = async(data) => {
 
     const verificarEstadoDuplicado = await comprobarDuplicadoOrdenVehiculo(data.id_vehiculo);
 
+    console.log(verificarEstadoDuplicado)
+
     if(verificarEstadoDuplicado){
         throw new Error("ORDEN DUPLICADA");
     }
