@@ -75,7 +75,7 @@ const cambiarEstadoController = async(req,res) => {
         })
 
     } catch(error){
-
+        console.log(error)
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'Se debe mandar el estado'
