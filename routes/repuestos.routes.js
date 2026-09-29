@@ -11,7 +11,7 @@ const repuestosRoutes = express.Router();
 //RUTA DE TODOS LOS REPUESTOS
 repuestosRoutes.get('/', filtrarRepuestosController);
 
-/*//RUTA CONSULTAR DISPONIBILIDAD DE REPUESTO
+//RUTA CONSULTAR DISPONIBILIDAD DE REPUESTO
 repuestosRoutes.get('/disponibilidad', repuestosDispController);
 
 //RUTA REGISTRO DE REPUESTO
@@ -21,6 +21,6 @@ repuestosRoutes.post('/', registrarRepuestoController);
 repuestosRoutes.patch('/:id',actualizarStockController);
 
 //RUTA DE ELIMINACION DE UN REPUESTOS
-repuestosRoutes.delete('/:id',eliminarRepuestoController);*/
+repuestosRoutes.delete('/:id',eliminarRepuestoController);
 
 export default repuestosRoutes;
