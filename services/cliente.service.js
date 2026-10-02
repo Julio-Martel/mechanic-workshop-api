@@ -3,6 +3,8 @@ import { verificarClientePorDni, registrarCliente,
          eliminarCliente, consultarCliente,
          todosLosClientes, vehiculosRegistradosDeUnCliente} from "../models/cliente.model.js";
 
+import { clientesConMasDeDosVehiculosModel } from "../models/vehiculos.models.js";
+
 const registroService = async(data) => {
 
     if(!data || Object.keys(data).length === 0){
@@ -74,12 +76,19 @@ const consultarService = async(id) => {
 
 const clientesService = async() => {
     const clientes = await todosLosClientes();
+    const clientesConMasDeDosVehiculos = clientesConMasDeDosVehiculosModel();
+
 
     if(clientes.length === 0){
         throw new Error("NO HAY CLIENTES");
     }
 
-    return clientes;
+    let data = {
+        clientes: clientes,
+        clientesConMasDeDosVehiculos: clientesConMasDeDosVehiculos
+    }
+
+    return data;
 }
 
 export {
