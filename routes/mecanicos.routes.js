@@ -18,10 +18,10 @@ mecanicosRoutes.post('/registro', registroMecanicoController);
 mecanicosRoutes.get('/totales/reparaciones', totalReparacionesPorMecanicoController);
 
 //RUTA DE MODIFICACION DE DATOS DEL MECANICO
-//mecanicosRoutes.patch('/:id',modificacionDatosMecanicoController);
+mecanicosRoutes.patch('/:id',modificacionDatosMecanicoController);
 
 //RUTA DE ELIMINACION DE MECANICOS
-//mecanicosRoutes.delete('/:id', borrarMecanicoController);
+mecanicosRoutes.delete('/:id', borrarMecanicoController);
 
 export default mecanicosRoutes;
 
