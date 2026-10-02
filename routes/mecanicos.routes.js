@@ -9,7 +9,7 @@ import { registroMecanicoController,
 const mecanicosRoutes = express.Router();
 
 //RUTA DE OBTENCION DE TODOS LOS MECANICOS
-//mecanicosRoutes.get('/', todosLosMecanicosController);
+mecanicosRoutes.get('/', todosLosMecanicosController);
 
 //RUTA DE REGISTRO DE MECANICOS
 mecanicosRoutes.post('/registro', registroMecanicoController);
