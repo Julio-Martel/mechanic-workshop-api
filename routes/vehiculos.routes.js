@@ -4,6 +4,12 @@ import { registroVehiculosController, modificacionController,
 
 const vehiculosRoutes = express.Router();
 
+// RUTA PARA CONSULTA DE VEHICULOS SEGUN SU PATENTE
+vehiculosRoutes.get('/', /*AGREGAR HANDLER DE BUSQUEDA*/);
+
+// RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
+vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
+
 // RUTA DE REGISTRO DE UN VEHICULO
 vehiculosRoutes.post('/registro', registroVehiculosController);
 
@@ -12,10 +18,5 @@ vehiculosRoutes.patch('/:id', modificacionController);
 
 // RUTA DE ELIMINACION DE UN VEHICULO
 vehiculosRoutes.delete('/:id', eliminacionVehiculoController);
-
-// RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
-vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
-
-
 
 export default vehiculosRoutes;
