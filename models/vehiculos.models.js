@@ -49,6 +49,15 @@ const ordenesAsociadasAVehiculo = async(id_vehiculo) => {
     return resultados[0].Total;
 }
 
+const clientesConMasDeDosVehiculosModel  = async() => {
+    const [resultados] = await db.query(`SELECT id_cliente,
+        COUNT(*) AS Cantidad_Vehiculos
+        FROM Vehiculos
+        GROUP BY id_cliente
+        HAVING COUNT(*) > 2`);
+
+    return resultados;
+}
 
 export {
     registroVehiculoModel,
@@ -56,6 +65,7 @@ export {
     eliminacionVehiculoModel,
     consultaVehiculosPorClienteModel,
     verificarVehiculoModel,
-    ordenesAsociadasAVehiculo
+    ordenesAsociadasAVehiculo,
+    clientesConMasDeDosVehiculosModel
 }
 
