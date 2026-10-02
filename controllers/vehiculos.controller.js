@@ -106,9 +106,16 @@ const consultaVehiculosPorClienteController = async(req,res) => {
 
 const consultaVehiculosPorPatenteController = async(req,res) => {
     try {
+        let pat = req.query;
+
+        res.status(202).json({
+
+        });
 
     } catch(error){
-        
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
     }
 }
 
