@@ -76,7 +76,7 @@ const consultarService = async(id) => {
 
 const clientesService = async() => {
     const clientes = await todosLosClientes();
-    const clientesConMasDeDosVehiculos = clientesConMasDeDosVehiculosModel();
+    const clientesConMasDeDosVehiculos = await clientesConMasDeDosVehiculosModel();
 
 
     if(clientes.length === 0){
