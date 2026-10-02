@@ -105,7 +105,11 @@ const consultaVehiculosPorClienteController = async(req,res) => {
 }
 
 const consultaVehiculosPorPatenteController = async(req,res) => {
+    try {
 
+    } catch(error){
+        
+    }
 }
 
 
