@@ -128,7 +128,7 @@ const obtenerTodosLosClientesController = async(req,res) => {
         const clientes = await clientesService(); 
 
         res.status(202).json({
-            mensaje: 'Todos los clientes',
+            mensaje: 'DATOS: ',
             clientes: clientes
         })
 
