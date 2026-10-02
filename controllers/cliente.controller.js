@@ -4,7 +4,7 @@ import { registroService, modificarServices,
 
 const registroController = async(req,res) => {
     try {
-        const clienteRegistrado = await registroService(req.body);    
+        await registroService(req.body);    
 
         res.status(201).json({
             mensaje: 'Cliente registrado con exito!'
