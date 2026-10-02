@@ -104,9 +104,15 @@ const consultaVehiculosPorClienteController = async(req,res) => {
     }
 }
 
+const consultaVehiculosPorPatenteController = async(req,res) => {
+
+}
+
+
 export {
     registroVehiculosController,
     modificacionController,
     eliminacionVehiculoController,
-    consultaVehiculosPorClienteController
+    consultaVehiculosPorClienteController,
+    consultaVehiculosPorPatenteController
 }
