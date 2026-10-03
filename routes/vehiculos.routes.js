@@ -5,7 +5,7 @@ import { registroVehiculosController, modificacionController,
 const vehiculosRoutes = express.Router();
 
 // RUTA PARA CONSULTA DE VEHICULOS SEGUN SU PATENTE
-vehiculosRoutes.get('/', /*AGREGAR HANDLER DE BUSQUEDA*/);
+vehiculosRoutes.get('/:patente', /*AGREGAR HANDLER DE BUSQUEDA*/);
 
 // RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
 vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
