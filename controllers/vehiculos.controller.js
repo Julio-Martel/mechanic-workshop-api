@@ -1,5 +1,6 @@
 import { registroVehiculoService, modificacionVehiculoService, 
-    eliminacionVehiculoService, consultaVehiculosPorClienteService } from "../services/vehiculos.services.js"
+    eliminacionVehiculoService, consultaVehiculosPorClienteService,
+consultaVehiculosPorPatenteService } from "../services/vehiculos.services.js"
 
 const registroVehiculosController = async(req,res) => {
     try{
@@ -107,6 +108,7 @@ const consultaVehiculosPorClienteController = async(req,res) => {
 const consultaVehiculosPorPatenteController = async(req,res) => {
     try {
         let pat = req.query;
+        const vehiculoConsultado = await consultaVehiculosPorPatenteService(pat);
 
         res.status(202).json({
 
