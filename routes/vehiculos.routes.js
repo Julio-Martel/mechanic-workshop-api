@@ -1,11 +1,12 @@
 import express from 'express';
 import { registroVehiculosController, modificacionController, 
-    eliminacionVehiculoController, consultaVehiculosPorClienteController} from '../controllers/vehiculos.controller.js';
+    eliminacionVehiculoController, consultaVehiculosPorClienteController,
+consultaVehiculosPorPatenteController} from '../controllers/vehiculos.controller.js';
 
 const vehiculosRoutes = express.Router();
 
 // RUTA PARA CONSULTA DE VEHICULOS SEGUN SU PATENTE
-vehiculosRoutes.get('/:patente', /*AGREGAR HANDLER DE BUSQUEDA*/);
+vehiculosRoutes.get('/:patente', consultaVehiculosPorPatenteController);
 
 // RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
 vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
