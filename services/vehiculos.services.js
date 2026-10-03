@@ -1,7 +1,7 @@
 import { encontrarCliente } from "../models/cliente.model.js"
 import { registroVehiculoModel, modificacionVehiculoModel,
         eliminacionVehiculoModel, consultaVehiculosPorClienteModel,
-        ordenesAsociadasAVehiculo} from "../models/vehiculos.models.js";
+        ordenesAsociadasAVehiculo, consultaVehiculosPorPatenteModel} from "../models/vehiculos.models.js";
 
 const registroVehiculoService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -71,8 +71,14 @@ const consultaVehiculosPorClienteService = async(id) => {
     return vehiculosFiltrados;
 }
 
-const consultaVehiculosPorPatenteService = async() => {
+const consultaVehiculosPorPatenteService = async(pat) => {
+    const vehiculoConsultado = await consultaVehiculosPorClienteModel(pat);
 
+    if(vehiculoConsultado === undefined){
+        throw new Error("PATENTE INEXISTENTE");
+    }
+
+    return vehiculoConsultado;
 }
 
 export {
