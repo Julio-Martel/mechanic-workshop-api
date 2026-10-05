@@ -59,6 +59,17 @@ const clientesConMasDeDosVehiculosModel  = async() => {
     return resultados;
 }
 
+const consultaVehiculosPorPatenteModel = async(pat) => {
+    const [resultado] = await db.query(`SELECT * FROM Vehiculos
+        WHERE patente = ?`,
+        [pat]);
+
+    return resultado[0];
+}
+
+
+
+
 export {
     registroVehiculoModel,
     modificacionVehiculoModel,
@@ -66,6 +77,7 @@ export {
     consultaVehiculosPorClienteModel,
     verificarVehiculoModel,
     ordenesAsociadasAVehiculo,
-    clientesConMasDeDosVehiculosModel
+    clientesConMasDeDosVehiculosModel,
+    consultaVehiculosPorPatenteModel
 }
 
