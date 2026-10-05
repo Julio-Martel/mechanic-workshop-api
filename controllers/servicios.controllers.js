@@ -117,6 +117,8 @@ const listarServiciosController = async(req,res) => {
         });
 
     } catch(error){
+        console.log(error)
+
         if(error.message === 'SIN DATOS'){
             return res.status(404).json({
                 mensaje: 'No hay servicios en la base de datos'
