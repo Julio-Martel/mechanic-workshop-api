@@ -61,6 +61,13 @@ const vehiculosRegistradosDeUnCliente = async(id_cliente) => {
     return resultados[0].Total;
 }
 
+const encontrarClientePorDNI = async(data) => {
+    const [resultad] = await db.query(`SELECT * FROM Clientes 
+        WHERE dni = ?`, data);
+
+    return resultad[0];
+}
+
 
 export {
     encontrarCliente,
@@ -70,5 +77,6 @@ export {
     eliminarCliente,
     consultarCliente,
     todosLosClientes,
-    vehiculosRegistradosDeUnCliente
+    vehiculosRegistradosDeUnCliente,
+    encontrarClientePorDNI
 }
