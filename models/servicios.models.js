@@ -60,7 +60,14 @@ const seriviciosAsociadosAUnaOrden = async(id_servicio) => {
     return resultados[0].Total;
 }
 
+const preciosServiciosIntervalo = async(precio1,precio2) => {
+    const [resultados] = await db.query(`SELECT * FROM Servicios 
+        WHERE precio BETWEEN ? AND ?`,
+        [precio1,
+         precio2]);
 
+    return resultados;
+}
 
 export {
     crearServicioModel,
@@ -70,5 +77,6 @@ export {
     servicioDuplicadoPorNombre,
     eliminarServicioModel,
     listarServiciosModels,
-    seriviciosAsociadosAUnaOrden
+    seriviciosAsociadosAUnaOrden,
+    preciosServiciosIntervalo
 }
