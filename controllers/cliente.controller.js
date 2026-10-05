@@ -125,7 +125,7 @@ const consultarController = async(req,res) => {
 
 const obtenerTodosLosClientesController = async(req,res) => {
     try{
-        const clientes = await clientesService(); 
+        const clientes = await clientesService(req.query.dni); 
 
         res.status(202).json({
             mensaje: 'DATOS: ',

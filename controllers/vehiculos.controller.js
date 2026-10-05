@@ -78,8 +78,7 @@ const eliminacionVehiculoController = async(req,res) => {
 
 const consultaVehiculosPorClienteController = async(req,res) => {
     try{
-        const {id} = req.params;
-        const vehiculosFiltrados = await consultaVehiculosPorClienteService(id);
+        const vehiculosFiltrados = await consultaVehiculosPorClienteService(req.params.id);
 
         res.status(202).json({
             mensaje: 'VEHICULOS:',
