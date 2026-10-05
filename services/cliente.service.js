@@ -1,7 +1,8 @@
 import { verificarClientePorDni, registrarCliente, 
          modificarCliente, encontrarCliente, 
          eliminarCliente, consultarCliente,
-         todosLosClientes, vehiculosRegistradosDeUnCliente} from "../models/cliente.model.js";
+         todosLosClientes, vehiculosRegistradosDeUnCliente,
+        encontrarClientePorDNI} from "../models/cliente.model.js";
 
 import { clientesConMasDeDosVehiculosModel } from "../models/vehiculos.models.js";
 
@@ -74,13 +75,19 @@ const consultarService = async(id) => {
     return clienteObtenido;
 }
 
-const clientesService = async() => {
-    const clientes = await todosLosClientes();
+const clientesService = async(dni) => {
+
+    let clientes;
     const clientesConMasDeDosVehiculos = await clientesConMasDeDosVehiculosModel();
 
-
-    if(clientes.length === 0){
-        throw new Error("NO HAY CLIENTES");
+    if(!dni){
+        clientes = await todosLosClientes();
+        
+        if(clientes.length === 0){
+            throw new Error("NO HAY CLIENTES");
+        }
+    } else {
+        clientes = await encontrarClientePorDNI(dni);
     }
 
     let data = {
