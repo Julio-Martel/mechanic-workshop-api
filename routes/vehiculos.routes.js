@@ -9,7 +9,7 @@ const vehiculosRoutes = express.Router();
 vehiculosRoutes.get('/:patente', consultaVehiculosPorPatenteController);
 
 // RUTA PRA CONSULTA DE VEHICULOS DE UN DETERMINADO CLIENTE
-vehiculosRoutes.get('/:id', consultaVehiculosPorClienteController);
+vehiculosRoutes.get('/cliente/:id', consultaVehiculosPorClienteController);
 
 // RUTA DE REGISTRO DE UN VEHICULO
 vehiculosRoutes.post('/registro', registroVehiculosController);
