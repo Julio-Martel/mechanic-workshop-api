@@ -108,7 +108,7 @@ const consultaVehiculosPorClienteController = async(req,res) => {
 const consultaVehiculosPorPatenteController = async(req,res) => {
     try {
 
-        const vehiculoConsultado = await consultaVehiculosPorPatenteService(req.params);
+        const vehiculoConsultado = await consultaVehiculosPorPatenteService(req.params.patente);
 
         res.status(202).json({
             mensaje: 'DATOS VEHICULO:',
@@ -118,7 +118,7 @@ const consultaVehiculosPorPatenteController = async(req,res) => {
     } catch(error){
         if(error.message === 'PATENTE INEXISTENTE'){
             return res.status(404).json({
-                mensaje: 'No existe esa patente.'///AQUI
+                mensaje: 'No existe esa patente.'
             })         
         }
 
