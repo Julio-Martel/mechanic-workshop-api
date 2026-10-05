@@ -5,6 +5,12 @@ import { registroController, modificarController,
 
 const clientesRoutes = express.Router();
 
+//CONSULTAR CLIENTE 
+clientesRoutes.get('/:id', consultarController);
+
+//OBTENER TODOS LOS CLIENTES
+clientesRoutes.get('/',obtenerTodosLosClientesController);
+
 //REGISTRAR CLIENTE
 clientesRoutes.post('/registro', registroController);
 
@@ -13,11 +19,5 @@ clientesRoutes.patch('/actualizar/:id', modificarController);
 
 //BORRAR CLIENTE
 clientesRoutes.delete('/:id', eliminarController);
-
-//CONSULTAR CLIENTE 
-clientesRoutes.get('/:id', consultarController);
-
-//OBTENER TODOS LOS CLIENTES
-clientesRoutes.get('/',obtenerTodosLosClientesController);
 
 export default clientesRoutes;
