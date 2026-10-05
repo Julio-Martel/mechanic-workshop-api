@@ -131,9 +131,7 @@ const filtrarRepuestosController = async(req,res) => {
         });
 
     } catch(error){
-        console.log('asdasdasd')
-        console.log(error)
-
+        
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         });
