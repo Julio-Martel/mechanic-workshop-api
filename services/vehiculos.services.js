@@ -72,7 +72,7 @@ const consultaVehiculosPorClienteService = async(id) => {
 }
 
 const consultaVehiculosPorPatenteService = async(pat) => {
-    const vehiculoConsultado = await consultaVehiculosPorClienteModel(pat);
+    const vehiculoConsultado = await consultaVehiculosPorPatenteModel(pat);
 
     if(vehiculoConsultado === undefined){
         throw new Error("PATENTE INEXISTENTE");
@@ -86,5 +86,6 @@ export {
     modificacionVehiculoService,
     eliminacionVehiculoService,
     consultaVehiculosPorClienteService,
-    consultaVehiculosPorPatenteService
+    consultaVehiculosPorPatenteService,
+    consultaVehiculosPorPatenteModel
 }
