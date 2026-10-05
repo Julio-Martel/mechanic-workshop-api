@@ -6,6 +6,9 @@ import { crearServicioController,
 
 const servicioRoutes = express.Router();
 
+//RUTA LISTER SERVICIOS
+servicioRoutes.get('/', listarServiciosController);
+
 //RUTA CREACION DE SERVICIO
 servicioRoutes.post('/',crearServicioController);
 
@@ -14,8 +17,5 @@ servicioRoutes.post('/modificacion/:id',modificacionSerivicioController);
 
 //RUTA ELIMINACION DE SERVICIOS
 servicioRoutes.delete('/:id', eliminarServicioController);
-
-//RUTA LISTER SERVICIOS
-servicioRoutes.get('/', listarServiciosController);
 
 export default servicioRoutes;
