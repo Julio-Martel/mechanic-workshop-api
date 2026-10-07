@@ -10,6 +10,9 @@ const app = express();
 
 app.use(express.json());
 
+// RUTA REGISTRO O INICIO SESION
+app.use('/auth',/*HANDLER DE RUTA DE REGISTRO*/);
+
 //RUTA CRUD DE CLIENTES
 app.use('/clientes', clientesRoutes);
 
