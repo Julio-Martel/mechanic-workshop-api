@@ -5,13 +5,14 @@ import mecanicosRoutes from './routes/mecanicos.routes.js';
 import servicioRoutes from './routes/servicios.routes.js';
 import repuestosRoutes from './routes/repuestos.routes.js';
 import ordenesRoutes from './routes/ordenes.routes.js';
+import authRoutes from './routes/auth.routes.js';
 
 const app = express();
 
 app.use(express.json());
 
 // RUTA REGISTRO O INICIO SESION
-app.use('/auth',/*HANDLER DE RUTA DE REGISTRO*/);
+app.use('/auth', authRoutes);
 
 //RUTA CRUD DE CLIENTES
 app.use('/clientes', clientesRoutes);
