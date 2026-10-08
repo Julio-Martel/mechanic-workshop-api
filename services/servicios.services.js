@@ -5,7 +5,8 @@ import { servicioDuplicadoPorDescripcion,
          servicioDuplicadoPorNombre,
          eliminarServicioModel,
          listarServiciosModels,
-         seriviciosAsociadosAUnaOrden } from "../models/servicios.models.js";
+         seriviciosAsociadosAUnaOrden,
+         preciosServiciosIntervalo } from "../models/servicios.models.js";
 
 const crearServicioService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -77,11 +78,18 @@ const eliminarServicioService = async(id) => {
     return servicioEliminado;
 }
 
-const listarServiciosService = async() => {
-    const todosLosServicios = await listarServiciosModels();
+const listarServiciosService = async(data) => {
+    let todosLosServicios;
 
-    if(todosLosServicios === undefined){
-        throw new Error("SIN DATOS");
+    if(!data){
+        todosLosServicios = await listarServiciosModels();
+    
+        if(todosLosServicios === undefined){
+            throw new Error("SIN DATOS");
+        }
+    
+    } else {
+        todosLosServicios = await preciosServiciosIntervalo(data.precio1, data.precio2);    
     }
 
     return todosLosServicios;
