@@ -70,7 +70,7 @@ const encontrarClientePorDNI = async(data) => {
 
 const encontrarClientePorMail = async(data) => {
     const [resultado] = await db.query(`SELECT * FROM Clientes
-        WHERE email = ?`, [data.email]);
+        WHERE email = ?`, [data]);
 
     return resultado[0];
 
