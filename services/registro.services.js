@@ -18,7 +18,7 @@ const registroService = async(data) => {
         rol: data.rol
     };
 
-    if(!data.nombre || !data.apellido || !data.dni || !data.telefono || !data.email || !data.email || !data.email || !data.pass || !data.rol){
+    if(!data.nombre || !data.apellido || !data.dni || !data.telefono || !data.email || !data.pass || !data.rol){
         throw new Error("DATOS INCOMPLETOS");
     }
 
