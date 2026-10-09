@@ -1,13 +1,15 @@
 import db from '../config/db.js';
 
-const registrarCliente = async(data) => {
-    const [resultado] = await db.query(`INSERT INTO Clientes(nombre,apellido,dni,telefono,email)
-        VALUES(?,?,?,?,?)`,
+const registrarCliente = async(data,pass) => {
+    const [resultado] = await db.query(`INSERT INTO Clientes(nombre,apellido,dni,telefono,email,pass,rol)
+        VALUES(?,?,?,?,?,?,?)`,
         [data.nombre,
          data.apellido,
          data.dni,
          data.telefono,
-         data.email]);
+         data.email,
+         pass,
+         data.rol]);
 
     return resultado[0];
 }
