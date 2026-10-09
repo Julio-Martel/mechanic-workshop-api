@@ -68,6 +68,14 @@ const encontrarClientePorDNI = async(data) => {
     return resultad[0];
 }
 
+const encontrarClientePorMail = async(data) => {
+    const [resultado] = await db.query(`SELECT * FROM Clientes
+        WHERE email = ?`, [data.email]);
+
+    return resultado[0];
+
+}
+
 
 export {
     encontrarCliente,
@@ -78,5 +86,6 @@ export {
     consultarCliente,
     todosLosClientes,
     vehiculosRegistradosDeUnCliente,
-    encontrarClientePorDNI
+    encontrarClientePorDNI,
+    encontrarClientePorMail
 }
