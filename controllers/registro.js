@@ -9,7 +9,7 @@ const registroController = async(req,res) => {
         })
 
     } catch(error){
-        
+
         if(error.message === 'BODY VACIO'){
             return res.status(403).json({
                 mensaje: 'No se puede mandar el body vacio'
@@ -34,8 +34,19 @@ const registroController = async(req,res) => {
     } 
 }
 
+const loginController = async(req,res) => {
+    try {
+
+    } catch(error){
+        res.status(505).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }       
+}
+
 export {
-    registroController
+    registroController,
+    loginController
 }
 
 
