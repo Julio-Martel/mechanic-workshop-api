@@ -8,6 +8,10 @@ const registroService = async(data) => {
         throw new Error("BODY VACIO");
     }
 
+    if(!data.nombre && !data.apellido && !data.dni && !data.telefono && !data.email && !data.pass && !data.rol){
+        throw new Error("DATOS INCOMPLETOS");
+    }
+
     const datosUsuario = {
         nombre: data.nombre,
         apellido: data.apellido,
@@ -17,10 +21,6 @@ const registroService = async(data) => {
         pass: data.pass,
         rol: data.rol
     };
-
-    if(!data.nombre || !data.apellido || !data.dni || !data.telefono || !data.email || !data.pass || !data.rol){
-        throw new Error("DATOS INCOMPLETOS");
-    }
 
     const emailDuplicado = await encontrarClientePorMail(datosUsuario.email);
 
