@@ -39,8 +39,9 @@ const loginController = async(req,res) => {
         const usuarioEncontrado = await loginService(req.body);
 
         res.status(202).json({
-            mensaje: 'Sesion iniciada'
-        })
+            mensaje: 'Sesion iniciada',
+            token: usuarioEncontrado
+        });
 
     } catch(error){
         if(error.message === 'EMAIL INEXISTENTE'){
