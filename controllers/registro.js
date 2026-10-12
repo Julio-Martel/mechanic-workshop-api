@@ -1,4 +1,4 @@
-import { registroService } from "../services/registro.services.js"
+import { registroService, loginService } from "../services/registro.services.js"
 
 const registroController = async(req,res) => {
     try{
@@ -36,8 +36,25 @@ const registroController = async(req,res) => {
 
 const loginController = async(req,res) => {
     try {
+        const usuarioEncontrado = await loginService(req.body);
+
+        res.status(202).json({
+            mensaje: 'Sesion iniciada'
+        })
 
     } catch(error){
+        if(error.message === 'EMAIL INEXISTENTE'){
+            return res.status(404).json({
+                mensaje: 'Email no encontrado.'
+            })
+        }
+
+        if(error.message === 'PASSWORD INCORRECTO'){
+            return res.status(404).json({
+                mensaje: 'Password incorrecto'
+            })
+        }
+
         res.status(505).json({
             mensaje: 'ERROR INTERNO'
         })
