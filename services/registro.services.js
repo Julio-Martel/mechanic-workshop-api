@@ -35,6 +35,13 @@ const registroService = async(data) => {
     return usuarioRegistrado;
 }
 
+const loginService = async() => {
+
+}
+
+
+
 export {
-    registroService
+    registroService,
+    loginService
 }
