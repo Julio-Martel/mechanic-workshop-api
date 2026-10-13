@@ -2,6 +2,7 @@ import { encontrarClientePorMail,
          registrarCliente
  } from "../models/cliente.model.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 const registroService = async(data) => {
     if(!data || Object.keys(data).length === 0){
@@ -35,11 +36,32 @@ const registroService = async(data) => {
     return usuarioRegistrado;
 }
 
-const loginService = async() => {
+const loginService = async(data) => {
+    const usuarioExistente = await encontrarClientePorMail(data.email);
+    
+    if(usuarioExistente === undefined){
+        throw new Error("EMAIL INEXISTENTE");
+    }
 
+    const comprobarPass = bcrypt.compare(data.pass,usuarioExistente.pass);
+
+    if(!comprobarPass){
+        throw new Error("PASSWORD INCORRECTO");
+    }
+
+    const token = jwt.sign(
+        {
+            id: comprobarPass.id,
+            rol: comprobarPass.rol
+        },
+        'secreto',
+        {
+            expiresIn: '1h'
+        }
+    );
+
+    return token;
 }
-
-
 
 export {
     registroService,
