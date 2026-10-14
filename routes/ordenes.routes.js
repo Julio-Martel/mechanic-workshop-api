@@ -10,11 +10,13 @@ import { crearOrdenController,
 
 import { crearDetalleServicioController, todosLosDetallesServiciosController } from '../controllers/detalleServicio.controller.js';
 import { crearDetalleRepuestoController } from '../controllers/detalleRepuesto.controller.js';
+import { autenticarToken } from '../middlewares/autenticacion.middleware.js';
+
 
 const ordenesRoutes = express.Router();
 
 //RUTA CREAR ORDEN
-ordenesRoutes.post('/crear', crearOrdenController);
+ordenesRoutes.post('/crear', autenticarToken, crearOrdenController);
 
 //RUTA VER ORDENES FINALIZADAS
 ordenesRoutes.get('/filtrar', filtrarOrdenesVerCantidad);
