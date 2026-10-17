@@ -11,7 +11,7 @@ import { crearOrdenController,
 import { crearDetalleServicioController, todosLosDetallesServiciosController } from '../controllers/detalleServicio.controller.js';
 import { crearDetalleRepuestoController } from '../controllers/detalleRepuesto.controller.js';
 import { autenticarToken } from '../middlewares/autenticacion.middleware.js';
-import { autorizarAccesoAdmin } from '../../../sistemas-gestion-pedidos/backend/src/middlewares/autorizacion.middleware.js';
+import { autorizarAccesoAdmin } from '../middlewares/autorizacion.middleware.js';
 
 const ordenesRoutes = express.Router();
 
