@@ -23,11 +23,6 @@ const autenticarToken = async(req,res,next) => {
     }
 }
 
-/*
-    PROBAR ESTO
-
-*/
-
 export {
     autenticarToken
 }
