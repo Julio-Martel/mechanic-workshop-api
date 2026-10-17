@@ -51,8 +51,8 @@ const loginService = async(data) => {
 
     const token = jwt.sign(
         {
-            id: comprobarPass.id,
-            rol: comprobarPass.rol
+            id: usuarioExistente.id,
+            rol: usuarioExistente.rol
         },
         'secreto',
         {
