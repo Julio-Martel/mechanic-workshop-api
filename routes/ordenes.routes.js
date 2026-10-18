@@ -39,6 +39,7 @@ ordenesRoutes.get('/:id', autenticarToken, autorizarAccesoAdmin,  consultarOrden
 //RUTA CANCELAR ORDEN
 ordenesRoutes.patch('/:id',  autenticarToken, autorizarAccesoAdmin, cancelarOrdenVehiculoController);
 
+//RUTA QUITAR DETALLE DEL ORDEN
 ordenesRoutes.patch('/quitar/detalle/repuesto/:id', autenticarToken, autorizarAccesoAdmin,  quitarRepuestoDelDetalle);
 
 export default ordenesRoutes;
