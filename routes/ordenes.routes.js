@@ -19,26 +19,26 @@ const ordenesRoutes = express.Router();
 ordenesRoutes.post('/crear', autenticarToken, autorizarAccesoAdmin ,crearOrdenController);
 
 //RUTA VER ORDENES FINALIZADAS
-ordenesRoutes.get('/filtrar', filtrarOrdenesVerCantidad);
+ordenesRoutes.get('/filtrar', autenticarToken, autorizarAccesoAdmin, filtrarOrdenesVerCantidad);
 
 //RUTA DETALLE DEL SERVICIO
-ordenesRoutes.post('/crear/detalle',crearDetalleServicioController);
+ordenesRoutes.post('/crear/detalle', autenticarToken, autorizarAccesoAdmin, crearDetalleServicioController);
 
 //RUTA VER TODOS LOS DETALLES DEL SERVICIO
-ordenesRoutes.get('/datallesServicios',todosLosDetallesServiciosController);
+ordenesRoutes.get('/datallesServicios', autenticarToken, autorizarAccesoAdmin, todosLosDetallesServiciosController);
 
 //RUTA DETALLE DEL REPUESTO 
-ordenesRoutes.post('/crear/detalle/repuestos', crearDetalleRepuestoController);
+ordenesRoutes.post('/crear/detalle/repuestos', autenticarToken, autorizarAccesoAdmin, crearDetalleRepuestoController);
 
 //RUTA CAMBIO DE ESTADO DE ORDEN
-ordenesRoutes.patch('/:id', cambiarEstadoController);
+ordenesRoutes.patch('/:id', autenticarToken, autorizarAccesoAdmin, cambiarEstadoController);
 
 //RUTA CONSULTAR ORDEN
-ordenesRoutes.get('/:id', consultarOrdenController);
+ordenesRoutes.get('/:id', autenticarToken, autorizarAccesoAdmin,  consultarOrdenController);
 
 //RUTA CANCELAR ORDEN
-ordenesRoutes.patch('/:id', cancelarOrdenVehiculoController);
+ordenesRoutes.patch('/:id',  autenticarToken, autorizarAccesoAdmin, cancelarOrdenVehiculoController);
 
-ordenesRoutes.patch('/quitar/detalle/repuesto/:id', quitarRepuestoDelDetalle);
+ordenesRoutes.patch('/quitar/detalle/repuesto/:id', autenticarToken, autorizarAccesoAdmin,  quitarRepuestoDelDetalle);
 
 export default ordenesRoutes;
