@@ -63,15 +63,6 @@ const loginService = async(data) => {
     return token;
 }
 
-
-{
-
-    /*
-    ESTARIA BUENO IMPLEMENTAR UN TIMER CON UN CARTEL QUE
-    SE LE DE LA BIENVENIDA AL ADMIN PARA PODER ACCEDER */
-
-}
-
 export {
     registroService,
     loginService
