@@ -8,6 +8,17 @@ const autorizarAccesoAdmin = async(req,res,next) => {
     next();
 }
 
+const autorizarAccesoCliente = async(req,res,next) => {
+    if(req.usuario.rol !== 'cliente' || req.usuario.rol === null){
+        return res.status(403).json({
+            mensaje: 'Debe ser cliente para poder acceder a este sitio'
+        })
+    }
+
+    next();
+}
+
 export {
-    autorizarAccesoAdmin
+    autorizarAccesoAdmin,
+    autorizarAccesoCliente
 }
