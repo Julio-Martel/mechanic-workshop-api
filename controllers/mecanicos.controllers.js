@@ -4,6 +4,7 @@ import { registroMecanicoService,
          todosLosMecanicosService,
         totalReparacionesPorMecanicoService } from "../services/mecanicos.services.js"
 
+
 const registroMecanicoController = async(req,res) => {
     try {
         const registrarMecanico = await registroMecanicoService(req.body);
