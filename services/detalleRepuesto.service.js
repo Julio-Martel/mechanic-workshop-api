@@ -79,8 +79,6 @@ const quitarRepuestoDelDetalleService = async(id) => {
             throw new Error("SIN CAMBIOS");
         }
 
-        //VER ERROR AQUI
-        console.log(`TIPO ${typeof detalleEncontrado.id_repuesto}`)
         const stockDevuelto = await incrementarStockDevuelto(conexion, detalleEncontrado.id_repuesto, cantidadRepuesto);
 
         if(stockDevuelto === 0){
