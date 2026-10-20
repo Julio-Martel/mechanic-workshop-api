@@ -2,7 +2,7 @@ import { crearDetalleRepuestoService, quitarRepuestoDelDetalleService } from "..
 
 const crearDetalleRepuestoController = async(req,res) => {
     try{
-        const crearDetalleRepuesto = await crearDetalleRepuestoService(req.body);
+        await crearDetalleRepuestoService(req.body);
 
         res.status(202).json({
             mensaje: 'Detalle del repuesto creado'
