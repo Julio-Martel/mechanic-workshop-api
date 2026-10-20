@@ -6,6 +6,9 @@ import { registrarRepuestoController,
          filtrarRepuestosController
  } from '../controllers/repuestos.controllers.js';
 
+
+
+
 const repuestosRoutes = express.Router();
 
 //RUTA DE TODOS LOS REPUESTOS
