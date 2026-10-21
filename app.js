@@ -33,3 +33,9 @@ app.use('/repuestos', repuestosRoutes);
 app.use('/ordenes', ordenesRoutes);
 
 export default app;
+
+/*
+
+    PROYECTO FINALIZADO
+
+*/
