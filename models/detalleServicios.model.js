@@ -56,7 +56,6 @@ const agruparServiciosPorVecesUtilizadosModels = async() => {
     return resultados;
 }
 
-
 export {
     crearDetalleServicio,
     serviciosAsociadosAUnaOrden,
