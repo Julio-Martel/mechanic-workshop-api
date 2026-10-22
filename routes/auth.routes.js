@@ -6,6 +6,5 @@ const authRoutes = express.Router();
 authRoutes.post('/registro', registroController);
 authRoutes.post('/login', loginController);
 
-
 export default authRoutes;
 
