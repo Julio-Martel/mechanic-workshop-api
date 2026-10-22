@@ -1,3 +1,32 @@
 # mechanic-workshop-api
 <h1>Sistema de gestion de taller mecanico</h1>
 <h2>API REST desarrollada con Node.js, Express y MySQL para administrar las operaciones de un taller mecánico</h2>
+
+<p>
+Funcionalidades
+
+CRUD de clientes, vehículos, mecánicos, servicios y repuestos.
+
+Gestión de órdenes de trabajo y sus detalles.
+
+Validaciones y reglas de negocio.
+
+Control de stock y cálculo de totales.
+
+Consultas SQL con JOIN, subconsultas, agregaciones y transacciones.
+
+Manejo de errores y arquitectura por capas.
+
+Tecnologías
+
+Node.js
+
+Express.js
+
+MySQL
+
+mysql2
+
+JavaScript
+  
+</p>
