@@ -31,3 +31,5 @@ mysql2
 JavaScript
   
 </p>
+
+<h2>PROYECTO FINALIZADO</h2>
