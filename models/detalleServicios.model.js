@@ -17,7 +17,7 @@ const todosLosDetallesServiciosModel = async() => {
     return resultados[0];
 }
 
-const serviciosAsociadosAUnaOrden = async(id_orden) => {
+const serviciosAsociadossAUnaOrden = async(id_orden) => {
     const [resultados] = await db.query(`SELECT COUNT(*) AS total FROM Detalle
         WHERE id_orden = ?`,
     [id_orden]);
@@ -58,7 +58,7 @@ const agruparServiciosPorVecesUtilizadosModels = async() => {
 
 export {
     crearDetalleServicio,
-    serviciosAsociadosAUnaOrden,
+    serviciosAsociadossAUnaOrden,
     totalDeServicios,
     todosLosDetallesServicio,
     todosLosDetallesServiciosModel,
