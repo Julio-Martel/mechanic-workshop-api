@@ -11,7 +11,7 @@ import { crearOrdenModel,
         totalOrdenes ,
     todasdLasOrdenesModel, ordenesRecientesModels} from "../models/ordenes.models.js";
         
-import { serviciosAsociadosAUnaOrden,
+import { serviciosAsociadossAUnaOrden,
         todosLosDetallesServicio,
         totalDeServicios
  } from "../models/detalleServicios.model.js";
@@ -83,7 +83,7 @@ const cambiarEstadoService = async(id,data) => {
     }
 
     if(data.estado === 'finalizada'){
-        const cantidadMinima = await serviciosAsociadosAUnaOrden(id);
+        const cantidadMinima = await serviciosAsociadossAUnaOrden(id);
         
         if(cantidadMinima === 0) {
             throw new Error("SIN CANTIDAD MINIMA");
