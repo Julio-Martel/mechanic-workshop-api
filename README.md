@@ -3,7 +3,8 @@
 <h2>API REST desarrollada con Node.js, Express y MySQL para administrar las operaciones de un taller mecánico</h2>
 
 <p>
-Funcionalidades
+
+ <h3>Funcionalidades</h3>
 
 CRUD de clientes, vehículos, mecánicos, servicios y repuestos.
 
@@ -17,7 +18,7 @@ Consultas SQL con JOIN, subconsultas, agregaciones y transacciones.
 
 Manejo de errores y arquitectura por capas.
 
-Tecnologías
+<h3>Tecnologías</h3>
 
 Node.js
 
