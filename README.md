@@ -33,3 +33,4 @@ JavaScript
 </p>
 
 <h2>PROYECTO FINALIZADO</h2>
+<img src="./images/img1.jpg"/>
