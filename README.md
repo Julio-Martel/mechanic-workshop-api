@@ -29,6 +29,9 @@ MySQL
 mysql2
 
 JavaScript
+
+<h3 aling="center">Conceoptos SQL aprendidos</h3>
+
   
 </p>
 
@@ -36,3 +39,5 @@ JavaScript
 <img src="./images/img1.jpg"/>
 <img src="./images/img2.jpg"/>
 <img src="./images/img3.jpg"/>
+
+
