@@ -1,5 +1,5 @@
 import express from 'express'; 
-import { registroController, modificarController, 
+import { modificarController, 
          eliminarController, consultarController,
         obtenerTodosLosClientesController } from '../controllers/cliente.controller.js';
 import { autorizarAccesoCliente, autorizarAccesoAdmin } from '../middlewares/autorizacion.middleware.js';
@@ -11,7 +11,7 @@ const clientesRoutes = express.Router();
 clientesRoutes.get('/:id', autenticarToken, autorizarAccesoCliente, consultarController);
 
 //OBTENER TODOS LOS CLIENTES
-clientesRoutes.get('/', autenticarToken, autorizarAccesoCliente, obtenerTodosLosClientesController);
+clientesRoutes.get('/', autenticarToken, autorizarAccesoCliente,  obtenerTodosLosClientesController);
 
 //ACTUALIZAR CLIENTE
 clientesRoutes.patch('/actualizar/:id', autenticarToken, autorizarAccesoCliente, modificarController);
