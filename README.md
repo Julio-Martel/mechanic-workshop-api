@@ -34,3 +34,5 @@ JavaScript
 
 <h2>PROYECTO FINALIZADO</h2>
 <img src="./images/img1.jpg"/>
+<img src="./images/img2.jpg"/>
+<img src="./images/img3.jpg"/>
