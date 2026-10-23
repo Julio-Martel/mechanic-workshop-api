@@ -30,7 +30,7 @@ mysql2
 
 JavaScript
 
-<h3 aling="center">Conceoptos SQL aprendidos</h3>
+<h3 aling="center">Conceptos SQL aprendidos</h3>
 
   
 </p>
