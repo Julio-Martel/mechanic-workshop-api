@@ -1,4 +1,8 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+
 import clientesRoutes from './routes/clientes.routes.js';
 import vehiculosRoutes from './routes/vehiculos.routes.js';
 import mecanicosRoutes from './routes/mecanicos.routes.js';
@@ -8,6 +12,11 @@ import ordenesRoutes from './routes/ordenes.routes.js';
 import authRoutes from './routes/auth.routes.js';
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 
@@ -35,7 +44,5 @@ app.use('/ordenes', ordenesRoutes);
 export default app;
 
 /*
-
     PROYECTO FINALIZADO
-
 */
