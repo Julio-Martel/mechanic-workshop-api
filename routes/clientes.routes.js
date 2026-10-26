@@ -20,8 +20,3 @@ clientesRoutes.patch('/actualizar/:id', autenticarToken, autorizarAccesoCliente,
 clientesRoutes.delete('/:id', autenticarToken, autorizarAccesoAdmin, eliminarController);
 
 export default clientesRoutes;
-
-/*
-        RUTAS DE CLIENTES 
-
-*/
