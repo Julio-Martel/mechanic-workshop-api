@@ -19,6 +19,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// esto sirve todo de forma estatica en mi pagina web
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
