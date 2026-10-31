@@ -17,6 +17,8 @@ const app = express();
 //ESTO SERA IMPORTANTE TENERLO APRENDIDO
 
 const __filename = fileURLToPath(import.meta.url);
+
+// esta funcion sirver para obtener el directio del archivo
 const __dirname = path.dirname(__filename);
 
 // esto sirve todo de forma estatica en mi pagina web
