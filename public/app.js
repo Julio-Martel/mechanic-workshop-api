@@ -1,5 +1,5 @@
 const botonObtenerClientes = document.getElementById('boton-1');
 
 botonObtenerClientes.addEventListener('click', () => {
-    console.log('here')
+    // AQUI IRA LA LOGICA PARA OBTENER LOS CLIENTES
 })
