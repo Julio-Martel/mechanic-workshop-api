@@ -6,3 +6,10 @@
     display: flex;
     
 }
+
+.btnClientes {
+    color: #0000;
+    background: greenyellow;
+    border-radius: 5px;
+    border: 2px solid;
+}
