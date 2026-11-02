@@ -8,7 +8,7 @@ botonObtenerClientes.addEventListener('click', async() => {
         const clientes = await respuesta.json();
 
         clientes.forEach(cliente => {
-            
+            tablaClientes.appendChild() // AGREGAR AQUI LO QUE FALTA
         });
 
     } catch(error){ 
