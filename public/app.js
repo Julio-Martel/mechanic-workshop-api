@@ -8,6 +8,16 @@ botonObtenerClientes.addEventListener('click', async() => {
         const clientes = await respuesta.json();
 
         clientes.forEach(cliente => {
+            const celda = document.createAttribute('td');
+            celda.textContent = cliente
+
+
+            /*
+                TERMINAR LA LOGICA AQUI
+            
+            
+            */
+
             tablaClientes.appendChild() // AGREGAR AQUI LO QUE FALTA
         });
 
