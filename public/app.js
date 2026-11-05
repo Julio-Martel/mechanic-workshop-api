@@ -1,6 +1,7 @@
 const botonObtenerClientes = document.getElementById('boton-1');
 const tablaClientes = document.getElementById('tab-cli');
 const cuerpoTabla = document.getElementById('tbody-clientes');
+const mensaje = document.getElementById('mensaje');
 
 cuerpoTabla.innerHTML = '';
 
@@ -19,6 +20,9 @@ botonObtenerClientes.addEventListener('click', async() => {
         });
 
     } catch(error){ 
+        mensaje.textContent = 'No se pudieron obtener los clientes.';
+
+        console.error(error.message);
 
     }
 })
