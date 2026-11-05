@@ -7,14 +7,15 @@ cuerpoTabla.innerHTML = '';
 
 botonObtenerClientes.addEventListener('click', async() => {
     try {
-        const respuesta = await fetch('http://localhost:3000/clientes');
+        const respuesta = await fetch('http://localhost:3000/clientes/');
         const clientes = await respuesta.json();
 
         clientes.forEach(cliente => {
             const fila = document.createElement('tr');
             const celda = document.createElement('td');
-            celda.textContent = cliente.id;// continuar aqui
+            celda.textContent = cliente.id;
             fila.appendChild(celda);
+            fila.appe
             cuerpoTabla.appendChild(fila);
             
         });
@@ -26,3 +27,6 @@ botonObtenerClientes.addEventListener('click', async() => {
 
     }
 })
+
+
+
