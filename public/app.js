@@ -9,8 +9,7 @@ botonObtenerClientes.addEventListener('click', async() => {
 
         clientes.forEach(cliente => {
             const celda = document.createElement('td');
-            celda.textContent = cliente[0]
-
+            celda.textContent = cliente.idCliente;// continuar aqui
             cuerpoTabla.appendChild(celda);
 
 
