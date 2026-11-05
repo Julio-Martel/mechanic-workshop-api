@@ -13,9 +13,19 @@ botonObtenerClientes.addEventListener('click', async() => {
         clientes.forEach(cliente => {
             const fila = document.createElement('tr');
             const celda = document.createElement('td');
-            celda.textContent = cliente.id;
+            const datos = {
+                id: cliente.id,
+                nombre: cliente.nombre,
+                email: cliente.email
+            }
+
+            celda.textContent = datos.id;
+            celda.textContent = datos.nombre;
+            celda.textContent = datos.email
+            
+        
             fila.appendChild(celda);
-            fila.appe
+
             cuerpoTabla.appendChild(fila);
             
         });
