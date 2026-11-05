@@ -3,10 +3,10 @@ const tablaClientes = document.getElementById('tab-cli');
 const cuerpoTabla = document.getElementById('tbody-clientes');
 const mensaje = document.getElementById('mensaje');
 
-cuerpoTabla.innerHTML = '';
-
 botonObtenerClientes.addEventListener('click', async() => {
     try {
+        cuerpoTabla.innerHTML = '';
+
         const respuesta = await fetch('http://localhost:3000/clientes/');
         const clientes = await respuesta.json();
 
@@ -15,6 +15,10 @@ botonObtenerClientes.addEventListener('click', async() => {
             const celda1 = document.createElement('td');
             const celda2 = document.createElement('td');
             const celda3 = document.createElement('td');
+
+            celda1.classList.add('cel');
+            celda2.classList.add('cel');
+            celda3.classList.add('cel');
 
             const datos = {
                 id: cliente.id,
@@ -37,9 +41,6 @@ botonObtenerClientes.addEventListener('click', async() => {
 
     } catch(error){ 
         mensaje.textContent = 'No se pudieron obtener los clientes.';
-
-        console.error(error.message);
-
     }
 })
 
