@@ -90,13 +90,14 @@ const clientesService = async(dni) => {
         clientes = await encontrarClientePorDNI(dni);
     }
 
-    let data = {
+    /*let data = {
         clientes: clientes,
         clientesConMasDeDosVehiculos: clientesConMasDeDosVehiculos
-    }
+    }*/
 
-    return data;
+    return clientes;
 }
+
 
 export {
     registroService,
