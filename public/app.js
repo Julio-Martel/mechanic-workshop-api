@@ -44,5 +44,11 @@ botonObtenerClientes.addEventListener('click', async() => {
     }
 })
 
+/* 
+
+    RETOMAR EL CODIGO AQUI
+
+
+*/
 
 
