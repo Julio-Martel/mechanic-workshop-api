@@ -21,3 +21,13 @@
     border: 1px solid;
     border-color: #000;
 }
+
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-clientes{
+    display: flex;
+    justify-content: center;
+}
