@@ -46,8 +46,9 @@ body {
     background-color: #000;
 }
 
-.nav-li{
+.ul-opc-class{
     display: flex;
+    flex-direction: column;
     list-style: none;
     gap: 5px;
 }
