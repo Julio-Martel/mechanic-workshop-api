@@ -127,11 +127,6 @@ const obtenerTodosLosClientesController = async(req,res) => {
     try{
         const clientes = await clientesService(req.query.dni); 
 
-       /* res.status(202).json({
-            mensaje: 'DATOS: ',
-            clientes: clientes
-        })*/
-
         res.status(202).json(clientes);
 
     } catch(error){
