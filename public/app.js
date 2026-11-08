@@ -1,4 +1,4 @@
-const botonObtenerClientes = document.getElementById('boton-1');
+/* const botonObtenerClientes = document.getElementById('boton-1');
 const tablaClientes = document.getElementById('tab-cli');
 const cuerpoTabla = document.getElementById('tbody-clientes');
 const mensaje = document.getElementById('mensaje');
@@ -44,7 +44,7 @@ botonObtenerClientes.addEventListener('click', async() => {
     }
 })
 
-/* 
+
 
     RETOMAR EL CODIGO AQUI
 
