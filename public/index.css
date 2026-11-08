@@ -1,5 +1,11 @@
+body {
+    margin: 0;
+}
+
 .titulo{
     font-family: Arial, Helvetica, sans-serif;
+    color: #ffff;
+    margin-left: 6px;
 }
 
 .main{
@@ -30,4 +36,24 @@
 .tab-clientes{
     display: flex;
     justify-content: center;
+}
+
+.nav-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #000;
+}
+
+.nav-li{
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+
+.li-style {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffff;
+    margin-right: 6px;
 }
