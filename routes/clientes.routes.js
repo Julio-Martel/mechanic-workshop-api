@@ -11,7 +11,7 @@ const clientesRoutes = express.Router();
 clientesRoutes.get('/:id', autenticarToken, autorizarAccesoCliente, consultarController);
 
 //OBTENER TODOS LOS CLIENTES
-clientesRoutes.get('/', autenticarToken, autorizarAccesoCliente,  obtenerTodosLosClientesController);
+clientesRoutes.get('/', obtenerTodosLosClientesController);
 
 //ACTUALIZAR CLIENTE
 clientesRoutes.patch('/actualizar/:id', autenticarToken, autorizarAccesoCliente, modificarController);
