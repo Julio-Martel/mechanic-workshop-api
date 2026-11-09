@@ -1,0 +1,1 @@
+const tablaClientes = document.getElementById('t-cliente');
