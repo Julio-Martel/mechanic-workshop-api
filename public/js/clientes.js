@@ -30,13 +30,6 @@ const generarTablaClientes  = async() => {
             fila.append(celdaId,celdaNombre,celdaEmail,celdaTelefono);
             tablaClientes.appendChild(fila);
 
-
-            /* 
-                CORREGIR ESTO Y LUEGO IR IMPLEMENTADO PARA EL FILTRO
-
-            */
-
-        
         });
         
     } catch(error){
