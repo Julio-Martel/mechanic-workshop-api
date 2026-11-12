@@ -13,15 +13,14 @@ const generarTablaClientes  = async() => {
             const celdaEmail = document.createElement('td');
             const celdaTelefono = document.createElement('td');
 
-            
-
+            fila.classList.add('fila');
 
             const datos = {
                 id: cliente.id,
                 nombre: cliente.nombre,
                 email: cliente.email,
                 telefono: cliente.telefono
-            }
+            }   
         
             celdaId.textContent = datos.id;
             celdaNombre.textContent = datos.nombre;
@@ -29,7 +28,6 @@ const generarTablaClientes  = async() => {
             celdaTelefono.textContent = datos.telefono;
             
             fila.append(celdaId,celdaNombre,celdaEmail,celdaTelefono);
-            fila.classList.add('fil');
             tablaClientes.appendChild(fila);
 
 
