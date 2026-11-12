@@ -1,5 +1,5 @@
 const tablaClientes = document.getElementById('t-cliente');
-const mensaje = document.createElement();
+const mensaje = document.getElementById('mensaje');
 
 const generarTablaClientes  = async() => {
     try {
