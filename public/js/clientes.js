@@ -13,7 +13,7 @@ const generarTablaClientes  = async() => {
             const celdaEmail = document.createElement('td');
             const celdaTelefono = document.createElement('td');
 
-            fila.classList.add('fila-class');
+            
 
 
             const datos = {
@@ -29,8 +29,15 @@ const generarTablaClientes  = async() => {
             celdaTelefono.textContent = datos.telefono;
             
             fila.append(celdaId,celdaNombre,celdaEmail,celdaTelefono);
-
+            fila.classList.add('fil');
             tablaClientes.appendChild(fila);
+
+
+            /* 
+                CORREGIR ESTO Y LUEGO IR IMPLEMENTADO PARA EL FILTRO
+
+            */
+
         
         });
         
