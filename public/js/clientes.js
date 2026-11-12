@@ -13,6 +13,9 @@ const generarTablaClientes  = async() => {
             const celdaEmail = document.createElement('td');
             const celdaTelefono = document.createElement('td');
 
+            fila.classList.add('fila-class');
+
+
             const datos = {
                 id: cliente.id,
                 nombre: cliente.nombre,

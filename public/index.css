@@ -62,3 +62,7 @@ body {
 .opcion {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.fila-class{
+    border: solid 1px #000;
+}
