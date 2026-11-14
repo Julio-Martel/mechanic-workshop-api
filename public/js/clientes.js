@@ -38,3 +38,5 @@ const generarTablaClientes  = async() => {
 }
 
 generarTablaClientes();
+
+/* AGREGAR PARA LO DEL FILTRO DE CLIENTES*/
