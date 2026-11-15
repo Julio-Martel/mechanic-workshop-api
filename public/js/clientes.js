@@ -1,9 +1,9 @@
 const tablaClientes = document.getElementById('t-cliente');
 const mensaje = document.getElementById('mensaje');
 
-const generarTablaClientes  = async() => {
+const generarTablaClientes  = async(id) => {
     try {
-        const respuesta = await fetch('http://localhost:3000/clientes/');
+        const respuesta = await fetch(`http://localhost:3000/clientes/${id}`);
         const clientes = await respuesta.json();
     
         clientes.forEach(cliente => {
@@ -38,5 +38,3 @@ const generarTablaClientes  = async() => {
 }
 
 generarTablaClientes();
-
-/* AGREGAR PARA LO DEL FILTRO DE CLIENTES*/
