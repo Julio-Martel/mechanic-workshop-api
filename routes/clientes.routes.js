@@ -8,7 +8,7 @@ import { autenticarToken } from '../middlewares/autenticacion.middleware.js';
 const clientesRoutes = express.Router();
 
 //CONSULTAR CLIENTE 
-clientesRoutes.get('/:id', autenticarToken, autorizarAccesoCliente, consultarController);
+clientesRoutes.get('/:id', consultarController);
 
 //OBTENER TODOS LOS CLIENTES
 clientesRoutes.get('/', obtenerTodosLosClientesController);
