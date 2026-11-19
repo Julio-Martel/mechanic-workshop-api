@@ -4,9 +4,13 @@ const mensaje = document.getElementById('mensaje');
 const inputId = document.getElementById('id-cliente');
 
 const valorInput = parseInt(inputId.value);
-
+console.log( valorInput);
 botonFiltrar.addEventListener('click', async() => {
     try {
+
+        /*SOLUCIONAR ESTO*/
+
+        console.log( valorInput);
 
         const respuesta = await fetch(`http://localhost:3000/clientes/${valorInput}`);
 
@@ -43,6 +47,6 @@ botonFiltrar.addEventListener('click', async() => {
 
 
     }catch(error){
-        mensaje.textContent = 'ERROR'
+        mensaje.textContent = 'NO ENCONTRADO'
     }
 })
