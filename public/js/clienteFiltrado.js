@@ -33,8 +33,3 @@ botonFiltrar.addEventListener('click', async(id) => {
         mensaje.textContent = 'ERROR'
     }
 })
-
-/*
-    AGREGAR LA VARIABLE Y VALUE DEL INPUT PARA PODER FILTRAR EL ID DEL CLIENTE
-
-*/
