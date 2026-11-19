@@ -1,7 +1,7 @@
 const botonFiltrar = document.getElementById('filtrarButton');
 const tablaClientesFiltrados = document.getElementById('')
 const mensaje = document.getElementById('mensaje');
-
+const inputId = document.getElementById('id-cliente');
 
 botonFiltrar.addEventListener('click', async(id) => {
     try {
