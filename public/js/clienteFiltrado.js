@@ -3,9 +3,13 @@ const tablaClientesFiltrados = document.getElementById('')
 const mensaje = document.getElementById('mensaje');
 const inputId = document.getElementById('id-cliente');
 
-botonFiltrar.addEventListener('click', async(id) => {
+botonFiltrar.addEventListener('click', async() => {
     try {
-        const respuesta = await fetch(`http://localhost:3000/clientes/${id}`);
+        const valorInput = inputId.value;
+
+        console.log(typeof valorInput)
+
+        const respuesta = await fetch(`http://localhost:3000/clientes/${valorInput}`);
         const clientesFiltrados = await respuesta.json();
 
         clientesFiltrados.forEach(cliente => {
