@@ -34,3 +34,7 @@ botonFiltrar.addEventListener('click', async(id) => {
     }
 })
 
+/*
+    AGREGAR LA VARIABLE Y VALUE DEL INPUT PARA PODER FILTRAR EL ID DEL CLIENTE
+
+*/
