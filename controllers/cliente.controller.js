@@ -104,11 +104,8 @@ const consultarController = async(req,res) => {
     try {
         const {id} = req.params;
         const clienteObtenido = await consultarService(id);
-        
-        res.status(202).json({
-            mensaje: 'DETALLES DEL CLIENTE: ',
-            cliente: clienteObtenido
-        });
+    
+        res.status(202).json(clienteObtenido);
 
     } catch(error){
         if(error.message === 'CLIENTE NO ENCONTRADO'){
