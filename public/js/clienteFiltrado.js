@@ -30,7 +30,7 @@ botonFiltrar.addEventListener('click', async(id) => {
 
 
     }catch(error){
-
+        mensaje.textContent = 'ERROR'
     }
 })
 
