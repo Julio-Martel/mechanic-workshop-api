@@ -8,12 +8,7 @@ console.log( valorInput);
 botonFiltrar.addEventListener('click', async() => {
     try {
 
-
-        console.log( valorInput);
-
         const respuesta = await fetch(`http://localhost:3000/clientes/${valorInput}`);
-
-
 
         const clientesFiltrados = await respuesta.json();
 
