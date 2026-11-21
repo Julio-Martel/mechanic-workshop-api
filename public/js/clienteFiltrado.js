@@ -4,7 +4,7 @@ const mensaje = document.getElementById('mensaje');
 const inputId = document.getElementById('id-cliente');
 
 const valorInput = parseInt(inputId.value);
-console.log( valorInput);
+
 botonFiltrar.addEventListener('click', async() => {
     try {
 
