@@ -8,20 +8,12 @@ console.log( valorInput);
 botonFiltrar.addEventListener('click', async() => {
     try {
 
-        /*SOLUCIONAR ESTO*/
 
         console.log( valorInput);
 
         const respuesta = await fetch(`http://localhost:3000/clientes/${valorInput}`);
 
-        console.log(respuesta)
 
-        /*
-        
-            El error esta en que se esta enviando el pointer event como argumento      
-        
-        
-        */
 
         const clientesFiltrados = await respuesta.json();
 
