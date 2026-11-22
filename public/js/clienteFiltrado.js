@@ -47,3 +47,10 @@ botonFiltrar.addEventListener('click', () => {
 
     filtrarCliente(valorInput);
 });
+
+
+/* 
+
+    AHORA SE DEBE CONTINUAR CON EL APARTADO DE ACTUALIZAR EL CLIENTE
+
+*/
