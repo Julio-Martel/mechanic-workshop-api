@@ -1,44 +1,49 @@
 const botonFiltrar = document.getElementById('filtrarButton');
-const tablaClientesFiltrados = document.getElementById('')
+const tablaClientesFiltrados = document.getElementById('tab-cli');
 const mensaje = document.getElementById('mensaje');
-const inputId = document.getElementById('id-cliente');
 
-const valorInput = parseInt(inputId.value);
+const filtrarCliente = async (id) => {
+    try {
+        const respuesta = await fetch(`http://localhost:3000/clientes/${id}`);
 
-const filtrarCliente = async(id) => {
-        try {
-
-        const respuesta = await fetch(`http://localhost:3000/clientes/${valorInput}`);
+        if (!respuesta.ok) {
+            throw new Error('Cliente no encontrado');
+        }
 
         const clientesFiltrados = await respuesta.json();
 
-        clientesFiltrados.forEach(cliente => {
-            const fila = document.createElement('tr');
-            const tdId = document.createElement('td');
-            const tdNombre = document.createElement('td');
-            const tdEmail = document.createElement('td');
-            const tdTelefono = document.createElement('td');
+        const fila = document.createElement('tr');
+        const tdId = document.createElement('td');
+        const tdNombre = document.createElement('td');
+        const tdEmail = document.createElement('td');
+        const tdTelefono = document.createElement('td');
 
-            tdId.textContent = cliente.id;
-            tdNombre.textContent = cliente.nombre;
-            tdEmail.textContent = cliente.email;
-            tdTelefono.textContent = cliente.telefono;
+        tdId.textContent = clientesFiltrados.id;
+        tdNombre.textContent = clientesFiltrados.nombre;
+        tdEmail.textContent = clientesFiltrados.email;
+        tdTelefono.textContent = clientesFiltrados.telefono;
 
-            tdId.classList.add('celda');
-            tdNombre.classList.add('celda');
-            tdEmail.classList.add('celda');
-            tdTelefono.classList.add('celda');
+        tdId.classList.add('celda');
+        tdNombre.classList.add('celda');
+        tdEmail.classList.add('celda');
+        tdTelefono.classList.add('celda');
 
-            fila.append(tdId,tdNombre,tdEmail,tdTelefono);
-        });
+        fila.append(tdId, tdNombre, tdEmail, tdTelefono);
+
+        tablaClientesFiltrados.appendChild(fila);
 
 
-    }catch(error){
-        mensaje.textContent = 'NO ENCONTRADO'
+    } catch (error) {
+        mensaje.textContent = 'NO ENCONTRADO';
     }
-}
+};
 
+botonFiltrar.addEventListener('click', () => {
+    tablaClientesFiltrados.innerHTML = '';
+    mensaje.innerHTML = '';
 
-botonFiltrar.addEventListener('click', async() => {
+    const inputId = document.getElementById('id-cliente');
+    const valorInput = parseInt(inputId.value);
+
     filtrarCliente(valorInput);
-})
+});
