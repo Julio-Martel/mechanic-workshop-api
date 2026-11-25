@@ -1,4 +1,9 @@
+.titulo{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .form-class{
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
