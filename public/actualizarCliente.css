@@ -1,3 +1,5 @@
+
+
 .titulo{
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -6,4 +8,14 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.label-class{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-form-button{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
