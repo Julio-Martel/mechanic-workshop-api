@@ -1,9 +1,7 @@
 const botonCliente = document.getElementById('boton');
 
-botonCliente.addEventListener('click', async() => {
-   try{
+/*
+APLICAR FUNCION PARA LUEGO MANDAR LOS DATOS DEL CLIENTE Y ACTUALIZARLOS
 
-   }catch(error){
-    
-   }
-})
+*/
+botonCliente.addEventListener('click', () => {})
